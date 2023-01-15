@@ -1,0 +1,191 @@
+@use 'styles/colors' as color;
+
+$link-colors: (
+  'grey' color.$grey-color-6 color.$grey-color-3 color.$grey-color-4,
+  'red' color.$red-color-6 color.$red-color-3 color.$red-color-4,
+  'orange' color.$orange-color-6 color.$orange-color-3 color.$orange-color-4,
+  'yellow' color.$yellow-color-6 color.$yellow-color-3 color.$yellow-color-4,
+  'brown' color.$brown-color-6 color.$brown-color-3 color.$brown-color-4,
+  'green' color.$green-color-6 color.$green-color-3 color.$green-color-4,
+  'blue' color.$blue-color-6 color.$blue-color-3 color.$blue-color-4,
+  'violet' color.$violet-color-6 color.$violet-color-3 color.$violet-color-4
+);
+
+@each $color-name, $color-1, $color-2, $color-3 in $link-colors {
+  .link-#{$color-name} {
+    text-decoration: none;
+    cursor: pointer;
+    color: $color-1;
+    transition: linear 5ms;
+
+    &:hover {
+      color: $color-2;
+    }
+
+    &:active {
+      color: $color-3;
+    }
+
+    &:focus {
+      color: $color-3;
+    }
+
+    &:focus-visible {
+      color: $color-3;
+      border: none;
+      outline: none;
+    }
+  }
+}
+
+//.link {
+//  &-grey {
+//    text-decoration: none;
+//    cursor: pointer;
+//    color: color.$grey-color-6;
+//    transition: linear 5ms;
+//
+//    &:hover {
+//      color: color.$grey-color-3;
+//    }
+//
+//    &:active {
+//      color: color.$grey-color-4;
+//    }
+//
+//    &:focus {
+//      color: color.$grey-color-4;
+//    }
+//
+//    &:focus-visible {
+//      color: color.$grey-color-4;
+//      border: none;
+//      outline: none;
+//    }
+//  }
+//
+//  &-red {
+//    text-decoration: none;
+//    cursor: pointer;
+//    color: color.$red-color-6;
+//    transition: linear 5ms;
+//
+//    &:hover {
+//      color: color.$red-color-3;
+//    }
+//
+//    &:active {
+//      color: color.$red-color-4;
+//    }
+//
+//    &:focus {
+//      color: color.$red-color-4;
+//    }
+//
+//    &:focus-visible {
+//      color: color.$red-color-4;
+//      border: none;
+//      outline: none;
+//    }
+//  }
+//
+//  &-orange {
+//    text-decoration: none;
+//    cursor: pointer;
+//    color: color.$orange-color-6;
+//    transition: linear 5ms;
+//
+//    &:hover {
+//      color: color.$orange-color-3;
+//    }
+//
+//    &:active {
+//      color: color.$orange-color-4;
+//    }
+//
+//    &:focus {
+//      color: color.$orange-color-4;
+//    }
+//
+//    &:focus-visible {
+//      color: color.$orange-color-4;
+//      border: none;
+//      outline: none;
+//    }
+//  }
+//
+//  &-yellow {
+//    text-decoration: none;
+//    cursor: pointer;
+//    color: color.$yellow-color-6;
+//    transition: linear 5ms;
+//
+//    &:hover {
+//      color: color.$yellow-color-3;
+//    }
+//
+//    &:active {
+//      color: color.$yellow-color-4;
+//    }
+//
+//    &:focus {
+//      color: color.$yellow-color-4;
+//    }
+//
+//    &:focus-visible {
+//      color: color.$yellow-color-4;
+//      border: none;
+//      outline: none;
+//    }
+//  }
+//
+//  &-brown {
+//    text-decoration: none;
+//    cursor: pointer;
+//    color: color.$brown-color-6;
+//    transition: linear 5ms;
+//
+//    &:hover {
+//      color: color.$brown-color-3;
+//    }
+//
+//    &:active {
+//      color: color.$brown-color-4;
+//    }
+//
+//    &:focus {
+//      color: color.$brown-color-4;
+//    }
+//
+//    &:focus-visible {
+//      color: color.$brown-color-4;
+//      border: none;
+//      outline: none;
+//    }
+//  }
+//
+//  &-brown {
+//    text-decoration: none;
+//    cursor: pointer;
+//    color: color.$brown-color-6;
+//    transition: linear 5ms;
+//
+//    &:hover {
+//      color: color.$brown-color-3;
+//    }
+//
+//    &:active {
+//      color: color.$brown-color-4;
+//    }
+//
+//    &:focus {
+//      color: color.$brown-color-4;
+//    }
+//
+//    &:focus-visible {
+//      color: color.$brown-color-4;
+//      border: none;
+//      outline: none;
+//    }
+//  }
+//}
