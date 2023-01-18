@@ -9,16 +9,16 @@ import { ThemePalette } from '@angular/material/core';
 })
 export class MainComponent {
   tabs = [
-    { label: 'Home', link: '' },
-    { label: 'About', link: '' },
-    { label: 'Media', link: '' },
-    { label: 'FAQ', link: '' },
-    { label: 'Download', link: '' },
-    { label: 'Contributing', link: '' },
-    { label: 'Links', link: '' },
-    { label: 'Contact', link: '' },
-    { label: 'Servers', link: '' },
-    { label: 'Developer blog', link: '' },
+    { label: 'Home', link: 'home' },
+    { label: 'About', link: 'about' },
+    { label: 'Media', link: 'media' },
+    { label: 'FAQ', link: 'faq' },
+    { label: 'Download', link: 'download' },
+    { label: 'Contributing', link: 'contributing' },
+    { label: 'Links', link: 'links' },
+    { label: 'Contact', link: 'contact' },
+    { label: 'Servers', link: 'servers' },
+    { label: 'Devblog', link: 'devblog' },
   ];
 
   theme: ThemePalette = 'primary';
