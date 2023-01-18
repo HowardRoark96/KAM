@@ -12,7 +12,7 @@ export class MainComponent {
     { label: 'Home', link: 'home' },
     { label: 'About', link: 'about' },
     { label: 'Media', link: 'media' },
-    { label: 'FAQ', link: '' },
+    { label: 'FAQ', link: 'faq' },
     { label: 'Download', link: '' },
     { label: 'Contributing', link: '' },
     { label: 'Links', link: '' },
