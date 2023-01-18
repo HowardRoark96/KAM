@@ -11,7 +11,7 @@ export class MainComponent {
   tabs = [
     { label: 'Home', link: 'home' },
     { label: 'About', link: 'about' },
-    { label: 'Media', link: '' },
+    { label: 'Media', link: 'media' },
     { label: 'FAQ', link: '' },
     { label: 'Download', link: '' },
     { label: 'Contributing', link: '' },
