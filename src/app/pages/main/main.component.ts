@@ -14,7 +14,7 @@ export class MainComponent {
     { label: 'Media', link: 'media' },
     { label: 'FAQ', link: 'faq' },
     { label: 'Download', link: 'download' },
-    { label: 'Contributing', link: '' },
+    { label: 'Contributing', link: 'contributing' },
     { label: 'Links', link: '' },
     { label: 'Contact', link: '' },
     { label: 'Servers', link: '' },

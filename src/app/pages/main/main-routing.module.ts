@@ -27,6 +27,10 @@ const routes: Routes = [
         path: 'download',
         loadChildren: () => import('./pages/download').then((m) => m.DownloadModule),
       },
+      {
+        path: 'contributing',
+        loadChildren: () => import('./pages/contributing').then((m) => m.ContributingModule),
+      },
     ],
   },
 ];
