@@ -5,6 +5,11 @@ import { MainComponent } from './main.component';
 const routes: Routes = [
   {
     path: '',
+    pathMatch: 'full',
+    redirectTo: 'home',
+  },
+  {
+    path: '',
     component: MainComponent,
     children: [
       {
