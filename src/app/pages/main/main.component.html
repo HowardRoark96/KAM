@@ -1,108 +1,14 @@
-<div class="main-header">
-  <h2>Header</h2>
-  <h3>Icon size</h3>
-  <a href="">
-    <div class="icon-s">
-      <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
-        <use xlink:href="assets/gauge.svg#gauge" width="100%" height="100%"></use>
-      </svg>
-    </div>
-    icon-s 24px
-  </a>
-  <a href="">
-    <div class="icon">
-      <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
-        <use xlink:href="assets/gauge.svg#gauge" width="100%" height="100%"></use>
-      </svg>
-    </div>
-    icon 32px
-  </a>
-  <a href="">
-    <div class="icon-l">
-      <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
-        <use xlink:href="assets/gauge.svg#gauge" width="100%" height="100%"></use>
-      </svg>
-    </div>
-    icon-l 48px
-  </a>
-  <a href="">
-    <div class="icon-xl">
-      <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
-        <use xlink:href="assets/gauge.svg#gauge" width="100%" height="100%"></use>
-      </svg>
-    </div>
-    icon-xl 60px
-  </a>
-</div>
-<div class="main-content">
-  <h2>Content</h2>
-  <h3>Link color</h3>
+<mat-toolbar color="primary">
+  <div class="toolbar-content w-100">
+    <a mat-button [routerLink]="['./']">
+      <span>
+        <img src="assets/gauge.svg" alt="homepage" />
+      </span>
+    </a>
+  </div>
+</mat-toolbar>
 
-  <a class="link-grey" href="">
-    <div class="icon">
-      <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
-        <use xlink:href="assets/gauge.svg#gauge" width="100%" height="100%"></use>
-      </svg>
-    </div>
-    link-grey
-  </a>
-  <a class="link-red" href="">
-    <div class="icon">
-      <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
-        <use xlink:href="assets/gauge.svg#gauge" width="100%" height="100%"></use>
-      </svg>
-    </div>
-    link-red
-  </a>
-  <a class="link-orange" href="">
-    <div class="icon">
-      <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
-        <use xlink:href="assets/gauge.svg#gauge" width="100%" height="100%"></use>
-      </svg>
-    </div>
-    link-orange
-  </a>
-  <a class="link-yellow" href="">
-    <div class="icon">
-      <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
-        <use xlink:href="assets/gauge.svg#gauge" width="100%" height="100%"></use>
-      </svg>
-    </div>
-    link-yellow
-  </a>
-  <a class="link-brown" href="">
-    <div class="icon">
-      <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
-        <use xlink:href="assets/gauge.svg#gauge" width="100%" height="100%"></use>
-      </svg>
-    </div>
-    link-brown
-  </a>
-  <a class="link-green" href="">
-    <div class="icon">
-      <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
-        <use xlink:href="assets/gauge.svg#gauge" width="100%" height="100%"></use>
-      </svg>
-    </div>
-    link-green
-  </a>
-  <a class="link-blue" href="">
-    <div class="icon">
-      <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
-        <use xlink:href="assets/gauge.svg#gauge" width="100%" height="100%"></use>
-      </svg>
-    </div>
-    link-blue
-  </a>
-  <a class="link-violet" href="">
-    <div class="icon">
-      <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
-        <use xlink:href="assets/gauge.svg#gauge" width="100%" height="100%"></use>
-      </svg>
-    </div>
-    link-violet
-  </a>
-</div>
-<div class="main-footer">
-  <h2>Footer</h2>
-</div>
+<nav mat-tab-nav-bar [backgroundColor]="background" [tabPanel]="tabPanel">
+  <a mat-tab-link *ngFor="let tab of tabs" [routerLink]="tab.link"> {{ tab.label }} </a>
+</nav>
+<mat-tab-nav-panel #tabPanel></mat-tab-nav-panel>
