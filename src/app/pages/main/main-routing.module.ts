@@ -35,6 +35,10 @@ const routes: Routes = [
         path: 'links',
         loadChildren: () => import('./pages/links').then((m) => m.LinksModule),
       },
+      {
+        path: 'contact',
+        loadChildren: () => import('./pages/contact').then((m) => m.ContactModule),
+      },
     ],
   },
 ];
