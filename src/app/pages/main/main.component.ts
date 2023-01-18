@@ -17,7 +17,7 @@ export class MainComponent {
     { label: 'Contributing', link: 'contributing' },
     { label: 'Links', link: 'links' },
     { label: 'Contact', link: 'contact' },
-    { label: 'Servers', link: '' },
+    { label: 'Servers', link: 'servers' },
     { label: 'Developer blog', link: '' },
   ];
 
