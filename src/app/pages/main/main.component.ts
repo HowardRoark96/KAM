@@ -10,7 +10,7 @@ import { ThemePalette } from '@angular/material/core';
 export class MainComponent {
   tabs = [
     { label: 'Home', link: 'home' },
-    { label: 'About', link: '' },
+    { label: 'About', link: 'about' },
     { label: 'Media', link: '' },
     { label: 'FAQ', link: '' },
     { label: 'Download', link: '' },
