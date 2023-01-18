@@ -1,14 +1,16 @@
-<mat-toolbar color="primary">
+<mat-toolbar [color]="theme">
   <div class="toolbar-content w-100">
-    <a mat-button [routerLink]="['./']">
-      <span>
-        <img src="assets/gauge.svg" alt="homepage" />
-      </span>
+    <a class="toolbar-logo" [routerLink]="['./']">
+      <img src="assets/logo.png" alt="homepage" />
     </a>
+    <app-toolbar-widgets></app-toolbar-widgets>
   </div>
 </mat-toolbar>
 
-<nav mat-tab-nav-bar [backgroundColor]="background" [tabPanel]="tabPanel">
-  <a mat-tab-link *ngFor="let tab of tabs" [routerLink]="tab.link"> {{ tab.label }} </a>
+<nav mat-tab-nav-bar [backgroundColor]="theme" [tabPanel]="tabPanel">
+  <a *ngFor="let tab of tabs" mat-tab-link [routerLink]="tab.link">
+    {{ tab.label }}
+  </a>
 </nav>
+
 <mat-tab-nav-panel #tabPanel></mat-tab-nav-panel>

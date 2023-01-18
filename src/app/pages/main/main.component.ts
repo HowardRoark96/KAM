@@ -21,5 +21,5 @@ export class MainComponent {
     { label: 'Developer blog', link: '' },
   ];
 
-  background: ThemePalette = 'primary';
+  theme: ThemePalette = 'primary';
 }
