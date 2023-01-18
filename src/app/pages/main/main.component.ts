@@ -18,7 +18,7 @@ export class MainComponent {
     { label: 'Links', link: 'links' },
     { label: 'Contact', link: 'contact' },
     { label: 'Servers', link: 'servers' },
-    { label: 'Developer blog', link: '' },
+    { label: 'Devblog', link: 'devblog' },
   ];
 
   theme: ThemePalette = 'primary';

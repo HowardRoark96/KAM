@@ -43,6 +43,10 @@ const routes: Routes = [
         path: 'servers',
         loadChildren: () => import('./pages/servers').then((m) => m.ServersModule),
       },
+      {
+        path: 'devblog',
+        loadChildren: () => import('./pages/devblog').then((m) => m.DevblogModule),
+      },
     ],
   },
 ];
