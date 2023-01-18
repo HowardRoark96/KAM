@@ -31,6 +31,10 @@ const routes: Routes = [
         path: 'contributing',
         loadChildren: () => import('./pages/contributing').then((m) => m.ContributingModule),
       },
+      {
+        path: 'links',
+        loadChildren: () => import('./pages/links').then((m) => m.LinksModule),
+      },
     ],
   },
 ];

@@ -15,7 +15,7 @@ export class MainComponent {
     { label: 'FAQ', link: 'faq' },
     { label: 'Download', link: 'download' },
     { label: 'Contributing', link: 'contributing' },
-    { label: 'Links', link: '' },
+    { label: 'Links', link: 'links' },
     { label: 'Contact', link: '' },
     { label: 'Servers', link: '' },
     { label: 'Developer blog', link: '' },
