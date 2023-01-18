@@ -9,7 +9,7 @@ import { ThemePalette } from '@angular/material/core';
 })
 export class MainComponent {
   tabs = [
-    { label: 'Home', link: '' },
+    { label: 'Home', link: 'home' },
     { label: 'About', link: '' },
     { label: 'Media', link: '' },
     { label: 'FAQ', link: '' },

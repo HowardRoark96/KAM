@@ -8,9 +8,11 @@
 </mat-toolbar>
 
 <nav mat-tab-nav-bar [backgroundColor]="theme" [tabPanel]="tabPanel">
-  <a *ngFor="let tab of tabs" mat-tab-link [routerLink]="tab.link">
+  <a *ngFor="let tab of tabs" mat-tab-link [routerLink]="[tab.link]">
     {{ tab.label }}
   </a>
 </nav>
 
 <mat-tab-nav-panel #tabPanel></mat-tab-nav-panel>
+
+<router-outlet></router-outlet>
