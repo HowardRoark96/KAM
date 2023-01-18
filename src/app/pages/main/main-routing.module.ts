@@ -23,6 +23,10 @@ const routes: Routes = [
         path: 'faq',
         loadChildren: () => import('./pages/faq').then((m) => m.FaqModule),
       },
+      {
+        path: 'download',
+        loadChildren: () => import('./pages/download').then((m) => m.DownloadModule),
+      },
     ],
   },
 ];
