@@ -31,7 +31,8 @@
       "@interceptors/*": ["src/app/interceptors/*"],
       "@pipes/*": ["src/app/pipes/*"],
       "@utils/*": ["src/app/utils/*"],
-      "@components/*": ["src/app/components/*"]
+      "@components/*": ["src/app/components/*"],
+      "@customTypes/*": ["src/app/types/*"]
     }
   },
   "angularCompilerOptions": {

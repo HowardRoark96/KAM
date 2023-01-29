@@ -1,0 +1,10 @@
+<ng-container *ngIf="request$ | async"></ng-container>
+
+<app-loader
+  [isLoading]="isLoading"
+  [error]="error"
+  [showContent]="hasFirstRs"
+  (retry)="request$ = getUpdatedRequest$(request$)"
+>
+  <ng-content></ng-content>
+</app-loader>

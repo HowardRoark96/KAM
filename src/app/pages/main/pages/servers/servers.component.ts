@@ -1,4 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { throwError } from 'rxjs';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-servers',
@@ -6,4 +8,9 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   styleUrls: ['./servers.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ServersComponent {}
+export class ServersComponent {
+  error_500$ = throwError(() => {
+    const error = new HttpErrorResponse({ error: 'bar', status: 500 });
+    return error;
+  });
+}

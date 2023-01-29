@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 
-interface Post {
+export interface Post {
   id: string;
   category: string;
   title: string;
