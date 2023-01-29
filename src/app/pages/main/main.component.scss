@@ -1,11 +1,11 @@
 .toolbar-content {
   display: flex;
+  justify-content: space-between;
   margin: 0 auto;
 }
 
 .toolbar-logo {
   display: flex;
-  margin-left: 216px;
   flex: 1;
   align-items: center;
   justify-content: center;
@@ -15,4 +15,20 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+@media (max-width: 599px) {
+  .toolbar-logo {
+    display: none;
+  }
+
+  app-toolbar-widgets {
+    margin-left: auto;
+  }
+}
+
+@media (max-width: 1279.98px) {
+  .layout {
+    margin: 0 20px;
+  }
 }
