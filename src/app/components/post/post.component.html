@@ -1,0 +1,35 @@
+<mat-card appearance="raised">
+  <div class="banner" [style.background-image]="'url(&quot;' + post.headerImg + '&quot;)'"></div>
+
+  <mat-card-header>
+    <div class="actions-top">
+      <button mat-flat-button>{{ post.category }}</button>
+      <button mat-icon-button [color]="isPostLiked ? 'warn' : undefined" (click)="likePost()">
+        <mat-icon>favorite</mat-icon>
+      </button>
+    </div>
+
+    <mat-card-title class="post-title">
+      <app-date [date]="post.dateCreated"></app-date>
+      {{ post.title }}
+    </mat-card-title>
+
+    <mat-card-subtitle>
+      <span>Updated on {{ post.dateUpdated | date : 'MMM d, y' }}</span>
+      <span> by {{ post.updatedBy }}</span>
+    </mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-content>
+    <p *ngIf="showContent" [innerHTML]="post.text | safeHtml"></p>
+  </mat-card-content>
+
+  <mat-card-actions class="d-flex justify-content-between">
+    <button mat-button color="primary" (click)="hideOrShowContent()">
+      {{ showContent ? 'Less' : 'More' }}
+    </button>
+    <button *ngIf="post.commentCount > 0" mat-raised-button color="primary">
+      {{ post.commentCount }} {{ post.commentCount === 1 ? 'comment' : 'comments' }}
+    </button>
+  </mat-card-actions>
+</mat-card>

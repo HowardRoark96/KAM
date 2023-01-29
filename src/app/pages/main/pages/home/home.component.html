@@ -1,1 +1,3 @@
-HomeComponent
+<app-request-wrapper #postsData [request$]="postsData$">
+  <app-post *ngFor="let item of postsData.data" class="mb-5" [post]="getPost | executeWith : item"></app-post>
+</app-request-wrapper>

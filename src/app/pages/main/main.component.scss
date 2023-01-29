@@ -1,12 +1,18 @@
 .toolbar-content {
   display: flex;
-  max-width: 1200px;
   margin: 0 auto;
 }
 
 .toolbar-logo {
   display: flex;
+  margin-left: 216px;
   flex: 1;
+  align-items: center;
+  justify-content: center;
+}
+
+.layout {
+  display: flex;
   align-items: center;
   justify-content: center;
 }
