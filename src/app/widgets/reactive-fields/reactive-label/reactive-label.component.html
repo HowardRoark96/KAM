@@ -1,7 +1,7 @@
 <label class="label d-flex flex-column gap-1">
   <div *ngIf="label" [class.font-weight-bold]="isBold">
     {{ label }}
-    <span *ngIf="hasRequiredValidator" class="label__asterisk"> *</span>
+    <span *ngIf="hasRequiredValidator" class="label__asterisk">*</span>
     <span *ngIf="hint && hintPosition === 'top'" class="label__hint" [ngStyle]="hintStyle">{{ hint }}</span>
   </div>
   <ng-content></ng-content>

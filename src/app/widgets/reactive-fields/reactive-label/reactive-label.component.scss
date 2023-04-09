@@ -3,18 +3,6 @@
   position: relative;
   display: block;
   height: 100%;
-
-  &[label-size='s']::ng-deep .t-label {
-    font: var(--tui-font-text-s) !important;
-  }
-
-  &[label-size='m']::ng-deep .t-label {
-    font: var(--tui-font-text-m) !important;
-  }
-
-  &[label-size='l']::ng-deep .t-label {
-    font: var(--tui-font-text-l) !important;
-  }
 }
 
 .label {
