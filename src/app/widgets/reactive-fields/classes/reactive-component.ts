@@ -1,11 +1,11 @@
-import { AbstractControl, FormControl } from '@angular/forms';
+import { AbstractControl, FormControl, ValidationErrors } from '@angular/forms';
 import { Directive, EventEmitter, Input, Output, TemplateRef } from '@angular/core';
 import { Nullable } from '@customTypes/nullable.type';
 import { NzSizeLDSType } from 'ng-zorro-antd/core/types/size';
 import { NzStatus } from 'ng-zorro-antd/core/types';
 import { NzFormTooltipIcon } from 'ng-zorro-antd/form/form-label.component';
 import { NzLabelAlignType } from 'ng-zorro-antd/form/form.directive';
-import { DEFAULT_TOOLTIP_ICON } from '@utils/constants';
+import { DEFAULT_TOOLTIP_ICON, VALIDATION_ERRORS } from '@utils/constants';
 
 @Directive()
 export abstract class ReactiveComponent {
@@ -37,9 +37,9 @@ export abstract class ReactiveComponent {
 
   @Input() noColon = false;
 
-  @Input() labelSpan: string | number | null = 8;
+  @Input() labelSpan: string | number | null = null;
 
-  @Input() fieldSpan: string | number | null = 16;
+  @Input() fieldSpan: string | number | null = null;
 
   @Input() placeholder = '';
 
@@ -55,4 +55,15 @@ export abstract class ReactiveComponent {
     if (!this.control?.validator) return false;
     return this.control.validator({} as AbstractControl)?.required;
   }
+
+  getErrorMessage = (error: ValidationErrors | null) => {
+    if (!error) return;
+
+    const errorKey = Object.keys(error)[0];
+    const validateFn = VALIDATION_ERRORS[errorKey];
+
+    if (!validateFn) return 'Unhandled error';
+
+    return validateFn(error[errorKey]);
+  };
 }

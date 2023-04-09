@@ -1,0 +1,41 @@
+<ng-container *ngIf="actionCallback$ | async"></ng-container>
+
+<button
+  *ngIf="type !== 'link'"
+  class="w-100"
+  nz-button
+  [nzType]="type"
+  [nzSize]="size"
+  [nzShape]="shape"
+  [nzBlock]="block"
+  [nzDanger]="danger"
+  [nzLoading]="isLoading"
+  [disabled]="isDisabled"
+  (click)="onClick()"
+>
+  <span *ngIf="leftIcon" nz-icon [nzType]="leftIcon"></span>
+  {{ label }}
+  <span *ngIf="rightIcon" nz-icon [nzType]="rightIcon"></span>
+</button>
+
+<a
+  *ngIf="type === 'link'"
+  nz-button
+  class="w-100"
+  [nzType]="type"
+  [nzSize]="size"
+  [nzShape]="shape"
+  [nzBlock]="block"
+  [nzDanger]="danger"
+  [target]="linkTarget"
+  [routerLink]="link"
+  [queryParams]="queryParams"
+  [fragment]="fragment"
+  [nzLoading]="isLoading"
+  [disabled]="isDisabled"
+  (click)="onClick()"
+>
+  <span *ngIf="leftIcon" nz-icon [nzType]="leftIcon"></span>
+  {{ label }}
+  <span *ngIf="rightIcon" nz-icon [nzType]="rightIcon"></span>
+</a>

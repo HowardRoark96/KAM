@@ -1,7 +1,6 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { ControlContainer, FormGroupDirective, ValidationErrors } from '@angular/forms';
+import { ControlContainer, FormGroupDirective } from '@angular/forms';
 import { ReactiveComponent } from '../classes';
-import { VALIDATION_ERRORS } from '@utils/constants';
 import { Nullable } from '@customTypes/nullable.type';
 
 @Component({
@@ -21,15 +20,4 @@ export class ReactiveTextareaComponent extends ReactiveComponent {
   @Input() minRows?: number;
 
   @Input() maxRows?: number;
-
-  getErrorMessage = (error: ValidationErrors | null) => {
-    if (!error) return;
-
-    const errorKey = Object.keys(error)[0];
-    const validateFn = VALIDATION_ERRORS[errorKey];
-
-    if (!validateFn) return 'Unhandled error';
-
-    return validateFn(error[errorKey]);
-  };
 }
