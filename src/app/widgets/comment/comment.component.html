@@ -1,5 +1,27 @@
 <ng-template [ngTemplateOutlet]="commentTemplateRef" [ngTemplateOutletContext]="{ comment: comment }"></ng-template>
 
+<nz-comment
+  *ngIf="showReplyForm"
+  [class.show-animation]="showReplyForm"
+  [class.hide-animation]="!showReplyForm"
+  [nzAuthor]="currentUser.name"
+>
+  <nz-avatar nz-comment-avatar nzIcon="user" [nzSrc]="currentUser.avatar"></nz-avatar>
+  <nz-comment-content>
+    <app-reactive-textarea
+      [rows]="4"
+      [minRows]="4"
+      [maxRows]="8"
+      [noValidationMark]="true"
+      [control]="replyForm.controls.content"
+    ></app-reactive-textarea>
+    <div class="d-flex content-end gap-2">
+      <app-button label="Cancel" [action$]="cancelComment"></app-button>
+      <app-button label="Send" type="primary" [action$]="sendComment$"></app-button>
+    </div>
+  </nz-comment-content>
+</nz-comment>
+
 <ng-template #commentTemplateRef let-comment="comment">
   <nz-comment [nzAuthor]="comment.author" [nzDatetime]="comment.time">
     <nz-avatar nz-comment-avatar nzIcon="user" [nzSrc]="comment.avatar"></nz-avatar>
@@ -20,7 +42,7 @@
       ></span>
       <span class="ml-2">{{ comment.dislikeCount }}</span>
     </nz-comment-action>
-    <nz-comment-action>Reply to</nz-comment-action>
+    <nz-comment-action><span (click)="replyTo()">Reply to</span></nz-comment-action>
     <ng-container *ngIf="comment.children && comment.children.length">
       <ng-template ngFor let-child [ngForOf]="comment.children">
         <ng-template [ngTemplateOutlet]="commentTemplateRef" [ngTemplateOutletContext]="{ comment: child }">

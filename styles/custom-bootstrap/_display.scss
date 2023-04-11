@@ -1,0 +1,13 @@
+$displays: (
+  'block': block,
+  'grid': grid,
+  'flex': flex,
+  'none': none,
+  'inline-flex': inline-flex,
+);
+
+@each $display, $prop in $displays {
+  .d-#{$display} {
+    display: $prop !important;
+  }
+}
