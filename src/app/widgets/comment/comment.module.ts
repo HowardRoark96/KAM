@@ -8,6 +8,7 @@ import { ButtonModule } from '@widgets/button';
 import { CommentComponent } from './comment.component';
 import { NzGridModule } from 'ng-zorro-antd/grid';
 import { ReactiveTextareaModule } from '@widgets/reactive-fields/reactive-textarea';
+import { ExecuteWithModule } from '@pipes/execute-with';
 
 @NgModule({
   imports: [
@@ -19,6 +20,7 @@ import { ReactiveTextareaModule } from '@widgets/reactive-fields/reactive-textar
     NzAvatarModule,
     NzGridModule,
     ReactiveTextareaModule,
+    ExecuteWithModule,
   ],
   exports: [CommentComponent],
   declarations: [CommentComponent],

@@ -37,6 +37,25 @@ export class DevblogComponent {
           dislikeCount: 99999999999,
           disliked: true,
         },
+        {
+          author: 'Han Solo',
+          avatar: 'https://icon-library.com/images/han-solo-icon/han-solo-icon-0.jpg',
+          time: formatDistance(new Date(2023, 3, 10, 22, 44), new Date()),
+          content: 'Сука, падла, говножуй залетный, урод, чмо болотное, а ну иди сюда, ты!',
+          likeCount: 65464574757457,
+          dislikeCount: 1,
+          liked: true,
+        },
+        {
+          author: 'Homer Simpson',
+          avatar:
+            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRe2G3hQ3lDGBlHZwanMAQA87EuYSIjv4p-CjoJOFpa6ufLSq31iuUzISrhl5HbGIAf9ME&usqp=CAU',
+          time: formatDistance(new Date(2023, 3, 10, 22, 35), new Date()),
+          content: 'Говно собачье, решил ко мне лезть? Ты, засранец вонючий, мать твою, а?',
+          likeCount: 1,
+          dislikeCount: 99999999999,
+          disliked: true,
+        },
       ],
     },
     {

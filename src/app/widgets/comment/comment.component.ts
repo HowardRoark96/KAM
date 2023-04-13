@@ -3,6 +3,7 @@ import { Nullable } from '@customTypes/nullable.type';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { delay, of, tap } from 'rxjs';
 import { NotificationService } from '@services/notification';
+import { formatDistance } from 'date-fns';
 
 export interface CommentDataInterface {
   author: Nullable<string>;
@@ -23,7 +24,7 @@ export interface CommentDataInterface {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CommentComponent {
-  @Input() comment: Nullable<CommentDataInterface>;
+  @Input() commentData: Nullable<CommentDataInterface[]>;
   @Input() likeIcon = 'like';
   @Input() dislikeIcon = 'dislike';
   @Output() valueChanged = new EventEmitter();
@@ -32,7 +33,7 @@ export class CommentComponent {
     content: new FormControl<Nullable<string>>(null, Validators.required),
   });
 
-  showReplyForm = false;
+  indexOfReplyFormShown: Nullable<number>;
 
   currentUser = {
     name: 'Developer',
@@ -41,50 +42,52 @@ export class CommentComponent {
 
   constructor(private readonly notificationService: NotificationService) {}
 
-  like = () => {
-    if (this.comment) {
-      this.comment.liked = !this.comment.liked;
+  showReplyForm = (index: number) => this.indexOfReplyFormShown === index;
 
-      if (this.comment.liked) {
-        this.comment.likeCount = (this.comment.likeCount || 0) + 1;
-        if (this.comment.disliked) {
-          this.comment.disliked = false;
-          this.comment.dislikeCount = (this.comment.dislikeCount || 1) - 1;
+  like = (comment: Nullable<CommentDataInterface>) => {
+    if (comment) {
+      comment.liked = !comment.liked;
+
+      if (comment.liked) {
+        comment.likeCount = (comment.likeCount || 0) + 1;
+        if (comment.disliked) {
+          comment.disliked = false;
+          comment.dislikeCount = (comment.dislikeCount || 1) - 1;
         }
-      } else this.comment.likeCount = (this.comment.likeCount || 1) - 1;
+      } else comment.likeCount = (comment.likeCount || 1) - 1;
 
-      this.valueChanged.emit(this.comment);
+      this.valueChanged.emit(comment);
     }
   };
 
-  dislike = () => {
-    if (this.comment) {
-      this.comment.disliked = !this.comment.disliked;
+  dislike = (comment: Nullable<CommentDataInterface>) => {
+    if (comment) {
+      comment.disliked = !comment.disliked;
 
-      if (this.comment.disliked) {
-        this.comment.dislikeCount = (this.comment.dislikeCount || 0) + 1;
-        if (this.comment.liked) {
-          this.comment.liked = false;
-          this.comment.likeCount = (this.comment.likeCount || 1) - 1;
+      if (comment.disliked) {
+        comment.dislikeCount = (comment.dislikeCount || 0) + 1;
+        if (comment.liked) {
+          comment.liked = false;
+          comment.likeCount = (comment.likeCount || 1) - 1;
         }
-      } else this.comment.dislikeCount = (this.comment.dislikeCount || 1) - 1;
+      } else comment.dislikeCount = (comment.dislikeCount || 1) - 1;
 
-      this.valueChanged.emit(this.comment);
+      this.valueChanged.emit(comment);
     }
   };
 
-  replyTo = () => {
-    this.showReplyForm = !this.showReplyForm;
-    if (this.showReplyForm) return;
-    this.replyForm.reset();
+  replyTo = (index: number) => {
+    if (this.indexOfReplyFormShown === index) return this.cancelComment();
+    this.indexOfReplyFormShown = index;
   };
 
   cancelComment = () => {
-    this.showReplyForm = !this.showReplyForm;
+    this.indexOfReplyFormShown = null;
     this.replyForm.reset();
   };
 
-  sendComment$ = () => {
+  sendComment$ = (parentComment: Nullable<CommentDataInterface>) => () => {
+    if (!parentComment) return;
     if (this.replyForm.invalid)
       return Object.values(this.replyForm.controls).forEach((control) => {
         if (control.invalid) {
@@ -93,9 +96,23 @@ export class CommentComponent {
         }
       });
 
+    const data: CommentDataInterface = {
+      author: this.currentUser.name,
+      avatar: this.currentUser.avatar,
+      time: formatDistance(new Date(), new Date()),
+      content: this.replyForm.value.content,
+      likeCount: 0,
+      dislikeCount: 0,
+      liked: false,
+      disliked: false,
+      children: [],
+    };
+
     return of(this.replyForm.value).pipe(
-      delay(3000),
-      tap(() => (this.showReplyForm = false)),
+      delay(350),
+      tap(() => (this.indexOfReplyFormShown = null)),
+      tap(() => this.replyForm.reset()),
+      tap(() => (parentComment.children ? parentComment.children.push(data) : (parentComment.children = [data]))),
       tap(this.notificationService.onSuccess({ content: 'Comment sent successfully.' })),
       tap(this.notificationService.onError()),
     );
