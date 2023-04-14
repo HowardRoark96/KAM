@@ -9,19 +9,12 @@ import { CommentComponent } from './comment.component';
 import { NzGridModule } from 'ng-zorro-antd/grid';
 import { ReactiveTextareaModule } from '@widgets/reactive-fields/reactive-textarea';
 import { ExecuteWithModule } from '@pipes/execute-with';
+import { NzBadgeModule } from 'ng-zorro-antd/badge';
+
+const NZ_MODULES = [NzCommentModule, NzToolTipModule, NzIconModule, NzAvatarModule, NzGridModule, NzBadgeModule];
 
 @NgModule({
-  imports: [
-    CommonModule,
-    NzCommentModule,
-    NzToolTipModule,
-    NzIconModule,
-    ButtonModule,
-    NzAvatarModule,
-    NzGridModule,
-    ReactiveTextareaModule,
-    ExecuteWithModule,
-  ],
+  imports: [CommonModule, NZ_MODULES, ButtonModule, ReactiveTextareaModule, ExecuteWithModule],
   exports: [CommentComponent],
   declarations: [CommentComponent],
 })

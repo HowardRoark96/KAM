@@ -6,7 +6,12 @@
 </ng-container>
 
 <ng-template #commentTemplateRef let-comment="comment" let-commentIndex="commentIndex">
-  <nz-comment [nzAuthor]="comment.author" [nzDatetime]="comment.time">
+  <nz-comment
+    [class.reply-counter-line]="comment.children?.length"
+    [nzAuthor]="comment.author"
+    [nzDatetime]="comment.time"
+  >
+    <nz-badge *ngIf="comment.children?.length" class="reply-counter" [nzCount]="comment.children.length"></nz-badge>
     <nz-avatar nz-comment-avatar nzIcon="user" [nzSrc]="comment.avatar"></nz-avatar>
     <nz-comment-content
       ><p>{{ comment.content }}</p></nz-comment-content
