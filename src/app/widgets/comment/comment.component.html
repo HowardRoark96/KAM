@@ -1,12 +1,30 @@
-<ng-container *ngFor="let comment of commentData; index as commentIndex">
-  <ng-template
-    [ngTemplateOutlet]="commentTemplateRef"
-    [ngTemplateOutletContext]="{ comment, commentIndex: commentIndex + '' }"
-  ></ng-template>
+<div class="d-flex content-end gap-2">
+  <app-button
+    *ngIf="commentData?.length"
+    [label]="showAllComments ? btnLabelHideComments : btnLabelShowComments"
+    [type]="btnTypeShowComments"
+    [action$]="showComments"
+  ></app-button>
+  <app-button [label]="btnLabelAdd" [type]="btnTypeAdd" [action$]="addComment | executeWith : -1"></app-button>
+</div>
+
+<ng-template
+  [ngTemplateOutlet]="replyCommentTemplateRef"
+  [ngTemplateOutletContext]="{ replyComment: commentData, commentIndex: -1 }"
+></ng-template>
+
+<ng-container *ngIf="showAllComments">
+  <ng-container *ngFor="let comment of commentData; index as commentIndex">
+    <ng-template
+      [ngTemplateOutlet]="commentTemplateRef"
+      [ngTemplateOutletContext]="{ comment, commentIndex: commentIndex + '' }"
+    ></ng-template>
+  </ng-container>
 </ng-container>
 
 <ng-template #commentTemplateRef let-comment="comment" let-commentIndex="commentIndex">
   <nz-comment
+    class="show-animation"
     [class.reply-counter-line]="comment.children?.length"
     [nzAuthor]="comment.author"
     [nzDatetime]="comment.time"
@@ -17,23 +35,16 @@
       ><p>{{ comment.content }}</p></nz-comment-content
     >
     <nz-comment-action>
-      <span
-        nz-icon
-        [nzType]="likeIcon"
-        [nzTheme]="comment.liked ? 'twotone' : 'outline'"
-        (click)="like(comment)"
-      ></span>
-      <span class="ml-2">{{ comment.likeCount }}</span>
+      <span (click)="like(comment)">
+        <span nz-icon [nzType]="likeIcon" [nzTheme]="comment.liked ? 'twotone' : 'outline'"></span>
+        <span class="ml-2">{{ comment.likeCount }}</span>
+      </span>
     </nz-comment-action>
-
     <nz-comment-action>
-      <span
-        nz-icon
-        [nzType]="dislikeIcon"
-        [nzTheme]="comment.disliked ? 'twotone' : 'outline'"
-        (click)="dislike(comment)"
-      ></span>
-      <span class="ml-2">{{ comment.dislikeCount }}</span>
+      <span (click)="dislike(comment)">
+        <span nz-icon [nzType]="dislikeIcon" [nzTheme]="comment.disliked ? 'twotone' : 'outline'"></span>
+        <span class="ml-2">{{ comment.dislikeCount }}</span>
+      </span>
     </nz-comment-action>
     <nz-comment-action><span (click)="replyTo(commentIndex)">Reply to</span></nz-comment-action>
 
@@ -76,7 +87,8 @@
       ></app-reactive-textarea>
       <div class="d-flex content-end gap-2">
         <app-button label="Cancel" [action$]="cancelComment"></app-button>
-        <app-button label="Send" type="primary" [action$]="sendComment$ | executeWith : replyComment"></app-button>
+        <app-button label="Send" leftIcon="send" type="primary" [action$]="sendComment$ | executeWith : replyComment">
+        </app-button>
       </div>
     </nz-comment-content>
   </nz-comment>

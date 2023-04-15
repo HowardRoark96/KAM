@@ -1,11 +1,13 @@
 @use 'styles/colors' as var;
 
-.show-animation {
-  animation: fade-in 1s;
+:host {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
-.hide-animation {
-  animation: fade-out 1s;
+.show-animation {
+  animation: fade-in 0.75s;
 }
 
 @keyframes fade-in {
@@ -14,15 +16,6 @@
   }
   to {
     opacity: 1;
-  }
-}
-
-@keyframes fade-out {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
   }
 }
 
@@ -53,5 +46,6 @@
   ::ng-deep .ant-badge-count {
     color: var.$grey-color-6;
     background-color: var.$blue-color-1;
+    transform: none !important;
   }
 }

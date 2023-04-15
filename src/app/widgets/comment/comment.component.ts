@@ -4,6 +4,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { delay, of, tap } from 'rxjs';
 import { NotificationService } from '@services/notification';
 import { formatDistance } from 'date-fns';
+import { NzButtonType } from 'ng-zorro-antd/button/button.component';
 
 export interface CommentDataInterface {
   author: Nullable<string>;
@@ -29,11 +30,20 @@ export class CommentComponent {
   @Input() dislikeIcon = 'dislike';
   @Output() valueChanged = new EventEmitter();
 
+  @Input() btnLabelAdd = 'Add comment';
+  @Input() btnTypeAdd: NzButtonType = 'primary';
+
+  @Input() btnLabelShowComments = 'Show comments';
+  @Input() btnLabelHideComments = 'Hide comments';
+  @Input() btnTypeShowComments: NzButtonType = 'default';
+
   replyForm = new FormGroup({
     content: new FormControl<Nullable<string>>(null, Validators.required),
   });
 
   indexOfReplyFormShown: Nullable<number>;
+
+  showAllComments: Nullable<boolean>;
 
   currentUser = {
     name: 'Developer',
@@ -41,6 +51,11 @@ export class CommentComponent {
   };
 
   constructor(private readonly notificationService: NotificationService) {}
+
+  showComments = () => {
+    this.showAllComments = !this.showAllComments;
+    return;
+  };
 
   showReplyForm = (index: number) => this.indexOfReplyFormShown === index;
 
@@ -77,7 +92,11 @@ export class CommentComponent {
   };
 
   replyTo = (index: number) => {
-    if (this.indexOfReplyFormShown === index) return this.cancelComment();
+    this.replyForm.reset();
+    if (this.indexOfReplyFormShown === index) {
+      this.indexOfReplyFormShown = null;
+      return;
+    }
     this.indexOfReplyFormShown = index;
   };
 
@@ -86,7 +105,16 @@ export class CommentComponent {
     this.replyForm.reset();
   };
 
-  sendComment$ = (parentComment: Nullable<CommentDataInterface>) => () => {
+  addComment = (index: number) => () => {
+    this.replyForm.reset();
+    if (this.indexOfReplyFormShown === index) {
+      this.indexOfReplyFormShown = null;
+      return;
+    }
+    this.indexOfReplyFormShown = index;
+  };
+
+  sendComment$ = (parentComment: Nullable<CommentDataInterface | Nullable<CommentDataInterface[]>>) => () => {
     if (!parentComment) return;
     if (this.replyForm.invalid)
       return Object.values(this.replyForm.controls).forEach((control) => {
@@ -112,7 +140,10 @@ export class CommentComponent {
       delay(350),
       tap(() => (this.indexOfReplyFormShown = null)),
       tap(() => this.replyForm.reset()),
-      tap(() => (parentComment.children ? parentComment.children.push(data) : (parentComment.children = [data]))),
+      tap(() => {
+        if (Array.isArray(parentComment)) parentComment.push(data);
+        else parentComment.children ? parentComment.children.push(data) : (parentComment.children = [data]);
+      }),
       tap(this.notificationService.onSuccess({ content: 'Comment sent successfully.' })),
       tap(this.notificationService.onError()),
     );
