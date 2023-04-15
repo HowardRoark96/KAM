@@ -2,8 +2,9 @@
 
 <button
   *ngIf="type !== 'link'"
-  class="w-100"
   nz-button
+  class="w-100"
+  [ngClass]="btnClass"
   [nzType]="type"
   [nzSize]="size"
   [nzShape]="shape"
@@ -22,6 +23,7 @@
   *ngIf="type === 'link'"
   nz-button
   class="w-100"
+  [ngClass]="btnClass"
   [nzType]="type"
   [nzSize]="size"
   [nzShape]="shape"
