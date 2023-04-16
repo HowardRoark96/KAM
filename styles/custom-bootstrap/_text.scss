@@ -16,6 +16,18 @@ $weights: (
   }
 }
 
+$text-transform: (
+  'capitalize': capitalize,
+  'uppercase': uppercase,
+  'lowercase': lowercase,
+);
+
+@each $transform, $prop in $text-transform {
+  .text-#{$transform} {
+    text-transform: $prop !important;
+  }
+}
+
 @for $size from 12 through 24 {
   .font-size-#{$size} {
     font-size: #{$size}px;
