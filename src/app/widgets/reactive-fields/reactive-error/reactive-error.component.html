@@ -1,0 +1,13 @@
+<div *ngIf="error" class="d-flex align-items-center gap-1">
+  <span
+    nz-icon
+    nz-tooltip
+    nzType="close-square"
+    nzTheme="twotone"
+    nzTooltipPlacement="left"
+    nzTooltipColor="red"
+    [nzTooltipTitle]="error"
+    [twoToneColor]="COLORS.RED_3"
+  ></span>
+  <span>{{ errorLabel ?? error }}</span>
+</div>

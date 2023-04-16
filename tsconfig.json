@@ -33,13 +33,26 @@
       "@utils/*": ["src/app/utils/*"],
       "@widgets/*": ["src/app/widgets/*"],
       "@components/*": ["src/app/components/*"],
+      "@widgets/*": ["src/app/widgets/*"],
+      "@validators/*": ["src/app/validators/*"],
+      "@services/*": ["src/app/services/*"],
       "@customTypes/*": ["src/app/types/*"]
-    }
+    },
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true,
+    "noPropertyAccessFromIndexSignature": false,
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
-    "strictTemplates": true
+    "strictTemplates": true,
+    "extendedDiagnostics": {
+      "checks": {
+        "optionalChainNotNullable": "suppress"
+      }
+    }
   }
 }

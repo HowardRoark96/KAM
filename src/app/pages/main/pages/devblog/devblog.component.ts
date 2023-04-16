@@ -1,6 +1,9 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { throwError } from 'rxjs';
 import { HttpErrorResponse } from '@angular/common/http';
+import { getCommentMockedData } from '@utils/mocked-data';
+import { MockedData } from '@utils/mocked-data/interfaces';
+import { CommentDataInterface } from '@widgets/comment';
 
 @Component({
   selector: 'app-devblog',
@@ -13,4 +16,8 @@ export class DevblogComponent {
     const error = new HttpErrorResponse({ error: 'bar', status: 500 });
     return error;
   });
+
+  MOCKED_DATA_COMMENT: MockedData<CommentDataInterface[]> = getCommentMockedData();
+
+  MOCKED_DATA_COMMENT_EMPTY: MockedData<CommentDataInterface[]> = { data: [] };
 }

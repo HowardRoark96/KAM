@@ -1,0 +1,46 @@
+<nz-form-item *ngIf="control" [class.validation]="control.dirty && (getErrorMessage | executeWith : control.errors)">
+  <nz-form-label
+    [class.no-label]="!label"
+    [nzFor]="fieldId"
+    [nzRequired]="!noValidationMark && hasRequiredValidator"
+    [nzTooltipTitle]="tooltipTitle"
+    [nzTooltipIcon]="tooltipIcon"
+    [nzLabelAlign]="labelAlign"
+    [nzNoColon]="noColon"
+    [nzSpan]="labelSpan"
+  >
+    {{ label }}
+  </nz-form-label>
+  <nz-form-control
+    [nzValidateStatus]="status"
+    [nzErrorTip]="getErrorMessage | executeWith : control.errors"
+    [nzSpan]="fieldSpan"
+  >
+    <nz-textarea-count
+      *ngIf="maxCharacterCount"
+      [nzMaxCharacterCount]="maxCharacterCount"
+      [nzComputeCharacterCount]="computeCharacterCount"
+    >
+      <textarea
+        nz-input
+        [id]="fieldId"
+        [formControl]="control"
+        [placeholder]="placeholder"
+        [disabled]="!!isDisabled"
+        [nzAutosize]="(!!minRows || !!maxRows) && { minRows, maxRows }"
+        [rows]="rows"
+        (ngModelChange)="valueChange.emit($event)"
+      ></textarea>
+    </nz-textarea-count>
+    <textarea
+      *ngIf="!maxCharacterCount"
+      nz-input
+      [id]="fieldId"
+      [formControl]="control"
+      [placeholder]="placeholder"
+      [disabled]="!!isDisabled"
+      [nzAutosize]="(!!minRows || !!maxRows) && { minRows, maxRows }"
+      (ngModelChange)="valueChange.emit($event)"
+    ></textarea>
+  </nz-form-control>
+</nz-form-item>

@@ -1,0 +1,26 @@
+@use 'styles/colors' as var;
+
+:host {
+  position: relative;
+  display: block;
+  height: 100%;
+}
+
+.label {
+  position: relative;
+  &__asterisk {
+    color: var.$red-color-3;
+  }
+
+  &__hint {
+    color: var.$grey-color-3;
+  }
+
+  &__bottom-hint {
+    position: absolute;
+    left: 0;
+    bottom: -24px;
+    line-height: 20px;
+    color: var.$grey-color-3;
+  }
+}

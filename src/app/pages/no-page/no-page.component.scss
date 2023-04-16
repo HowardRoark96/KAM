@@ -1,0 +1,19 @@
+@use './styles/colors' as var;
+
+:host {
+  display: flex;
+  min-width: 100vw;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  background-color: var.$blue-color-1;
+}
+
+.container {
+  box-sizing: border-box;
+  min-width: 300px;
+  min-height: 300px;
+  border: 1px solid var.$grey-color-3;
+  box-shadow: 10px 10px 20px var.$grey-color-3;
+  background-color: var.$white-color;
+}

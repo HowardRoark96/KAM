@@ -1,0 +1,38 @@
+<nz-form-item *ngIf="control" [class.validation]="control.dirty && (getErrorMessage | executeWith : control.errors)">
+  <nz-form-label
+    [nzFor]="fieldId"
+    [nzRequired]="hasRequiredValidator"
+    [nzTooltipTitle]="tooltipTitle"
+    [nzTooltipIcon]="tooltipIcon"
+    [nzLabelAlign]="labelAlign"
+    [nzNoColon]="noColon"
+    [nzSpan]="labelSpan"
+  >
+    {{ label }}
+  </nz-form-label>
+  <nz-form-control
+    [nzValidateStatus]="status"
+    [nzErrorTip]="getErrorMessage | executeWith : control.errors"
+    [nzSpan]="fieldSpan"
+  >
+    <nz-input-group
+      [nzAddOnBefore]="textBefore"
+      [nzAddOnAfter]="textAfter"
+      [nzPrefix]="prefix"
+      [nzPrefixIcon]="prefixIcon"
+      [nzSuffix]="suffix"
+      [nzSuffixIcon]="suffixIcon"
+      [nzSize]="fieldSize"
+    >
+      <input
+        nz-input
+        [id]="fieldId"
+        [autocomplete]="autocomplete"
+        [formControl]="control"
+        [placeholder]="placeholder"
+        [disabled]="!!isDisabled"
+        (ngModelChange)="valueChange.emit($event)"
+      />
+    </nz-input-group>
+  </nz-form-control>
+</nz-form-item>
