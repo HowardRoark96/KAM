@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { AuthorizeComponent } from './authorize.component';
 import { SignInComponent } from './pages/sign-in';
 import { SignUpComponent } from './pages/sign-up';
+import { RecoverAccountComponent } from './pages/recover-account';
 
 const routes: Routes = [
   {
@@ -21,6 +22,10 @@ const routes: Routes = [
       {
         path: 'sign-up',
         component: SignUpComponent,
+      },
+      {
+        path: 'recover-account',
+        component: RecoverAccountComponent,
       },
     ],
   },

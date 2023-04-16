@@ -17,7 +17,7 @@ export class SignInComponent {
     rememberPassword: new FormControl<Nullable<boolean>>(null),
   });
 
-  carouselImages = ['assets/img/swordsman_run.gif', 'assets/img/crossbowman_walk.gif'];
+  carouselImages = ['assets/img/swordsman_run.gif', 'assets/img/swordsman_walk.gif'];
 
   signIn$ = () => {
     if (this.form.invalid)

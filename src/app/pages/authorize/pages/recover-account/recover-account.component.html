@@ -14,13 +14,9 @@
 </div>
 
 <div class="right-container d-flex flex-column gap-4 p-8 pt-10">
-  <h1 class="align-self-center font-weight-medium mb-10" [style.font-size.px]="32">Log In</h1>
+  <h1 class="align-self-center font-weight-medium mb-10" [style.font-size.px]="32">Recover your account</h1>
   <div class="d-flex flex-column text-grey-3">
-    <div class="d-flex align-items-center">
-      <p class="m-0">Don't have an account?</p>
-      <app-button btnClass="px-1" type="link" label="Create an account" link="../sign-up"></app-button>
-    </div>
-    <p class="m-0">It will take less than a minute.</p>
+    <p class="m-0">Enter your username and you will receive a mail to recover your account.</p>
   </div>
   <form nz-form nzLayout="vertical" [formGroup]="form">
     <app-reactive-input
@@ -29,20 +25,14 @@
       [textBefore]="userBeforeTextTmp"
       [control]="form.controls.login"
     ></app-reactive-input>
-    <app-reactive-input
-      fieldId="password"
-      label="Password"
-      [textBefore]="passwordBeforeTextTmp"
-      [control]="form.controls.password"
-    ></app-reactive-input>
   </form>
-  <app-button class="align-self-end" type="primary" label="Sign in" [action$]="signIn$"></app-button>
+  <app-button class="align-self-end" type="primary" label="Recover" [action$]="recover$"></app-button>
   <app-button
     class="align-self-center"
     btnClass="px-1"
     type="link"
-    label="Forget your password?"
-    link="../recover-account"
+    label="Remembered your password?"
+    link="../sign-in"
   ></app-button>
 </div>
 

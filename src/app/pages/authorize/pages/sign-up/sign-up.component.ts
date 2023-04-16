@@ -16,7 +16,7 @@ export class SignUpComponent {
     password: new FormControl<Nullable<string>>(null, [Validators.required, AppValidators.password()]),
   });
 
-  carouselImages = ['assets/img/swordsman_walk.gif', 'assets/img/spearman_walk.gif'];
+  carouselImages = ['assets/img/crossbowman_attack.gif', 'assets/img/crossbowman_walk.gif'];
 
   signUp$ = () => {
     if (this.form.invalid)

@@ -1,17 +1,8 @@
 @use './styles/colors' as var;
 
 :host {
-  display: flex;
-  min-width: 100vw;
-  min-height: 100vh;
-  align-items: center;
-  justify-content: center;
-  background-color: var.$blue-color-1;
-}
-
-.container {
   position: relative;
-  box-sizing: border-box;
+  display: flex;
   max-width: 750px;
   width: 750px;
   max-height: 500px;
