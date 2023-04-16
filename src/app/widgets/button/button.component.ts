@@ -14,6 +14,7 @@ import { finalize, isObservable, Observable } from 'rxjs';
 export class ButtonComponent {
   @Input() label: Nullable<string>;
   @Input() type: NzButtonType = 'default';
+  @Input() btnClass: Nullable<string | string[] | Set<string> | { [key: string]: unknown }>;
   @Input() size: NzButtonSize = 'default';
   @Input() shape: NzButtonShape = null;
   @Input() block: Nullable<boolean>;

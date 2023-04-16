@@ -10,6 +10,7 @@ import en from '@angular/common/locales/en';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NZ_CONFIG, NzConfig } from 'ng-zorro-antd/core/config';
 import { NzNotificationService } from 'ng-zorro-antd/notification';
+import { NzImageService } from 'ng-zorro-antd/image';
 
 registerLocaleData(en);
 
@@ -27,6 +28,7 @@ const APP_NZ_CONFIG: NzConfig = {
     { provide: NZ_CONFIG, useValue: APP_NZ_CONFIG },
     { provide: NZ_I18N, useValue: en_US },
     NzNotificationService,
+    NzImageService,
   ],
   bootstrap: [AppComponent],
 })

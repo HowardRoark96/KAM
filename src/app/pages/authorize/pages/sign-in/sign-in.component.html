@@ -1,0 +1,55 @@
+<div class="left-container d-flex flex-column gap-4 p-8 pt-10">
+  <h2 class="font-weight-medium mb-10 text-grey-1">Knights and Merchants Remake</h2>
+  <nz-carousel nzAutoPlay [nzAutoPlaySpeed]="5000" [nzLoop]="true" [style.max-height.px]="200">
+    <div *ngFor="let img of carouselImages" nz-carousel-content class="d-flex content-center">
+      <img nz-image width="150px" height="150px" [nzSrc]="img" [nzDisablePreview]="true" />
+    </div>
+  </nz-carousel>
+  <div>
+    <h1 class="align-self-center font-weight-medium text-grey-1" [style.font-size.px]="32">Welcome back!</h1>
+    <p class="m-0 text-grey-1">
+      Get more information about the game mode, game servers, player statistics and much more!
+    </p>
+  </div>
+</div>
+
+<div class="right-container d-flex flex-column gap-4 p-8 pt-10">
+  <h1 class="align-self-center font-weight-medium mb-10" [style.font-size.px]="32">Log In</h1>
+  <div class="d-flex flex-column text-grey-3">
+    <div class="d-flex align-items-center">
+      <p class="m-0">Don't have an account?</p>
+      <app-button btnClass="px-1" type="link" label="Create an account" link="../sign-up"></app-button>
+    </div>
+    <p class="m-0">It will take less than a minute.</p>
+  </div>
+  <form nz-form nzLayout="vertical" [formGroup]="form">
+    <app-reactive-input
+      fieldId="login"
+      label="Username"
+      [textBefore]="userBeforeTextTmp"
+      [control]="form.controls.login"
+    ></app-reactive-input>
+    <app-reactive-input
+      fieldId="password"
+      label="Password"
+      [textBefore]="passwordBeforeTextTmp"
+      [control]="form.controls.password"
+    ></app-reactive-input>
+  </form>
+  <app-button class="align-self-end" type="primary" label="Sign in" [action$]="signIn$"></app-button>
+  <app-button
+    class="align-self-center"
+    btnClass="px-1"
+    type="link"
+    label="Forget your password?"
+    link="../recover-account"
+  ></app-button>
+</div>
+
+<ng-template #userBeforeTextTmp>
+  <span nz-icon nzType="user" nzTheme="outline"></span>
+</ng-template>
+
+<ng-template #passwordBeforeTextTmp>
+  <span nz-icon nzType="lock" nzTheme="outline"></span>
+</ng-template>
