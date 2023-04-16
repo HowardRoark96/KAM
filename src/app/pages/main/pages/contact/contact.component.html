@@ -1,1 +1,37 @@
-<app-request-wrapper class="mb-5" [request$]="error_500$"></app-request-wrapper>
+<app-request-wrapper class="mb-5" [request$]="error_401$"></app-request-wrapper>
+
+<form nz-form nzLayout="vertical" [formGroup]="form">
+  <app-reactive-input
+    fieldId="name"
+    label="Name"
+    placeholder="Enter your name"
+    [control]="form.controls.name"
+  ></app-reactive-input>
+  <app-reactive-input
+    fieldId="email"
+    label="Email"
+    placeholder="Enter your email"
+    [control]="form.controls.email"
+  ></app-reactive-input>
+  <app-reactive-input
+    fieldId="subject"
+    label="Subject"
+    placeholder="Enter a subject"
+    [control]="form.controls.subject"
+  ></app-reactive-input>
+  <app-reactive-textarea
+    fieldId="message"
+    label="Message"
+    placeholder="Enter a message"
+    [minRows]="5"
+    [maxRows]="15"
+    [maxCharacterCount]="500"
+    [computeCharacterCount]="getWordsCount"
+    [control]="form.controls.message"
+  ></app-reactive-textarea>
+
+  <div class="d-flex gap-2 content-end">
+    <app-button label="Cancel" [action$]="cancelReport$"></app-button>
+    <app-button label="Send" type="primary" [action$]="sendReport$"></app-button>
+  </div>
+</form>

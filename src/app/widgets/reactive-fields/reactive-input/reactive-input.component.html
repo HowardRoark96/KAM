@@ -1,4 +1,4 @@
-<nz-form-item *ngIf="control">
+<nz-form-item *ngIf="control" [class.validation]="control.dirty && (getErrorMessage | executeWith : control.errors)">
   <nz-form-label
     [nzFor]="fieldId"
     [nzRequired]="hasRequiredValidator"
