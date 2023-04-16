@@ -47,6 +47,8 @@ export abstract class ReactiveComponent {
 
   @Input() isDisabled: Nullable<boolean>;
 
+  @Input() noValidationMark: Nullable<boolean>;
+
   @Input() autocomplete: 'on' | 'off' = 'off';
 
   @Output() valueChange = new EventEmitter();

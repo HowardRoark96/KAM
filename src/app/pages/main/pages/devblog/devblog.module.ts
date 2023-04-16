@@ -4,9 +4,10 @@ import { DevblogComponent } from './devblog.component';
 import { DevblogRoutingModule } from './devblog-routing.module';
 import { RequestWrapperModule } from '@components/request-wrapper';
 import { CommentModule } from '@widgets/comment';
+import { NzDividerModule } from 'ng-zorro-antd/divider';
 
 @NgModule({
-  imports: [CommonModule, DevblogRoutingModule, RequestWrapperModule, CommentModule],
+  imports: [CommonModule, DevblogRoutingModule, RequestWrapperModule, CommentModule, NzDividerModule],
   declarations: [DevblogComponent],
 })
 export class DevblogModule {}

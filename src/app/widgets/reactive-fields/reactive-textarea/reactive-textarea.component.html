@@ -1,7 +1,8 @@
 <nz-form-item *ngIf="control" [class.validation]="control.dirty && (getErrorMessage | executeWith : control.errors)">
   <nz-form-label
+    [class.no-label]="!label"
     [nzFor]="fieldId"
-    [nzRequired]="hasRequiredValidator"
+    [nzRequired]="!noValidationMark && hasRequiredValidator"
     [nzTooltipTitle]="tooltipTitle"
     [nzTooltipIcon]="tooltipIcon"
     [nzLabelAlign]="labelAlign"

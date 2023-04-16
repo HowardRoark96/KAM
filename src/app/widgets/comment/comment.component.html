@@ -1,31 +1,95 @@
-<ng-template [ngTemplateOutlet]="commentTemplateRef" [ngTemplateOutletContext]="{ comment: comment }"></ng-template>
+<div class="d-flex content-end gap-2">
+  <app-button
+    *ngIf="commentData?.length"
+    [label]="showAllComments ? btnLabelHideComments : btnLabelShowComments"
+    [type]="btnTypeShowComments"
+    [action$]="showComments"
+  ></app-button>
+  <app-button [label]="btnLabelAdd" [type]="btnTypeAdd" [action$]="addComment | executeWith : -1"></app-button>
+</div>
 
-<ng-template #commentTemplateRef let-comment="comment">
-  <nz-comment [nzAuthor]="comment.author" [nzDatetime]="comment.time">
+<ng-template
+  [ngTemplateOutlet]="replyCommentTemplateRef"
+  [ngTemplateOutletContext]="{ replyComment: commentData, commentIndex: -1 }"
+></ng-template>
+
+<ng-container *ngIf="showAllComments">
+  <ng-container *ngFor="let comment of commentData; index as commentIndex">
+    <ng-template
+      [ngTemplateOutlet]="commentTemplateRef"
+      [ngTemplateOutletContext]="{ comment, commentIndex: commentIndex + '' }"
+    ></ng-template>
+  </ng-container>
+</ng-container>
+
+<ng-template #commentTemplateRef let-comment="comment" let-commentIndex="commentIndex">
+  <nz-comment
+    class="show-animation"
+    [class.reply-counter-line]="comment.children?.length"
+    [nzAuthor]="comment.author"
+    [nzDatetime]="comment.time"
+  >
+    <nz-badge *ngIf="comment.children?.length" class="reply-counter" [nzCount]="comment.children.length"></nz-badge>
     <nz-avatar nz-comment-avatar nzIcon="user" [nzSrc]="comment.avatar"></nz-avatar>
     <nz-comment-content
       ><p>{{ comment.content }}</p></nz-comment-content
     >
     <nz-comment-action>
-      <span nz-icon [nzType]="likeIcon" [nzTheme]="comment.liked ? 'twotone' : 'outline'" (click)="like()"></span>
-      <span class="ml-2">{{ comment.likeCount }}</span>
+      <span (click)="like(comment)">
+        <span nz-icon [nzType]="likeIcon" [nzTheme]="comment.liked ? 'twotone' : 'outline'"></span>
+        <span class="ml-2">{{ comment.likeCount }}</span>
+      </span>
     </nz-comment-action>
-
     <nz-comment-action>
-      <span
-        nz-icon
-        [nzType]="dislikeIcon"
-        [nzTheme]="comment.disliked ? 'twotone' : 'outline'"
-        (click)="dislike()"
-      ></span>
-      <span class="ml-2">{{ comment.dislikeCount }}</span>
+      <span (click)="dislike(comment)">
+        <span nz-icon [nzType]="dislikeIcon" [nzTheme]="comment.disliked ? 'twotone' : 'outline'"></span>
+        <span class="ml-2">{{ comment.dislikeCount }}</span>
+      </span>
     </nz-comment-action>
-    <nz-comment-action>Reply to</nz-comment-action>
-    <ng-container *ngIf="comment.children && comment.children.length">
-      <ng-template ngFor let-child [ngForOf]="comment.children">
-        <ng-template [ngTemplateOutlet]="commentTemplateRef" [ngTemplateOutletContext]="{ comment: child }">
-        </ng-template>
-      </ng-template>
+    <nz-comment-action><span (click)="replyTo(commentIndex)">Reply to</span></nz-comment-action>
+
+    <ng-template
+      *ngIf="!comment.children?.length"
+      [ngTemplateOutlet]="replyCommentTemplateRef"
+      [ngTemplateOutletContext]="{ replyComment: comment, commentIndex: commentIndex }"
+    ></ng-template>
+
+    <ng-container *ngFor="let child of comment.children; index as childIndex">
+      <ng-template
+        [ngTemplateOutlet]="commentTemplateRef"
+        [ngTemplateOutletContext]="{ comment: child, commentIndex: commentIndex + childIndex }"
+      ></ng-template>
     </ng-container>
+
+    <ng-template
+      *ngIf="comment.children?.length"
+      [ngTemplateOutlet]="replyCommentTemplateRef"
+      [ngTemplateOutletContext]="{ replyComment: comment, commentIndex: commentIndex }"
+    ></ng-template>
+  </nz-comment>
+</ng-template>
+
+<ng-template #replyCommentTemplateRef let-replyComment="replyComment" let-commentIndex="commentIndex">
+  <nz-comment
+    *ngIf="showReplyForm | executeWith : commentIndex : indexOfReplyFormShown"
+    [class.show-animation]="showReplyForm"
+    [class.hide-animation]="!showReplyForm"
+    [nzAuthor]="currentUser.name"
+  >
+    <nz-avatar nz-comment-avatar nzIcon="user" [nzSrc]="currentUser.avatar"></nz-avatar>
+    <nz-comment-content>
+      <app-reactive-textarea
+        [rows]="4"
+        [minRows]="4"
+        [maxRows]="8"
+        [noValidationMark]="true"
+        [control]="replyForm.controls.content"
+      ></app-reactive-textarea>
+      <div class="d-flex content-end gap-2">
+        <app-button label="Cancel" [action$]="cancelComment"></app-button>
+        <app-button label="Send" leftIcon="send" type="primary" [action$]="sendComment$ | executeWith : replyComment">
+        </app-button>
+      </div>
+    </nz-comment-content>
   </nz-comment>
 </ng-template>

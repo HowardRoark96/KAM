@@ -1,5 +1,7 @@
 <!--<app-request-wrapper class="mb-5" [request$]="error_500$"></app-request-wrapper>-->
 
-<ng-container *ngFor="let comment of MOCKED_DATA_COMMENT">
-  <app-comment [comment]="comment"></app-comment>
-</ng-container>
+<div class="d-flex flex-1 gap-10">
+  <app-comment class="d-flex flex-1" [commentData]="MOCKED_DATA_COMMENT.data"></app-comment>
+  <nz-divider [style.height]="'unset'" [style.bottom]="0" nzType="vertical"></nz-divider>
+  <app-comment class="d-flex flex-1" [commentData]="MOCKED_DATA_COMMENT_EMPTY.data"></app-comment>
+</div>

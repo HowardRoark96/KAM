@@ -1,0 +1,51 @@
+@use 'styles/colors' as var;
+
+:host {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.show-animation {
+  animation: fade-in 0.75s;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.reply-counter-line {
+  &:before {
+    content: ' ';
+    position: absolute;
+    height: 16px;
+    border-left: 1px solid var.$blue-color-3;
+    left: 16px;
+    top: 64px;
+  }
+  &:after {
+    content: ' ';
+    position: absolute;
+    border-left: 1px solid var.$blue-color-3;
+    left: 16px;
+    top: 116px;
+    bottom: 0;
+  }
+}
+
+.reply-counter {
+  position: absolute;
+  left: 7px;
+  top: 88px;
+
+  ::ng-deep .ant-badge-count {
+    color: var.$grey-color-6;
+    background-color: var.$blue-color-1;
+    transform: none !important;
+  }
+}
