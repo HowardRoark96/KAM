@@ -13,9 +13,9 @@
   [disabled]="isDisabled"
   (click)="onClick()"
 >
-  <span *ngIf="leftIcon" nz-icon [nzType]="leftIcon"></span>
+  <span *ngIf="leftIcon" nz-icon [nzType]="leftIcon" [nzTheme]="theme"></span>
   {{ label }}
-  <span *ngIf="rightIcon" nz-icon [nzType]="rightIcon"></span>
+  <span *ngIf="rightIcon" nz-icon [nzType]="rightIcon" [nzTheme]="theme"></span>
 </button>
 
 <a
@@ -35,7 +35,7 @@
   [disabled]="isDisabled"
   (click)="onClick()"
 >
-  <span *ngIf="leftIcon" nz-icon [nzType]="leftIcon"></span>
+  <span *ngIf="leftIcon" nz-icon [nzType]="leftIcon" [nzTheme]="theme"></span>
   {{ label }}
-  <span *ngIf="rightIcon" nz-icon [nzType]="rightIcon"></span>
+  <span *ngIf="rightIcon" nz-icon [nzType]="rightIcon" [nzTheme]="theme"></span>
 </a>

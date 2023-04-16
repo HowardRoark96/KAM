@@ -1,0 +1,31 @@
+<ng-template [ngTemplateOutlet]="commentTemplateRef" [ngTemplateOutletContext]="{ comment: comment }"></ng-template>
+
+<ng-template #commentTemplateRef let-comment="comment">
+  <nz-comment [nzAuthor]="comment.author" [nzDatetime]="comment.time">
+    <nz-avatar nz-comment-avatar nzIcon="user" [nzSrc]="comment.avatar"></nz-avatar>
+    <nz-comment-content
+      ><p>{{ comment.content }}</p></nz-comment-content
+    >
+    <nz-comment-action>
+      <span nz-icon [nzType]="likeIcon" [nzTheme]="comment.liked ? 'twotone' : 'outline'" (click)="like()"></span>
+      <span class="ml-2">{{ comment.likeCount }}</span>
+    </nz-comment-action>
+
+    <nz-comment-action>
+      <span
+        nz-icon
+        [nzType]="dislikeIcon"
+        [nzTheme]="comment.disliked ? 'twotone' : 'outline'"
+        (click)="dislike()"
+      ></span>
+      <span class="ml-2">{{ comment.dislikeCount }}</span>
+    </nz-comment-action>
+    <nz-comment-action>Reply to</nz-comment-action>
+    <ng-container *ngIf="comment.children && comment.children.length">
+      <ng-template ngFor let-child [ngForOf]="comment.children">
+        <ng-template [ngTemplateOutlet]="commentTemplateRef" [ngTemplateOutletContext]="{ comment: child }">
+        </ng-template>
+      </ng-template>
+    </ng-container>
+  </nz-comment>
+</ng-template>

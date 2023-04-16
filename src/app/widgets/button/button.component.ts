@@ -21,6 +21,7 @@ export class ButtonComponent {
   @Input() isDisabled: Nullable<boolean>;
   @Input() leftIcon: Nullable<string>;
   @Input() rightIcon: Nullable<string>;
+  @Input() theme: 'fill' | 'outline' | 'twotone' = 'outline';
   @Input() action$: Nullable<() => Nullable<Observable<unknown> | void>>;
   /* Link props */
   @Input() linkTarget: LinkTarget = '_self';

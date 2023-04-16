@@ -1,1 +1,5 @@
-<app-request-wrapper class="mb-5" [request$]="error_500$"></app-request-wrapper>
+<!--<app-request-wrapper class="mb-5" [request$]="error_500$"></app-request-wrapper>-->
+
+<ng-container *ngFor="let comment of MOCKED_DATA_COMMENT">
+  <app-comment [comment]="comment"></app-comment>
+</ng-container>
