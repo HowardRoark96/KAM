@@ -1,0 +1,52 @@
+<ng-container *ngIf="settingValue">
+  <ng-container *ngIf="settingFormChanged$ | async"></ng-container>
+  <ng-container *ngIf="tableScrollTypeChanged$ | async"></ng-container>
+  <ng-container *ngIf="fixHeaderTypeChanged$ | async"></ng-container>
+  <ng-container *ngIf="noResultTypeChanged$ | async"></ng-container>
+
+  <nz-table
+    #dynamicTable
+    [nzScroll]="{ x: scrollX, y: scrollY }"
+    [nzData]="listOfData"
+    [nzTableLayout]="settingValue.tableLayout || 'auto'"
+    [nzBordered]="settingValue.bordered"
+    [nzSimple]="settingValue.simple"
+    [nzLoading]="settingValue.loading"
+    [nzPaginationType]="settingValue.paginationType || 'small'"
+    [nzPaginationPosition]="settingValue.position || 'bottom'"
+    [nzShowSizeChanger]="!!settingValue.sizeChanger"
+    [nzFrontPagination]="!!settingValue.pagination"
+    [nzShowPagination]="!!settingValue.pagination"
+    [nzFooter]="settingValue.footer || null"
+    [nzTitle]="settingValue.title || null"
+    [nzSize]="settingValue.size || 'default'"
+  >
+    <thead>
+      <tr *ngIf="settingValue.header">
+        <th
+          *ngFor="let col of headerData"
+          [nzWidth]="col.width"
+          [nzLeft]="!!col.fixedLeft"
+          [nzRight]="!!col.fixedRight"
+        >
+          {{ col.name }}
+        </th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <ng-container *ngFor="let row of toGridData | executeWith : dynamicTable.data">
+        <tr>
+          <ng-container *ngFor="let cell of row.cells">
+            <td [nzLeft]="!!cell.fixedLeft" [nzRight]="!!cell.fixedRight" [nzEllipsis]="!!settingValue.ellipsis">
+              {{ cell.value }}
+            </td>
+          </ng-container>
+        </tr>
+        <tr *ngIf="settingValue.expandable" [nzExpand]="!!row.expand">
+          <span>{{ row.description }}</span>
+        </tr>
+      </ng-container>
+    </tbody>
+  </nz-table>
+</ng-container>
