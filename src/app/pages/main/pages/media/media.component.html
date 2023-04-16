@@ -1,1 +1,31 @@
-<app-request-wrapper class="mb-5" [request$]="error_500$"></app-request-wrapper>
+<!--<app-request-wrapper class="mb-5" [request$]="error_500$"></app-request-wrapper>-->
+
+<form nz-form nzLayout="vertical" [formGroup]="form" [style.width.px]="600">
+  <app-reactive-select
+    label="Multi select auto"
+    mode="multiple"
+    [control]="form.controls.auto"
+    [options]="SELECT_MOCKED_DATA.data"
+  ></app-reactive-select>
+  <app-reactive-select
+    label="Tags select auto"
+    mode="tags"
+    placeholder="Select or enter auto name"
+    [control]="form.controls.auto"
+    [options]="SELECT_MOCKED_DATA.data"
+  ></app-reactive-select>
+  <app-reactive-select
+    label="Single select auto"
+    [control]="form.controls.auto"
+    [options]="SELECT_MOCKED_DATA.data"
+  ></app-reactive-select>
+  <app-reactive-select
+    fieldId="auto"
+    label="Single select auto with search"
+    [isShowSearch]="true"
+    [control]="form.controls.auto"
+    [options]="SELECT_MOCKED_DATA.data"
+  ></app-reactive-select>
+</form>
+
+<app-button class="align-self-end" type="primary" label="Get cars" [action$]="getCars$"></app-button>
