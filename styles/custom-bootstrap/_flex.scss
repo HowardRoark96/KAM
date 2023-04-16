@@ -1,0 +1,47 @@
+$alignments: (
+  'start': flex-start,
+  'center': center,
+  'end': flex-end,
+);
+
+@each $alignment, $prop in $alignments {
+  .align-self-#{$alignment} {
+    align-self: $prop !important;
+  }
+  .align-items-#{$alignment} {
+    align-items: $prop !important;
+  }
+  .content-#{$alignment} {
+    justify-content: $prop !important;
+  }
+}
+
+.content-space-between {
+  justify-content: space-between !important;
+}
+
+@for $size from 0 through 5 {
+  .flex-#{$size} {
+    flex: $size !important;
+  }
+
+  .flex-grow-#{$size} {
+    flex-grow: $size !important;
+  }
+
+  .flex-shrink-#{$size} {
+    flex-shrink: $size !important;
+  }
+}
+
+.flex-column {
+  flex-direction: column !important;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.flex-nowrap {
+  flex-wrap: nowrap;
+}
