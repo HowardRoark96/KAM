@@ -1,0 +1,62 @@
+$spacer: 4px;
+
+//Margins and Paddings
+@for $size from 0 through 10 {
+  .m-#{$size} {
+    margin: $spacer * $size !important;
+  }
+  .m-auto {
+    margin: auto !important;
+  }
+
+  .p-#{$size} {
+    padding: $spacer * $size !important;
+  }
+}
+
+@each $side, $prop in ('t': 'top', 'r': 'right', 'b': 'bottom', 'l': 'left') {
+  @for $size from 0 through 10 {
+    .m#{$side}-#{$size} {
+      margin-#{$prop}: $spacer * $size !important;
+    }
+    .p#{$side}-#{$size} {
+      padding-#{$prop}: $spacer * $size !important;
+    }
+  }
+
+  .m#{$side}-auto {
+    margin-#{$prop}: auto !important;
+  }
+  .p#{$side}-auto {
+    padding-#{$prop}: auto !important;
+  }
+}
+
+@each $direction, $side1, $side2 in ('x' 'left' 'right', 'y' 'top' 'bottom') {
+  @for $size from 0 through 10 {
+    .m#{$direction}-#{$size} {
+      margin-#{$side1}: $spacer * $size !important;
+      margin-#{$side2}: $spacer * $size !important;
+    }
+    .p#{$direction}-#{$size} {
+      padding-#{$side1}: $spacer * $size !important;
+      padding-#{$side2}: $spacer * $size !important;
+    }
+  }
+
+  .m#{$direction}-auto {
+    margin-#{$side1}: auto !important;
+    margin-#{$side2}: auto !important;
+  }
+  .p#{$direction}-auto {
+    padding-#{$side1}: auto !important;
+    padding-#{$side2}: auto !important;
+  }
+}
+
+// Gap
+@for $size from 0 through 10 {
+  .gap-#{$size} {
+    gap: $spacer * $size !important;
+  }
+}

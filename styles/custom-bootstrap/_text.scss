@@ -1,0 +1,35 @@
+@use 'styles/colors' as col;
+
+$weights: (
+  'lighter': lighter,
+  'light': 300,
+  'normal': 400,
+  'medium': 500,
+  'semibold': 600,
+  'bold': 700,
+  'bolder': bolder,
+);
+
+@each $weight, $prop in $weights {
+  .font-weight-#{$weight} {
+    font-weight: $prop !important;
+  }
+}
+
+@for $size from 12 through 24 {
+  .font-size-#{$size} {
+    font-size: #{$size}px;
+  }
+}
+
+.text-dark-grey {
+  color: col.$grey-color-3 !important;
+}
+
+.text-start {
+  text-align: start;
+}
+
+.text-center {
+  text-align: center;
+}

@@ -32,6 +32,7 @@
       "@pipes/*": ["src/app/pipes/*"],
       "@utils/*": ["src/app/utils/*"],
       "@components/*": ["src/app/components/*"],
+      "@widgets/*": ["src/app/widgets/*"],
       "@customTypes/*": ["src/app/types/*"]
     }
   },
