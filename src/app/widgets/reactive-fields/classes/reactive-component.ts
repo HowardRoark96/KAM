@@ -10,47 +10,26 @@ import { DEFAULT_TOOLTIP_ICON, VALIDATION_ERRORS } from '@utils/constants';
 @Directive()
 export abstract class ReactiveComponent {
   @Input() control!: FormControl<unknown>;
-
   @Input() fieldId!: string;
-
   @Input() textBefore: string | TemplateRef<void> = '';
-
   @Input() textAfter: string | TemplateRef<void> = '';
-
   @Input() prefix: string | TemplateRef<void> = '';
-
   @Input() prefixIcon: Nullable<string>;
-
   @Input() suffix: string | TemplateRef<void> = '';
-
   @Input() suffixIcon: Nullable<string>;
-
   @Input() status: NzStatus = '';
-
   @Input() label: Nullable<string>;
-
   @Input() tooltipTitle: string | TemplateRef<void> = '';
-
   @Input() tooltipIcon: string | NzFormTooltipIcon = DEFAULT_TOOLTIP_ICON;
-
   @Input() labelAlign: NzLabelAlignType = 'left';
-
   @Input() noColon = false;
-
   @Input() labelSpan: string | number | null = null;
-
   @Input() fieldSpan: string | number | null = null;
-
   @Input() placeholder = '';
-
   @Input() fieldSize: NzSizeLDSType = 'default';
-
   @Input() isDisabled: Nullable<boolean>;
-
   @Input() noValidationMark: Nullable<boolean>;
-
   @Input() autocomplete: 'on' | 'off' = 'off';
-
   @Output() valueChange = new EventEmitter();
 
   get hasRequiredValidator() {

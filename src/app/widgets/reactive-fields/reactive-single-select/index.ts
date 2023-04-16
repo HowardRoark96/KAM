@@ -1,1 +1,1 @@
-export * from './reactive-single-select.module';
+export * from './reactive-select.module';
