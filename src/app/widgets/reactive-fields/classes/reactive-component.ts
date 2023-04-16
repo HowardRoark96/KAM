@@ -37,9 +37,9 @@ export abstract class ReactiveComponent {
 
   @Input() noColon = false;
 
-  @Input() labelSpan: string | number | null = 7;
+  @Input() labelSpan: string | number | null = 8;
 
-  @Input() fieldSpan: string | number | null = 12;
+  @Input() fieldSpan: string | number | null = 16;
 
   @Input() placeholder = '';
 
