@@ -1,20 +1,12 @@
-<mat-toolbar [color]="theme">
-  <div class="toolbar-content w-100">
-    <a class="toolbar-logo" routerLink="./">
-      <img src="assets/logo.png" alt="homepage" />
-    </a>
-    <app-toolbar-widgets></app-toolbar-widgets>
-  </div>
-</mat-toolbar>
-
-<nav mat-tab-nav-bar [backgroundColor]="theme" [tabPanel]="tabPanel">
-  <a *ngFor="let tab of tabs" mat-tab-link [routerLink]="[tab.link]">
-    {{ tab.label }}
-  </a>
-</nav>
-
-<mat-tab-nav-panel #tabPanel></mat-tab-nav-panel>
-
-<div class="layout mt-5">
-  <router-outlet></router-outlet>
-</div>
+<nz-layout>
+  <nz-sider nzCollapsible [nzCollapsedWidth]="80" (nzCollapsedChange)="isCollapsed = $event">
+    <img *ngIf="!isCollapsed" class="p-5" src="assets/logo.png" alt="Logo" />
+    <app-sidebar themeType="dark" [sidebarItems]="SIDEBAR_MENU_ITEMS" [isCollapsed]="isCollapsed"></app-sidebar>
+  </nz-sider>
+  <nz-layout>
+    <nz-content class="p-10" [ngClass]="isCollapsed ? 'sidebar-collapsed' : 'sidebar-expanded'">
+      <div class="p-10"><router-outlet></router-outlet></div>
+    </nz-content>
+    <nz-footer>Footer</nz-footer>
+  </nz-layout>
+</nz-layout>
