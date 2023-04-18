@@ -1,16 +1,12 @@
 import { NgModule } from '@angular/core';
-import { MainComponent } from './main.component';
-import { MatTabsModule } from '@angular/material/tabs';
-import { RouterLink, RouterOutlet } from '@angular/router';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { NgForOf } from '@angular/common';
-import { ToolbarWidgetsModule } from './components/toolbar-widgets';
+import { CommonModule } from '@angular/common';
+import { SidebarModule } from '@widgets/sidebar';
+import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { MainRoutingModule } from './main-routing.module';
-
-const MAT_MODULES = [MatTabsModule, MatToolbarModule];
+import { MainComponent } from './main.component';
 
 @NgModule({
-  imports: [RouterLink, NgForOf, MAT_MODULES, ToolbarWidgetsModule, RouterOutlet, MainRoutingModule],
+  imports: [CommonModule, MainRoutingModule, SidebarModule, NzLayoutModule],
   declarations: [MainComponent],
 })
 export class MainModule {}

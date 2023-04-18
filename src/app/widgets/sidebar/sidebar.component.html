@@ -1,0 +1,52 @@
+<app-button
+  *ngIf="showCollapseBtn"
+  type="primary"
+  [leftIcon]="isCollapsed ? 'menu-unfold' : 'menu-fold'"
+  [action$]="collapseSidebar"
+></app-button>
+
+<ul nz-menu [nzMode]="modeType" [nzTheme]="themeType" [nzInlineCollapsed]="isCollapsed">
+  <ng-template
+    [ngTemplateOutlet]="sidebarTmpl"
+    [ngTemplateOutletContext]="{ items: sidebarItems, level: 1 }"
+  ></ng-template>
+</ul>
+
+<ng-template #sidebarTmpl let-items="items" let-level="level">
+  <ng-container *ngFor="let item of items">
+    <li
+      *ngIf="!item.children"
+      nz-menu-item
+      nz-tooltip
+      [nzTooltipPlacement]="tooltipPlacement"
+      [nzTooltipTitle]="isCollapsed ? item.title ?? item.label : null"
+      [nzPaddingLeft]="level * spacerPx"
+      [nzDisabled]="item.disabled"
+      [nzSelected]="item.selected"
+      [nzMatchRouter]="!!item.link"
+      [nzMatchRouterExact]="!!item.link"
+    >
+      <span nz-icon [nzType]="item.icon" *ngIf="item.icon"></span>
+      <span *ngIf="item.link"
+        ><a [routerLink]="item.link">{{ item.label }}</a></span
+      >
+      <span *ngIf="!item.link">{{ item.label }}</span>
+    </li>
+    <li
+      *ngIf="item.children"
+      nz-submenu
+      [nzPaddingLeft]="level * spacerPx"
+      [nzOpen]="item.open"
+      [nzTitle]="item.title"
+      [nzIcon]="item.icon"
+      [nzDisabled]="item.disabled"
+    >
+      <ul>
+        <ng-template
+          [ngTemplateOutlet]="sidebarTmpl"
+          [ngTemplateOutletContext]="{ items: item.children, level: level + 1 }"
+        ></ng-template>
+      </ul>
+    </li>
+  </ng-container>
+</ng-template>

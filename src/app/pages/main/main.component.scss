@@ -1,35 +1,37 @@
-.toolbar-content {
+@use './styles/colors' as var;
+
+:host {
   display: flex;
-  justify-content: space-between;
-  margin: 0 auto;
+  min-height: 100vh;
 }
 
-.toolbar-logo {
-  display: flex;
-  flex: 1;
-  align-items: center;
-  justify-content: center;
+nz-sider {
+  overflow: auto;
+  height: 100%;
+  position: fixed;
+  left: 0;
 }
 
-.layout {
-  display: flex;
-  min-width: 1000px;
-  align-items: center;
-  justify-content: center;
-}
+nz-content {
+  background-color: var.$blue-color-1;
+  overflow: initial;
 
-@media (max-width: 599px) {
-  .toolbar-logo {
-    display: none;
-  }
-
-  app-toolbar-widgets {
-    margin-left: auto;
+  & > div {
+    background-color: var.$white-color;
   }
 }
 
-@media (max-width: 1279.98px) {
-  .layout {
-    margin: 0 20px;
+.sidebar {
+  &-collapsed {
+    margin-left: 80px;
   }
+
+  &-expanded {
+    margin-left: 200px;
+  }
+}
+
+nz-footer {
+  text-align: center;
+  background-color: var.$blue-color-1;
 }
