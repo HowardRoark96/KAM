@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { CardComponent } from './card.component';
+import { NzCardModule } from 'ng-zorro-antd/card';
 
 @NgModule({
-  imports: [CommonModule],
+  imports: [NzCardModule],
   exports: [CardComponent],
   declarations: [CardComponent],
 })

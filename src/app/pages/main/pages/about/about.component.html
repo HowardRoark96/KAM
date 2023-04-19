@@ -1,1 +1,17 @@
-<app-request-wrapper class="mb-5" [request$]="error_500$"></app-request-wrapper>
+<!--<app-request-wrapper class="mb-5" [request$]="error_500$"></app-request-wrapper>-->
+
+<app-card
+  cardTitle="CARD TITLE"
+  contentTitle="CONTENT TITLE"
+  contentDescription="CONTENT TEXT"
+  [contentAvatar]="avatarTemplate"
+  [actions]="[actionEdit]"
+></app-card>
+
+<ng-template #avatarTemplate>
+  <nz-avatar nzSrc="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"></nz-avatar>
+</ng-template>
+
+<ng-template #actionEdit>
+  <span nz-icon class="ml-auto" nzType="edit"></span>
+</ng-template>
