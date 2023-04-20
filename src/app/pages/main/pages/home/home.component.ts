@@ -2,6 +2,8 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { POSTS_MOCK_DATA } from './utils/post.mock';
 import { delay, map, of } from 'rxjs';
 import { Post } from '@components/post';
+import { getNewsMockedData } from '@utils/mocked-data/news.constant';
+import { NewsDataInterface } from './widgets/news-card/news-card.component';
 
 @Component({
   selector: 'app-home',
@@ -18,4 +20,6 @@ export class HomeComponent {
   );
 
   getPost = (post: unknown) => post as Post;
+
+  MOCKED_DATA_NEWS: NewsDataInterface[] = getNewsMockedData().data;
 }

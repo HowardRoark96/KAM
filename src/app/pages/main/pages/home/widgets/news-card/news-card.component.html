@@ -1,0 +1,16 @@
+<app-card
+  *ngIf="news"
+  [cardTitle]="news.title || ''"
+  [contentTitle]="news.contentTitle || ''"
+  [contentDescription]="news.contentDescription || ''"
+  [contentAvatar]="avatarTemplate"
+  [bodyStyle]="{ 'white-space': 'pre-line' }"
+></app-card>
+
+<ng-template #avatarTemplate>
+  <nz-avatar [nzSrc]="news?.user?.avatar"></nz-avatar>
+</ng-template>
+
+<!--<ng-template #actionComments>-->
+<!--    <app-comment [commentData]="news?.comments || []"></app-comment>-->
+<!--</ng-template>-->
