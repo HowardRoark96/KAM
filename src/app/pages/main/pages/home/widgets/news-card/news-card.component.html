@@ -1,16 +1,20 @@
 <app-card
   *ngIf="news"
-  [cardTitle]="news.title || ''"
+  [cardTitle]="cardTitleTmpl"
   [contentTitle]="news.contentTitle || ''"
   [contentDescription]="news.contentDescription || ''"
-  [contentAvatar]="avatarTemplate"
   [bodyStyle]="{ 'white-space': 'pre-line' }"
 ></app-card>
 
-<ng-template #avatarTemplate>
-  <nz-avatar [nzSrc]="news?.user?.avatar"></nz-avatar>
+<ng-template #cardTitleTmpl>
+  <div class="d-flex flex-column gap-2">
+    <div class="d-flex gap-2 align-items-center">
+      <nz-avatar nzSize="small" [nzSrc]="news?.user?.avatar"></nz-avatar>
+      <span class="text-grey-3 font-size-14 font-weight-normal">{{ news?.user?.login ?? 'Anonymous' }}</span>
+      <span *ngIf="news?.time as time" class="text-grey-3 font-size-14 font-weight-normal">
+        {{ getTime | executeWith : time }}
+      </span>
+    </div>
+    <span>{{ news?.title || '' }}</span>
+  </div>
 </ng-template>
-
-<!--<ng-template #actionComments>-->
-<!--    <app-comment [commentData]="news?.comments || []"></app-comment>-->
-<!--</ng-template>-->

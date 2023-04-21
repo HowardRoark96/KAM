@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { Nullable } from '@customTypes/nullable.type';
 import { CommentDataInterface } from '@widgets/comment';
+import { formatDistanceToNowStrict } from 'date-fns';
 
 export interface User {
   email: string;
@@ -10,6 +11,7 @@ export interface User {
 
 export interface NewsDataInterface {
   title: Nullable<string>;
+  time: Nullable<string>;
   contentTitle: Nullable<string>;
   contentDescription: Nullable<string>;
   user: Nullable<User>;
@@ -24,4 +26,6 @@ export interface NewsDataInterface {
 })
 export class NewsCardComponent {
   @Input() news: Nullable<NewsDataInterface> = null;
+
+  getTime = (value: string) => formatDistanceToNowStrict(new Date(value), { addSuffix: true });
 }

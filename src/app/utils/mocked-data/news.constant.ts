@@ -8,6 +8,7 @@ export const getNewsMockedData = (): MockedData<NewsDataInterface[]> => {
     data: [
       {
         title: 'Knights and Merchants Remake',
+        time: '2023-01-17T03:24:00',
         contentTitle: 'DESCRIPTION',
         contentDescription:
           'The KaM Remake mod is an attempt to reinvigorate the original “Knights and Merchants: The Shattered Kingdom” strategy game. Our goals are to make it work on today’s computers and operating systems, implement a fully featured online multiplayer system, as well as to fix the many bugs in the game engine. To do this we have started from scratch, writing our own code for the game engine but still relying on many original resource files. We assume that you own the original KaM game, (the installer checks for it) otherwise you should buy it – it’s available in a number of online gaming stores.\n' +
@@ -17,6 +18,7 @@ export const getNewsMockedData = (): MockedData<NewsDataInterface[]> => {
       },
       {
         title: 'Knights and Merchants Remake',
+        time: '2023-04-20T03:24:00',
         contentTitle: 'INSTALLATION',
         contentDescription:
           '1. Run the installer and follow the installation instructions.' +
@@ -28,6 +30,7 @@ export const getNewsMockedData = (): MockedData<NewsDataInterface[]> => {
       },
       {
         title: 'Knights and Merchants Remake',
+        time: '2023-01-17T03:24:00',
         contentTitle: 'SYSTEM REQUIREMENTS',
         contentDescription:
           'KaM Remake requires:\n' +
