@@ -1,3 +1,4 @@
-<app-request-wrapper #postsData [request$]="postsData$">
-  <app-post *ngFor="let item of postsData.data" class="mb-5" [post]="getPost | executeWith : item"></app-post>
-</app-request-wrapper>
+<div *ngFor="let item of MOCKED_DATA_NEWS" class="d-flex flex-column gap-4 mb-4">
+  <app-news-card [news]="item"></app-news-card>
+  <app-comment [commentData]="item?.comments || []"></app-comment>
+</div>
