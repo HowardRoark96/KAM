@@ -37,7 +37,9 @@
             ],
             "styles": [
               "styles/theme.less",
-              "@angular/material/prebuilt-themes/indigo-pink.css",
+              "./node_modules/quill/dist/quill.core.css",
+              "./node_modules/quill/dist/quill.bubble.css",
+              "./node_modules/quill/dist/quill.snow.css",
               "src/styles.scss",
               "styles/global.scss"
             ]
