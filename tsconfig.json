@@ -33,7 +33,6 @@
       "@utils/*": ["src/app/utils/*"],
       "@widgets/*": ["src/app/widgets/*"],
       "@components/*": ["src/app/components/*"],
-      "@widgets/*": ["src/app/widgets/*"],
       "@validators/*": ["src/app/validators/*"],
       "@services/*": ["src/app/services/*"],
       "@customTypes/*": ["src/app/types/*"]

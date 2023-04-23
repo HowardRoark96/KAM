@@ -1,0 +1,13 @@
+.validation::ng-deep {
+  .ql-toolbar {
+    border-top: 1px solid #ff4d4f;
+    border-left: 1px solid red;
+    border-right: 1px solid red;
+  }
+
+  .ql-container {
+    border-bottom: 1px solid #ff4d4f;
+    border-left: 1px solid #ff4d4f;
+    border-right: 1px solid #ff4d4f;
+  }
+}
