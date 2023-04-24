@@ -12,6 +12,7 @@ import { NZ_CONFIG, NzConfig } from 'ng-zorro-antd/core/config';
 import { NzNotificationService } from 'ng-zorro-antd/notification';
 import { NzImageService } from 'ng-zorro-antd/image';
 import { NzIsMenuInsideDropDownToken, MenuService } from 'ng-zorro-antd/menu';
+import { NzModalService } from 'ng-zorro-antd/modal';
 
 registerLocaleData(en);
 
@@ -30,6 +31,7 @@ const ngZorroConfig: NzConfig = {
     NzNotificationService,
     NzImageService,
     MenuService,
+    NzModalService,
   ],
   bootstrap: [AppComponent],
 })

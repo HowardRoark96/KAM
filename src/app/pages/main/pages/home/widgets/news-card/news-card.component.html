@@ -2,7 +2,7 @@
   *ngIf="news"
   [cardTitle]="cardTitleTmpl"
   [contentTitle]="news.contentTitle || ''"
-  [contentDescription]="news.contentDescription || ''"
+  [contentDescription]="contentTmpl"
   [bodyStyle]="{ 'white-space': 'pre-line' }"
 ></app-card>
 
@@ -16,5 +16,11 @@
       </span>
     </div>
     <span>{{ news?.title || '' }}</span>
+  </div>
+</ng-template>
+
+<ng-template #contentTmpl>
+  <div class="ql-snow">
+    <div class="p-0 ql-editor" [innerHtml]="news?.contentDescription"></div>
   </div>
 </ng-template>

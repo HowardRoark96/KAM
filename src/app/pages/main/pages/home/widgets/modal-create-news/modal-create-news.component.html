@@ -1,0 +1,22 @@
+<nz-tabset class="d-flex clex-column flex-1">
+  <nz-tab nzTitle="Create">
+    <form nz-form nzLayout="vertical" [formGroup]="form">
+      <app-reactive-input label="Title" [control]="form.controls.title"></app-reactive-input>
+      <app-reactive-text-editor
+        label="Content"
+        [styles]="{ 'min-height': '350px', 'max-height': '350px' }"
+        [control]="form.controls.content"
+      ></app-reactive-text-editor>
+    </form>
+  </nz-tab>
+  <nz-tab nzTitle="Preview">
+    <app-news-card
+      [news]="getPreview | executeWith : form.controls.title.value : form.controls.content.value"
+    ></app-news-card>
+  </nz-tab>
+</nz-tabset>
+
+<div *nzModalFooter class="d-flex content-end gap-4">
+  <app-button label="Cancel" [action$]="closeModal"></app-button>
+  <app-button type="primary" label="Create" [action$]="create$"></app-button>
+</div>
