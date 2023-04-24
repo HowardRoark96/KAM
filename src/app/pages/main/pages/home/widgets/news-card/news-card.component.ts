@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, TemplateRef } from '@angular/core';
 import { Nullable } from '@customTypes/nullable.type';
 import { CommentDataInterface } from '@widgets/comment';
 import { formatDistanceToNowStrict } from 'date-fns';
@@ -13,7 +13,7 @@ export interface NewsDataInterface {
   title: Nullable<string>;
   time: Nullable<string>;
   contentTitle: Nullable<string>;
-  contentDescription: Nullable<string>;
+  contentDescription: string | TemplateRef<void> | null;
   user: Nullable<User>;
   comments: Nullable<CommentDataInterface[]>;
 }

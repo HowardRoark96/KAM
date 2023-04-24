@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { delay, of, tap, throwError } from 'rxjs';
 import { HttpErrorResponse } from '@angular/common/http';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
@@ -28,7 +28,7 @@ export class ContactComponent {
     return error;
   });
 
-  constructor(private readonly notificationService: NotificationService, private readonly cdr: ChangeDetectorRef) {}
+  constructor(private readonly notificationService: NotificationService) {}
 
   sendReport$ = () => {
     if (this.form.invalid)

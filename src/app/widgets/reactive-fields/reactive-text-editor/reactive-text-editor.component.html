@@ -15,6 +15,13 @@
     [nzErrorTip]="getErrorMessage | executeWith : control.errors"
     [nzSpan]="fieldSpan"
   >
-    <quill-editor [style.height.px]="rows * 22" [formControl]="control"></quill-editor>
+    <quill-editor
+      class="d-flex flex-column"
+      [styles]="{ height: rows * 22 + 'px' }"
+      [styles]="styles"
+      [format]="format"
+      [placeholder]="placeholder"
+      [formControl]="control"
+    ></quill-editor>
   </nz-form-control>
 </nz-form-item>

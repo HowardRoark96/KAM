@@ -1,13 +1,26 @@
-.validation::ng-deep {
-  .ql-toolbar {
-    border-top: 1px solid #ff4d4f;
-    border-left: 1px solid red;
-    border-right: 1px solid red;
+::ng-deep {
+  .validation {
+    .ql-toolbar {
+      border-top: 1px solid #ff4d4f;
+      border-left: 1px solid red;
+      border-right: 1px solid red;
+    }
+
+    .ql-container {
+      border-bottom: 1px solid #ff4d4f;
+      border-left: 1px solid #ff4d4f;
+      border-right: 1px solid #ff4d4f;
+    }
   }
 
   .ql-container {
-    border-bottom: 1px solid #ff4d4f;
-    border-left: 1px solid #ff4d4f;
-    border-right: 1px solid #ff4d4f;
+    display: flex;
+    flex-direction: column;
+
+    .ql-blank {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
   }
 }
