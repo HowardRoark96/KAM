@@ -37,9 +37,9 @@
             ],
             "styles": [
               "styles/theme.less",
-              "./node_modules/quill/dist/quill.core.css",
-              "./node_modules/quill/dist/quill.bubble.css",
-              "./node_modules/quill/dist/quill.snow.css",
+              "node_modules/quill/dist/quill.core.css",
+              "node_modules/quill/dist/quill.bubble.css",
+              "node_modules/quill/dist/quill.snow.css",
               "src/styles.scss",
               "styles/global.scss"
             ]
