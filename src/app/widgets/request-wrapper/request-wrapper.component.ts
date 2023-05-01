@@ -6,11 +6,17 @@ import {
   Input,
   OnChanges,
   Output,
+  TemplateRef,
 } from '@angular/core';
 import { Nullable } from '@customTypes/nullable.type';
 import { catchError, delay, Observable, tap, throwError } from 'rxjs';
 import { HttpErrorResponse } from '@angular/common/http';
-import { LoaderError } from '@components/loader/utils/loader-error.interface';
+import { NzSafeAny, NzSizeLDSType } from 'ng-zorro-antd/core/types';
+
+export interface RequestError {
+  status: number;
+  message: string;
+}
 
 @Component({
   selector: 'app-request-wrapper',
@@ -18,7 +24,12 @@ import { LoaderError } from '@components/loader/utils/loader-error.interface';
   styleUrls: ['request-wrapper.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class RequestWrapperComponent<T = unknown> implements OnChanges {
+export class RequestWrapperComponent<T> implements OnChanges {
+  @Input() label = 'Loading...';
+  @Input() delay = 0;
+  @Input() indicator: TemplateRef<NzSafeAny> | null = null;
+  @Input() size: NzSizeLDSType = 'default';
+  @Input() isSimple = false;
   @Input() request$: Nullable<Observable<T>>;
 
   @Output() response = new EventEmitter<Nullable<T>>();
@@ -29,7 +40,7 @@ export class RequestWrapperComponent<T = unknown> implements OnChanges {
 
   isLoading: Nullable<boolean>;
 
-  error: Nullable<LoaderError>;
+  error: Nullable<RequestError>;
 
   constructor(private cdr: ChangeDetectorRef) {}
 
@@ -50,6 +61,8 @@ export class RequestWrapperComponent<T = unknown> implements OnChanges {
       catchError((err: HttpErrorResponse) => this.onCatchError(err)),
     );
   }
+
+  retry = () => (this.request$ = this.getUpdatedRequest$(this.request$));
 
   private onDataTap(data: Nullable<T>) {
     this.data = data;

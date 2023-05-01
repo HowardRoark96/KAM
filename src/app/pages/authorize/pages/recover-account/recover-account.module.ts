@@ -7,6 +7,7 @@ import { ButtonModule } from '@widgets/button';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ReactiveInputModule } from '@widgets/reactive-fields/reactive-input';
 import { NzIconModule } from 'ng-zorro-antd/icon';
+import { NzFormModule } from 'ng-zorro-antd/form';
 
 @NgModule({
   imports: [
@@ -17,6 +18,7 @@ import { NzIconModule } from 'ng-zorro-antd/icon';
     ReactiveFormsModule,
     ReactiveInputModule,
     NzIconModule,
+    NzFormModule,
   ],
   declarations: [RecoverAccountComponent],
 })

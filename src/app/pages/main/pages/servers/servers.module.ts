@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RequestWrapperModule } from '@components/request-wrapper';
+import { RequestWrapperModule } from '@widgets/request-wrapper';
 import { GridModule } from '@widgets/grid';
 import { ServersRoutingModule } from './servers-routing.module';
 import { ServersComponent } from './servers.component';
