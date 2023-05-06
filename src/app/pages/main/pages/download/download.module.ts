@@ -1,10 +1,9 @@
 import { NgModule } from '@angular/core';
 import { DownloadComponent } from './download.component';
 import { DownloadRoutingModule } from './download-routing.module';
-import { RequestWrapperModule } from '@widgets/request-wrapper';
 
 @NgModule({
-  imports: [DownloadRoutingModule, RequestWrapperModule, RequestWrapperModule],
+  imports: [DownloadRoutingModule],
   declarations: [DownloadComponent],
 })
 export class DownloadModule {}

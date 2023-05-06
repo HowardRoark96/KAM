@@ -1,6 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { debounceTime, delay, map, of, tap, throwError } from 'rxjs';
-import { HttpErrorResponse } from '@angular/common/http';
+import { debounceTime, delay, map, of, tap } from 'rxjs';
 import { GridColumnsInterface, GridRowInterface, GridSettingsInterface } from '@widgets/grid/utils';
 
 @Component({
@@ -10,11 +9,6 @@ import { GridColumnsInterface, GridRowInterface, GridSettingsInterface } from '@
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ServersComponent {
-  error_500$ = throwError(() => {
-    const error = new HttpErrorResponse({ error: 'bar', status: 500 });
-    return error;
-  });
-
   GRID_DATA: GridRowInterface[] = [
     {
       expand: false,
