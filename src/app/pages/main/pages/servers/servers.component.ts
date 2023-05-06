@@ -1,6 +1,22 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { debounceTime, delay, map, of, tap } from 'rxjs';
-import { GridColumnsInterface, GridRowInterface, GridSettingsInterface } from '@widgets/grid/utils';
+import { GridOptions } from 'ag-grid-community';
+import { debounceTime, delay, of } from 'rxjs';
+
+export interface ServerDto {
+  name?: string | null;
+  address?: string | null;
+  players?: number | null;
+}
+
+const GRID_OPTIONS: GridOptions<ServerDto> = {
+  getRowId: (params) => params.data.address?.toString() ?? '',
+  defaultColDef: { sortable: true, flex: 1 },
+  columnDefs: [
+    { field: 'name', headerName: 'Server Name' },
+    { field: 'address', headerName: 'Server Address' },
+    { field: 'players', headerName: 'Players' },
+  ],
+};
 
 @Component({
   selector: 'app-servers',
@@ -9,56 +25,26 @@ import { GridColumnsInterface, GridRowInterface, GridSettingsInterface } from '@
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ServersComponent {
-  GRID_DATA: GridRowInterface[] = [
-    {
-      expand: false,
-      cells: [{ value: 'Server Name 1' }, { value: '185.38.248.123' }, { value: '18' }],
-    },
-    {
-      expand: false,
-      cells: [{ value: 'Server Name 3' }, { value: '185.38.248.789' }, { value: '34' }],
-    },
-    {
-      expand: false,
-      cells: [{ value: 'Server Name 4' }, { value: '185.38.248.098' }, { value: '25' }],
-    },
+  gridOptions = { ...GRID_OPTIONS, context: this };
+
+  GRID_DATA: ServerDto[] = [
+    { name: 'KaM Remake Server 1', address: '83.6.172.1', players: 1 },
+    { name: 'KaM Remake Server 2', address: '83.6.172.2', players: 12 },
+    { name: 'KaM Remake Server 3', address: '83.6.172.3', players: 45 },
+    { name: 'KaM Remake Server 4', address: '83.6.172.4', players: 73 },
+    { name: 'KaM Remake Server 5', address: '83.6.172.5', players: 5 },
+    { name: 'KaM Remake Server 6', address: '83.6.172.6', players: 4 },
+    { name: 'KaM Remake Server 7', address: '83.6.172.7', players: 9 },
+    { name: 'KaM Remake Server 8', address: '83.6.172.8', players: 0 },
+    { name: 'KaM Remake Server 9', address: '83.6.172.9', players: 2 },
+    { name: 'KaM Remake Server 10', address: '83.6.172.10', players: 8 },
+    { name: 'KaM Remake Server 11', address: '83.6.172.11', players: 31 },
+    { name: 'KaM Remake Server 12', address: '83.6.172.12', players: 2 },
+    { name: 'KaM Remake Server 13', address: '83.6.172.13', players: 76 },
+    { name: 'KaM Remake Server 14', address: '83.6.172.14', players: 21 },
+    { name: 'KaM Remake Server 15', address: '83.6.172.15', players: 32 },
+    { name: 'KaM Remake Server 16', address: '83.6.172.16', players: 1 },
   ];
 
-  GRID_COLUMNS: GridColumnsInterface[] = [
-    { name: 'Server Name', width: '150px' },
-    { name: 'Server Address', width: '150px' },
-    { name: 'Players', width: '150px' },
-  ];
-
-  GRID_SETTING: GridSettingsInterface = {
-    bordered: true,
-    loading: true,
-    pagination: true,
-    title: 'CURRENTLY ACTIVE SERVERS',
-    header: true,
-    fixHeader: true,
-    ellipsis: true,
-  };
-
-  listOfData: GridRowInterface[] = [];
-
-  getData$ = of(50).pipe(
-    delay(3000),
-    debounceTime(3000),
-    map((count) => (this.listOfData = this.generateMockedGridData(count))),
-    tap(() => (this.GRID_SETTING.loading = false)),
-  );
-
-  generateMockedGridData = (count: number) => {
-    const data = [];
-
-    for (let index = 1; index <= count; index++) {
-      data.push({
-        expand: false,
-        cells: [{ value: `Server Name ${index}` }, { value: `185.38.248.${index}` }, { value: index.toString() }],
-      });
-    }
-
-    return data;
-  };
+  getData$ = of(this.GRID_DATA).pipe(delay(3000), debounceTime(3000));
 }

@@ -71,7 +71,7 @@
 
 <ng-template #replyCommentTemplateRef let-replyComment="replyComment" let-commentIndex="commentIndex">
   <nz-comment
-    *ngIf="showReplyForm | executeWith : commentIndex : indexOfReplyFormShown"
+    *ngIf="showReplyForm | executeWith : commentIndex"
     [class.show-animation]="showReplyForm"
     [class.hide-animation]="!showReplyForm"
     [nzAuthor]="currentUser.name"

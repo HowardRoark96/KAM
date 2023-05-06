@@ -17,7 +17,7 @@
     <app-button type="primary" label="Try again" [danger]="true" [action$]="retry"></app-button>
   </div>
 
-  <ng-container *ngIf="!error">
+  <ng-container *ngIf="!error && hasFirstRs">
     <ng-content></ng-content>
   </ng-container>
 </nz-spin>
