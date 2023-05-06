@@ -9,7 +9,7 @@
   [nzSimple]="isSimple"
 >
   <div *ngIf="error" class="container d-flex flex-column align-items-center content-center gap-8 p-10">
-    <div nz-icon nzType="frown" nzTheme="twotone" nzTwotoneColor="#ff4d4f" [style.font-size.px]="64"></div>
+    <div nz-icon class="bad-request" nzType="frown" nzTheme="twotone" nzTwotoneColor="#ff4d4f"></div>
     <div class="d-flex flex-column align-items-center content-center gap-2">
       <h1 *ngIf="error?.status as status" class="text-capitalize m-0">{{ status }}</h1>
       <h3 class="m-0">{{ error.message }}</h3>
