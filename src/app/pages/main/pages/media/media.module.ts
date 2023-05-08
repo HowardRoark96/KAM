@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { MediaComponent } from './media.component';
 import { MediaRoutingModule } from './media-routing.module';
-import { RequestWrapperModule } from '@components/request-wrapper';
+import { RequestWrapperModule } from '@widgets/request-wrapper';
 import { ReactiveSelectModule } from '@widgets/reactive-fields/reactive-select';
 import { ButtonModule } from '@widgets/button';
 import { ReactiveFormsModule } from '@angular/forms';

@@ -1,0 +1,33 @@
+$spacers: (
+  '0': 0%,
+  '25': 25%,
+  '30': 30%,
+  '50': 50%,
+  '75': 75%,
+  '100': 100%,
+  'auto': auto,
+);
+
+@each $spacer, $prop in $spacers {
+  .w-#{$spacer} {
+    width: $prop !important;
+  }
+
+  .h-#{$spacer} {
+    height: $prop !important;
+  }
+}
+
+.w-fit-content {
+  width: fit-content !important;
+}
+
+@for $step from 1 through 8 {
+  .w-#{$step * 100}px {
+    width: $step * 100px;
+  }
+}
+
+.h-fit-content {
+  height: fit-content !important;
+}

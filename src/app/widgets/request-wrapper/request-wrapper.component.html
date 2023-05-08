@@ -1,0 +1,23 @@
+<ng-container *ngIf="request$ | async"></ng-container>
+
+<nz-spin
+  [nzTip]="label"
+  [nzDelay]="delay"
+  [nzIndicator]="indicator"
+  [nzSize]="size"
+  [nzSpinning]="isLoading"
+  [nzSimple]="isSimple"
+>
+  <div *ngIf="error" class="container d-flex flex-column align-items-center content-center gap-8 p-10">
+    <div nz-icon class="bad-request" nzType="frown" nzTheme="twotone" nzTwotoneColor="#ff4d4f"></div>
+    <div class="d-flex flex-column align-items-center content-center gap-2">
+      <h1 *ngIf="error?.status as status" class="text-capitalize m-0">{{ status }}</h1>
+      <h3 class="m-0">{{ error.message }}</h3>
+    </div>
+    <app-button type="primary" label="Try again" [danger]="true" [action$]="retry"></app-button>
+  </div>
+
+  <ng-container *ngIf="!error">
+    <ng-content></ng-content>
+  </ng-container>
+</nz-spin>

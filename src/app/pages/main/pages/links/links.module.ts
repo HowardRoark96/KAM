@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { LinksComponent } from './links.component';
 import { LinksRoutingModule } from './links-routing.module';
-import { RequestWrapperModule } from '@components/request-wrapper';
+import { RequestWrapperModule } from '@widgets/request-wrapper';
 
 @NgModule({
   imports: [LinksRoutingModule, RequestWrapperModule],

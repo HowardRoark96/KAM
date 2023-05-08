@@ -3,7 +3,7 @@ import { getNewsMockedData } from '@utils/mocked-data/news.constant';
 import { NewsDataInterface } from './widgets/news-card/news-card.component';
 import { NzModalService } from 'ng-zorro-antd/modal';
 import { ModalCreateNewsComponent } from './widgets/modal-create-news';
-import { tap } from 'rxjs';
+import { delay, of, tap } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -14,7 +14,11 @@ import { tap } from 'rxjs';
 export class HomeComponent {
   MOCKED_DATA_NEWS: NewsDataInterface[] = getNewsMockedData().data;
 
+  getData$ = of(this.MOCKED_DATA_NEWS).pipe(delay(5000));
+
   constructor(private readonly modalService: NzModalService) {}
+
+  toData = (value: unknown) => value as NewsDataInterface[];
 
   createNews$ = () => {
     const modal = this.modalService.create({

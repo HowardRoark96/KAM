@@ -1,6 +1,4 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { throwError } from 'rxjs';
-import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-about',
@@ -8,9 +6,4 @@ import { HttpErrorResponse } from '@angular/common/http';
   styleUrls: ['./about.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AboutComponent {
-  error_500$ = throwError(() => {
-    const error = new HttpErrorResponse({ error: 'bar', status: 500 });
-    return error;
-  });
-}
+export class AboutComponent {}
