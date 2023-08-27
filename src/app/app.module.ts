@@ -8,7 +8,7 @@ import { en_US, NZ_I18N } from 'ng-zorro-antd/i18n';
 import { registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NZ_CONFIG, NzConfig } from 'ng-zorro-antd/core/config';
+import { NZ_CONFIG } from 'ng-zorro-antd/core/config';
 import { NzNotificationService } from 'ng-zorro-antd/notification';
 import { NzImageService } from 'ng-zorro-antd/image';
 import { NzIsMenuInsideDropDownToken, MenuService } from 'ng-zorro-antd/menu';
@@ -16,17 +16,12 @@ import { NzModalService } from 'ng-zorro-antd/modal';
 
 registerLocaleData(en);
 
-const ngZorroConfig: NzConfig = {
-  message: { nzTop: 120 },
-  notification: { nzTop: 240 },
-};
-
 @NgModule({
   declarations: [AppComponent],
   imports: [BrowserModule, HttpClientModule, BrowserAnimationsModule, MainModule, AppRoutingModule],
   providers: [
     { provide: NZ_I18N, useValue: en_US },
-    { provide: NZ_CONFIG, useValue: ngZorroConfig },
+    { provide: NZ_CONFIG, useValue: null },
     { provide: NzIsMenuInsideDropDownToken, useValue: false },
     NzNotificationService,
     NzImageService,

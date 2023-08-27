@@ -5,6 +5,7 @@ import { delay, of, tap } from 'rxjs';
 import { NotificationService } from '@services/notification';
 import { formatDistance } from 'date-fns';
 import { NzButtonType } from 'ng-zorro-antd/button/button.component';
+import isNil from 'lodash-es/isNil';
 
 export interface CommentDataInterface {
   author: Nullable<string>;
@@ -41,7 +42,7 @@ export class CommentComponent {
     content: new FormControl<Nullable<string>>(null, Validators.required),
   });
 
-  indexOfReplyFormShown: Nullable<number>;
+  indexOfReplyFormShown: Nullable<number | string>;
 
   showAllComments: Nullable<boolean>;
 
@@ -57,7 +58,8 @@ export class CommentComponent {
     return;
   };
 
-  showReplyForm = (index: number) => this.indexOfReplyFormShown === index;
+  showReplyForm = (index: number, indexOfReplyFormShown: Nullable<number | string>) =>
+    !isNil(indexOfReplyFormShown) && this.indexOfReplyFormShown === index;
 
   like = (comment: Nullable<CommentDataInterface>) => {
     if (comment) {

@@ -13,14 +13,14 @@
   [ngTemplateOutletContext]="{ replyComment: commentData, commentIndex: -1 }"
 ></ng-template>
 
-<ng-container *ngIf="showAllComments">
+<div *ngIf="showAllComments" class="p-5 all-comments vertical-scroll" [style.max-height.px]="500">
   <ng-container *ngFor="let comment of commentData; index as commentIndex">
     <ng-template
       [ngTemplateOutlet]="commentTemplateRef"
       [ngTemplateOutletContext]="{ comment, commentIndex: commentIndex + '' }"
     ></ng-template>
   </ng-container>
-</ng-container>
+</div>
 
 <ng-template #commentTemplateRef let-comment="comment" let-commentIndex="commentIndex">
   <nz-comment
@@ -72,8 +72,7 @@
 <ng-template #replyCommentTemplateRef let-replyComment="replyComment" let-commentIndex="commentIndex">
   <nz-comment
     *ngIf="showReplyForm | executeWith : commentIndex : indexOfReplyFormShown"
-    [class.show-animation]="showReplyForm"
-    [class.hide-animation]="!showReplyForm"
+    class="show-animation"
     [nzAuthor]="currentUser.name"
   >
     <nz-avatar nz-comment-avatar nzIcon="user" [nzSrc]="currentUser.avatar"></nz-avatar>

@@ -1,7 +1,7 @@
 $spacer: 4px;
 
 //Margins and Paddings
-@for $size from 0 through 10 {
+@for $size from 0 through 20 {
   .m-#{$size} {
     margin: $spacer * $size !important;
   }
@@ -15,7 +15,7 @@ $spacer: 4px;
 }
 
 @each $side, $prop in ('t': 'top', 'r': 'right', 'b': 'bottom', 'l': 'left') {
-  @for $size from 0 through 10 {
+  @for $size from 0 through 20 {
     .m#{$side}-#{$size} {
       margin-#{$prop}: $spacer * $size !important;
     }
@@ -33,7 +33,7 @@ $spacer: 4px;
 }
 
 @each $direction, $side1, $side2 in ('x' 'left' 'right', 'y' 'top' 'bottom') {
-  @for $size from 0 through 10 {
+  @for $size from 0 through 20 {
     .m#{$direction}-#{$size} {
       margin-#{$side1}: $spacer * $size !important;
       margin-#{$side2}: $spacer * $size !important;
@@ -55,7 +55,7 @@ $spacer: 4px;
 }
 
 // Gap
-@for $size from 0 through 10 {
+@for $size from 0 through 20 {
   .gap-#{$size} {
     gap: $spacer * $size !important;
   }

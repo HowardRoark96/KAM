@@ -1,10 +1,3 @@
-<ng-container *ngIf="getData$ | async"></ng-container>
-
-<app-request-wrapper class="mb-5" [request$]="error_500$"></app-request-wrapper>
-
-<app-grid
-  [settingValue]="GRID_SETTING"
-  [headerData]="GRID_COLUMNS"
-  [listOfData]="listOfData"
-  [displayData]="listOfData"
-></app-grid>
+<app-request-wrapper #dataList [request$]="getData$">
+  <app-grid [gridOptions]="gridOptions" [rowData]="$any(dataList.data)"></app-grid>
+</app-request-wrapper>

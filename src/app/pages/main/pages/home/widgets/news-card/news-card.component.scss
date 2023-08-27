@@ -3,3 +3,9 @@
 .text-grey-3 {
   color: var.$grey-color-3;
 }
+
+:host::ng-deep {
+  .ant-card-head {
+    background: var.$blue-color-1;
+  }
+}

@@ -1,0 +1,20 @@
+@use 'colors' as var;
+
+.vertical-scroll {
+  overflow-y: auto;
+  scrollbar-gutter: stable;
+
+  &::-webkit-scrollbar {
+    width: 8px;
+    background-color: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: var.$grey-color-3;
+    border-radius: 8px;
+
+    &:active {
+      background-color: darken(var.$grey-color-3, 15%);
+    }
+  }
+}
