@@ -8,6 +8,7 @@ import { ButtonModule } from '@widgets/button';
 import { NzCarouselModule } from 'ng-zorro-antd/carousel';
 import { NzImageModule } from 'ng-zorro-antd/image';
 import { SignInComponent } from './sign-in.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   imports: [
@@ -19,6 +20,7 @@ import { SignInComponent } from './sign-in.component';
     ButtonModule,
     NzCarouselModule,
     NzImageModule,
+    TranslateModule,
   ],
   declarations: [SignInComponent],
 })

@@ -8,6 +8,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ReactiveInputModule } from '@widgets/reactive-fields/reactive-input';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzFormModule } from 'ng-zorro-antd/form';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   imports: [
@@ -19,6 +20,7 @@ import { NzFormModule } from 'ng-zorro-antd/form';
     ReactiveInputModule,
     NzIconModule,
     NzFormModule,
+    TranslateModule,
   ],
   declarations: [RecoverAccountComponent],
 })

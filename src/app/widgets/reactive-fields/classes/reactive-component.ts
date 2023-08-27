@@ -5,7 +5,7 @@ import { NzSizeLDSType } from 'ng-zorro-antd/core/types/size';
 import { NzStatus } from 'ng-zorro-antd/core/types';
 import { NzFormTooltipIcon } from 'ng-zorro-antd/form/form-label.component';
 import { NzLabelAlignType } from 'ng-zorro-antd/form/form.directive';
-import { DEFAULT_TOOLTIP_ICON, VALIDATION_ERRORS } from '@utils/constants';
+import { DEFAULT_TOOLTIP_ICON, VALIDATION_ERRORS } from '@utils/constants/form.constant';
 
 @Directive()
 export abstract class ReactiveComponent {
@@ -31,6 +31,14 @@ export abstract class ReactiveComponent {
   @Input() noValidationMark: Nullable<boolean>;
   @Input() autocomplete: 'on' | 'off' = 'off';
   @Output() valueChange = new EventEmitter();
+
+  private _noMarginBottom: Nullable<boolean>;
+  @Input() set noMarginBottom(prop: unknown) {
+    this._noMarginBottom = prop === '' || !!prop;
+  }
+  get noMarginBottom(): Nullable<boolean> {
+    return this._noMarginBottom;
+  }
 
   get hasRequiredValidator() {
     if (!this.control?.validator) return false;

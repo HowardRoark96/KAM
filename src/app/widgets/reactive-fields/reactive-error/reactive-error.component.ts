@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { Nullable } from '@customTypes/nullable.type';
 import { FormControl } from '@angular/forms';
-import { COLORS } from '@utils/constants';
+import { COLORS } from '@utils/constants/color.constant';
 
 @Component({
   selector: 'app-reactive-error',

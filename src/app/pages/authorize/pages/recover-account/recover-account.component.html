@@ -6,33 +6,40 @@
     </div>
   </nz-carousel>
   <div>
-    <h1 class="align-self-center font-weight-medium text-grey-1" [style.font-size.px]="32">Welcome back!</h1>
-    <p class="m-0 text-grey-1">
-      Get more information about the game mode, game servers, player statistics and much more!
-    </p>
+    <h1 class="font-weight-medium text-grey-1" [style.font-size.px]="32" [style.line-height.px]="32">
+      {{ 'authorize.recoverAccount.desc_Title' | translate }}
+    </h1>
+    <p class="m-0 text-grey-1">{{ 'authorize.recoverAccount.desc' | translate }}</p>
   </div>
 </div>
 
 <div class="right-container d-flex flex-column gap-4 p-8 pt-10">
-  <h1 class="align-self-center font-weight-medium mb-10" [style.font-size.px]="32">Recover account</h1>
+  <h1 class="text-center font-weight-medium mb-10" [style.font-size.px]="32">
+    {{ 'authorize.recoverAccount.page_Title' | translate }}
+  </h1>
   <div class="d-flex flex-column text-grey-3">
-    <p class="m-0">Enter your username and you will receive a mail to recover your account.</p>
+    <p class="m-0">{{ 'authorize.recoverAccount.page_Hint' | translate }}</p>
   </div>
   <form nz-form nzLayout="vertical" [formGroup]="form">
     <app-reactive-input
       fieldId="login"
-      label="Username"
+      [label]="'authorize.recoverAccount.userName' | translate"
       [textBefore]="userBeforeTextTmp"
       [control]="form.controls.login"
     ></app-reactive-input>
   </form>
-  <app-button class="align-self-end" type="primary" label="Recover" [action$]="recover$"></app-button>
+  <app-button
+    class="align-self-end"
+    type="primary"
+    [label]="'authorize.recoverAccount.recover' | translate"
+    [action$]="recover$"
+  ></app-button>
   <app-button
     class="align-self-center"
     btnClass="px-1"
     type="link"
-    label="Remembered your password?"
     link="../sign-in"
+    [label]="'authorize.recoverAccount.signIn' | translate"
   ></app-button>
 </div>
 

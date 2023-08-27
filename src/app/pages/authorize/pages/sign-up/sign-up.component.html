@@ -12,36 +12,48 @@
     </div>
   </nz-carousel>
   <div>
-    <h1 class="align-self-center font-weight-medium text-grey-1" [style.font-size.px]="32">Welcome!</h1>
-    <p class="m-0 text-grey-1">
-      Get more information about the game mode, game servers, player statistics and much more!
-    </p>
+    <h1 class="font-weight-medium text-grey-1" [style.font-size.px]="32" [style.line-height.px]="32">
+      {{ 'authorize.signUp.desc_Title' | translate }}
+    </h1>
+    <p class="m-0 text-grey-1">{{ 'authorize.signUp.desc' | translate }}</p>
   </div>
 </div>
 
 <div class="right-container d-flex flex-column gap-4 p-8 pt-10">
-  <h1 class="align-self-center font-weight-medium mb-10" [style.font-size.px]="32">Create account</h1>
+  <h1 class="text-center font-weight-medium mb-10" [style.font-size.px]="32">
+    {{ 'authorize.signUp.page_Title' | translate }}
+  </h1>
   <div class="d-flex flex-column text-grey-3">
     <div class="d-flex align-items-center">
-      <p class="m-0">Already have an account?</p>
-      <app-button btnClass="px-1" type="link" label="Log in" link="../sign-in"></app-button>
+      <p class="m-0">{{ 'authorize.signUp.signIn_Hint' | translate }}</p>
+      <app-button
+        btnClass="px-1"
+        type="link"
+        link="../sign-in"
+        [label]="'authorize.signUp.signIn' | translate"
+      ></app-button>
     </div>
   </div>
   <form nz-form nzLayout="vertical" [formGroup]="form">
     <app-reactive-input
       fieldId="login"
-      label="Username"
+      [label]="'authorize.signUp.userName' | translate"
       [textBefore]="userBeforeTextTmp"
       [control]="form.controls.login"
     ></app-reactive-input>
     <app-reactive-input
       fieldId="password"
-      label="Password"
+      [label]="'authorize.signUp.password' | translate"
       [textBefore]="passwordBeforeTextTmp"
       [control]="form.controls.password"
     ></app-reactive-input>
   </form>
-  <app-button class="align-self-end" type="primary" label="Sign up" [action$]="signUp$"></app-button>
+  <app-button
+    class="align-self-end"
+    type="primary"
+    [label]="'authorize.signUp.signUp' | translate"
+    [action$]="signUp$"
+  ></app-button>
 </div>
 
 <ng-template #userBeforeTextTmp>

@@ -6,9 +6,18 @@ import { NzSelectModule } from 'ng-zorro-antd/select';
 import { ExecuteWithModule } from '@pipes/execute-with';
 import { NzFormModule } from 'ng-zorro-antd/form';
 import { ReactiveFormsModule } from '@angular/forms';
+import { NzInputModule } from 'ng-zorro-antd/input';
 
 @NgModule({
-  imports: [CommonModule, NzGridModule, NzSelectModule, ExecuteWithModule, NzFormModule, ReactiveFormsModule],
+  imports: [
+    CommonModule,
+    NzGridModule,
+    NzSelectModule,
+    ExecuteWithModule,
+    NzFormModule,
+    ReactiveFormsModule,
+    NzInputModule,
+  ],
   exports: [ReactiveSelectComponent],
   declarations: [ReactiveSelectComponent],
 })
