@@ -4,7 +4,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Nullable } from '@customTypes/nullable.type';
 import { AppValidators } from '@validators/app-validators.class';
-import { GET_WORDS_COUNT, PATTERN } from '@utils/constants';
+import { GET_WORDS_COUNT, PATTERN } from '@utils/constants/form.constant';
 import { NotificationService } from '@services/notification';
 
 @Component({

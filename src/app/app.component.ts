@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { getLocale$ } from '@utils/functions/locale';
-import { Locale } from '@utils/constants';
+import { Locale } from '@utils/constants/locale.constant';
 import { Nullable } from '@customTypes/nullable.type';
 
 @Component({

@@ -15,7 +15,7 @@ import { NzImageService } from 'ng-zorro-antd/image';
 import { MenuService, NzIsMenuInsideDropDownToken } from 'ng-zorro-antd/menu';
 import { NzModalService } from 'ng-zorro-antd/modal';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
-import { Locale } from './utils/constants';
+import { Locale } from './utils/constants/locale.constant';
 import { LocaleEn, LocaleRu } from '../assets/locale';
 import { ExecuteWithModule } from '@pipes/execute-with';
 

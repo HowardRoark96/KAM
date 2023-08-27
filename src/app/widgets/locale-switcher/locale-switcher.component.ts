@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { createOptionsForLocalizedEnum } from '@utils/functions/create-options';
-import { Locale, LOCALE_NZ_I18N_MAP } from '@utils/constants';
+import { Locale, LOCALE_NZ_I18N_MAP } from '@utils/constants/locale.constant';
 import { NzI18nService } from 'ng-zorro-antd/i18n';
 
 @Component({

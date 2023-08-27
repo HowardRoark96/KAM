@@ -5,7 +5,7 @@ import { NzSizeLDSType } from 'ng-zorro-antd/core/types/size';
 import { NzStatus } from 'ng-zorro-antd/core/types';
 import { NzFormTooltipIcon } from 'ng-zorro-antd/form/form-label.component';
 import { NzLabelAlignType } from 'ng-zorro-antd/form/form.directive';
-import { DEFAULT_TOOLTIP_ICON, VALIDATION_ERRORS } from '@utils/constants';
+import { DEFAULT_TOOLTIP_ICON, VALIDATION_ERRORS } from '@utils/constants/form.constant';
 
 @Directive()
 export abstract class ReactiveComponent {

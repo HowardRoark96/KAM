@@ -3,7 +3,7 @@ import get from 'lodash-es/get';
 import { NzI18nService } from 'ng-zorro-antd/i18n';
 import { Observable, of } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
-import { Locale } from '../../constants';
+import { Locale } from '../../constants/locale.constant';
 import { Nullable } from '@customTypes/nullable.type';
 
 export type NestedKeys<ObjectType extends object> = {
