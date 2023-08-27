@@ -6,6 +6,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ReactiveInputModule } from '@widgets/reactive-fields/reactive-input';
 import { ReactiveTextareaModule } from '@widgets/reactive-fields/reactive-textarea';
 import { ButtonModule } from '@widgets/button';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   imports: [
@@ -15,6 +16,7 @@ import { ButtonModule } from '@widgets/button';
     ReactiveInputModule,
     ReactiveTextareaModule,
     ButtonModule,
+    TranslateModule,
   ],
   declarations: [ContactComponent],
 })

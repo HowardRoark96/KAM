@@ -14,16 +14,16 @@ export class MainComponent {
   isCollapsed = false;
 
   SIDEBAR_MENU_ITEMS: SidebarItem[] = [
-    { label: 'Home', icon: 'home', title: 'Home page', link: 'home' },
-    { label: 'About', icon: 'file-search', title: 'About page', link: 'about' },
-    { label: 'Media', icon: 'customer-service', title: 'Media page', link: 'media' },
-    { label: 'FAQ', icon: 'bulb', title: 'FAQ page', link: 'faq' },
-    { label: 'Download', icon: 'download', title: 'Download page', link: 'download' },
-    { label: 'Contributing', icon: 'team', title: 'Contributing page', link: 'contributing' },
-    { label: 'Links', icon: 'link', title: 'Links page', link: 'links' },
-    { label: 'Contact', icon: 'contacts', title: 'Contact page', link: 'contact' },
-    { label: 'Servers', icon: 'database', title: 'Servers page', link: 'servers' },
-    { label: 'Devblog', icon: 'fork', title: 'Devblog page', link: 'devblog' },
+    { label: 'page.home', icon: 'home', title: 'Home page', link: 'home' },
+    { label: 'page.about', icon: 'file-search', title: 'About page', link: 'about' },
+    { label: 'page.media', icon: 'customer-service', title: 'Media page', link: 'media' },
+    { label: 'page.faq', icon: 'bulb', title: 'FAQ page', link: 'faq' },
+    { label: 'page.download', icon: 'download', title: 'Download page', link: 'download' },
+    { label: 'page.contributing', icon: 'team', title: 'Contributing page', link: 'contributing' },
+    { label: 'page.links', icon: 'link', title: 'Links page', link: 'links' },
+    { label: 'page.contact', icon: 'contacts', title: 'Contact page', link: 'contact' },
+    { label: 'page.servers', icon: 'database', title: 'Servers page', link: 'servers' },
+    { label: 'page.devblog', icon: 'fork', title: 'Devblog page', link: 'devblog' },
   ];
 
   logout = () => {

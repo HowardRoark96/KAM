@@ -1,0 +1,15 @@
+<app-reactive-select
+  noMarginBottom
+  [isAllowClear]="false"
+  [customTemplate]="localeOptionTmpl"
+  [options]="localeOptions"
+  [control]="localeFormControl"
+  (valueChange)="onLocaleChange($event)"
+></app-reactive-select>
+
+<ng-template #localeOptionTmpl let-option>
+  <div class="d-flex gap-1">
+    <span [class]="'fi fi-' + option.nzValue"></span>
+    <span>({{ option.nzLabel }}) {{ 'locale.' + option.nzValue | translate }}</span>
+  </div>
+</ng-template>

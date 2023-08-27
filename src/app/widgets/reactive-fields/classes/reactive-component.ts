@@ -32,6 +32,14 @@ export abstract class ReactiveComponent {
   @Input() autocomplete: 'on' | 'off' = 'off';
   @Output() valueChange = new EventEmitter();
 
+  private _noMarginBottom: Nullable<boolean>;
+  @Input() set noMarginBottom(prop: unknown) {
+    this._noMarginBottom = prop === '' || !!prop;
+  }
+  get noMarginBottom(): Nullable<boolean> {
+    return this._noMarginBottom;
+  }
+
   get hasRequiredValidator() {
     if (!this.control?.validator) return false;
     return this.control.validator({} as AbstractControl)?.required;
