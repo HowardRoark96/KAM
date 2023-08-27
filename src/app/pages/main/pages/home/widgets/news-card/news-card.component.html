@@ -7,7 +7,7 @@
 ></app-card>
 
 <ng-template #cardTitleTmpl>
-  <div class="d-flex flex-column gap-2">
+  <div class="d-flex flex-column gap-2 card-title">
     <div class="d-flex gap-2 align-items-center">
       <nz-avatar nzSize="small" [nzSrc]="news?.user?.avatar"></nz-avatar>
       <span class="text-grey-3 font-size-14 font-weight-normal">{{ news?.user?.login ?? 'Anonymous' }}</span>

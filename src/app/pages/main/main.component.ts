@@ -1,5 +1,6 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { SidebarItem } from '@widgets/sidebar/sidebar.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-main',
@@ -8,6 +9,8 @@ import { SidebarItem } from '@widgets/sidebar/sidebar.component';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class MainComponent {
+  readonly router = inject(Router);
+
   isCollapsed = false;
 
   SIDEBAR_MENU_ITEMS: SidebarItem[] = [
@@ -22,4 +25,8 @@ export class MainComponent {
     { label: 'Servers', icon: 'database', title: 'Servers page', link: 'servers' },
     { label: 'Devblog', icon: 'fork', title: 'Devblog page', link: 'devblog' },
   ];
+
+  logout = () => {
+    this.router.navigate(['../authorize']);
+  };
 }

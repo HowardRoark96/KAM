@@ -1,12 +1,19 @@
-<nz-layout>
-  <nz-sider nzCollapsible [nzCollapsedWidth]="80" (nzCollapsedChange)="isCollapsed = $event">
-    <img *ngIf="!isCollapsed" class="p-5" src="assets/logo.png" alt="Logo" />
-    <app-sidebar themeType="dark" [sidebarItems]="SIDEBAR_MENU_ITEMS" [isCollapsed]="isCollapsed"></app-sidebar>
-  </nz-sider>
-  <nz-layout>
+<nz-layout class="d-flex flex-column">
+  <nz-header class="w-100 d-flex content-end">
+    <app-button type="primary" label="Logout" leftIcon="logout" [action$]="logout"></app-button>
+  </nz-header>
+
+  <nz-layout class="mt-16">
+    <nz-sider nzCollapsible [nzCollapsedWidth]="80" (nzCollapsedChange)="isCollapsed = $event">
+      <app-sidebar themeType="dark" [sidebarItems]="SIDEBAR_MENU_ITEMS" [isCollapsed]="isCollapsed"></app-sidebar>
+    </nz-sider>
     <nz-content class="p-10" [ngClass]="isCollapsed ? 'sidebar-collapsed' : 'sidebar-expanded'">
-      <div class="p-10 h-100"><router-outlet></router-outlet></div>
+      <router-outlet></router-outlet>
     </nz-content>
-    <nz-footer>Footer</nz-footer>
   </nz-layout>
+
+  <nz-footer>
+    <span nz-icon nzType="copyright" nzTheme="outline"></span>
+    Knights and Merchants Remake
+  </nz-footer>
 </nz-layout>
