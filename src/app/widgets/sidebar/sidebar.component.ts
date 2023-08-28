@@ -23,12 +23,11 @@ export class SidebarComponent {
   @Input() themeType: NzMenuThemeType = 'light';
   @Input() modeType: NzMenuModeType = 'inline';
   @Input() tooltipPlacement: 'top' | 'right' | 'bottom' | 'left' = 'right';
-  @Input() spacerPx = 32;
-  @Input() sidebarWidthPx = 240;
+  @Input() spacerPx = 16;
+  @Input() sidebarWidthPx = 280;
 
   collapseSidebar = () => {
     this.isCollapsed = !this.isCollapsed;
-    return;
   };
 
   selectMenuItem = () => {};

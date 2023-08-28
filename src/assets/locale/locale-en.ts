@@ -1,17 +1,63 @@
 import { LocaleInterface } from './locale.interface';
 
 export const LocaleEn: LocaleInterface = {
-  page: {
-    about: 'About',
-    contact: 'Contacts',
-    contributing: 'Contributing',
-    devblog: 'Devblog',
-    download: 'Download',
-    faq: 'FAQ',
-    home: 'Home',
-    links: 'Links',
-    media: 'Media',
-    servers: 'Servers',
+  PAGE: {
+    ADMINISTRATION: {
+      LBL: 'Administration',
+      TTL: 'Administration page',
+      USERS: {
+        LBL: 'Users',
+        TTL: 'Users page',
+      },
+      ROLES: {
+        LBL: 'Roles',
+        TTL: 'Roles page',
+      },
+      PERMISSIONS: {
+        LBL: 'Permissions',
+        TTL: 'Permissions page',
+      },
+    },
+    ABOUT: {
+      LBL: 'About',
+      TTL: 'About page',
+    },
+    CONTACTS: {
+      LBL: 'Contacts',
+      TTL: 'Contacts page',
+    },
+    CONTRIBUTING: {
+      LBL: 'Contributing',
+      TTL: 'Contributing page',
+    },
+    DEVBLOG: {
+      LBL: 'Devblog',
+      TTL: 'Devblog page',
+    },
+    DOWNLOAD: {
+      LBL: 'Download',
+      TTL: 'Download page',
+    },
+    FAQ: {
+      LBL: 'FAQ',
+      TTL: 'FAQ page',
+    },
+    LINKS: {
+      LBL: 'Links',
+      TTL: 'Links page',
+    },
+    HOME: {
+      LBL: 'Home',
+      TTL: 'Home page',
+    },
+    MEDIA: {
+      LBL: 'Media',
+      TTL: 'Media page',
+    },
+    SERVERS: {
+      LBL: 'Servers',
+      TTL: 'Servers page',
+    },
   },
   authorize: {
     recoverAccount: {

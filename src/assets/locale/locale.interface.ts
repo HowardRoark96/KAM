@@ -1,15 +1,61 @@
 export interface LocaleInterface {
-  page: {
-    about: string;
-    contact: string;
-    contributing: string;
-    devblog: string;
-    download: string;
-    faq: string;
-    home: string;
-    links: string;
-    media: string;
-    servers: string;
+  PAGE: {
+    ADMINISTRATION: {
+      LBL: string;
+      TTL: string;
+      USERS: {
+        LBL: string;
+        TTL: string;
+      };
+      ROLES: {
+        LBL: string;
+        TTL: string;
+      };
+      PERMISSIONS: {
+        LBL: string;
+        TTL: string;
+      };
+    };
+    ABOUT: {
+      LBL: string;
+      TTL: string;
+    };
+    CONTACTS: {
+      LBL: string;
+      TTL: string;
+    };
+    CONTRIBUTING: {
+      LBL: string;
+      TTL: string;
+    };
+    DEVBLOG: {
+      LBL: string;
+      TTL: string;
+    };
+    DOWNLOAD: {
+      LBL: string;
+      TTL: string;
+    };
+    FAQ: {
+      LBL: string;
+      TTL: string;
+    };
+    LINKS: {
+      LBL: string;
+      TTL: string;
+    };
+    HOME: {
+      LBL: string;
+      TTL: string;
+    };
+    MEDIA: {
+      LBL: string;
+      TTL: string;
+    };
+    SERVERS: {
+      LBL: string;
+      TTL: string;
+    };
   };
   authorize: {
     recoverAccount: {

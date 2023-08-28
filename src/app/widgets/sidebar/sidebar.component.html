@@ -19,10 +19,9 @@
       nz-menu-item
       nz-tooltip
       [nzTooltipPlacement]="tooltipPlacement"
-      [nzTooltipTitle]="isCollapsed ? item.title ?? item.label : null"
+      [nzTooltipTitle]="isCollapsed ? (item.title ?? item.label | translate) : null"
       [nzPaddingLeft]="level * spacerPx"
       [nzDisabled]="item.disabled"
-      [nzSelected]="item.selected"
       [nzMatchRouter]="!!item.link"
       [nzMatchRouterExact]="!!item.link"
     >
@@ -37,7 +36,7 @@
       nz-submenu
       [nzPaddingLeft]="level * spacerPx"
       [nzOpen]="item.open"
-      [nzTitle]="item.title | translate"
+      [nzTitle]="item.label | translate"
       [nzIcon]="item.icon"
       [nzDisabled]="item.disabled"
     >

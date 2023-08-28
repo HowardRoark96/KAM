@@ -14,16 +14,42 @@ export class MainComponent {
   isCollapsed = false;
 
   SIDEBAR_MENU_ITEMS: SidebarItem[] = [
-    { label: 'page.home', icon: 'home', title: 'Home page', link: 'home' },
-    { label: 'page.about', icon: 'file-search', title: 'About page', link: 'about' },
-    { label: 'page.media', icon: 'customer-service', title: 'Media page', link: 'media' },
-    { label: 'page.faq', icon: 'bulb', title: 'FAQ page', link: 'faq' },
-    { label: 'page.download', icon: 'download', title: 'Download page', link: 'download' },
-    { label: 'page.contributing', icon: 'team', title: 'Contributing page', link: 'contributing' },
-    { label: 'page.links', icon: 'link', title: 'Links page', link: 'links' },
-    { label: 'page.contact', icon: 'contacts', title: 'Contact page', link: 'contact' },
-    { label: 'page.servers', icon: 'database', title: 'Servers page', link: 'servers' },
-    { label: 'page.devblog', icon: 'fork', title: 'Devblog page', link: 'devblog' },
+    {
+      label: 'PAGE.ADMINISTRATION.LBL',
+      title: 'PAGE.ADMINISTRATION.TTL',
+      link: 'administration',
+      icon: 'setting',
+      children: [
+        {
+          label: 'PAGE.ADMINISTRATION.USERS.LBL',
+          title: 'PAGE.ADMINISTRATION.USERS.TTL',
+          link: 'administration/users',
+          icon: 'team',
+        },
+        {
+          label: 'PAGE.ADMINISTRATION.ROLES.LBL',
+          title: 'PAGE.ADMINISTRATION.ROLES.TTL',
+          link: 'administration/roles',
+          icon: 'partition',
+        },
+        {
+          label: 'PAGE.ADMINISTRATION.PERMISSIONS.LBL',
+          title: 'PAGE.ADMINISTRATION.PERMISSIONS.TTL',
+          link: 'administration/permissions',
+          icon: 'tool',
+        },
+      ],
+    },
+    { label: 'PAGE.HOME.LBL', icon: 'home', title: 'PAGE.HOME.TTL', link: 'home' },
+    { label: 'PAGE.ABOUT.LBL', icon: 'file-search', title: 'PAGE.ABOUT.TTL', link: 'about' },
+    { label: 'PAGE.MEDIA.LBL', icon: 'customer-service', title: 'PAGE.MEDIA.TTL', link: 'media' },
+    { label: 'PAGE.FAQ.LBL', icon: 'bulb', title: 'PAGE.FAQ.TTL', link: 'faq' },
+    { label: 'PAGE.DOWNLOAD.LBL', icon: 'download', title: 'PAGE.DOWNLOAD.TTL', link: 'download' },
+    { label: 'PAGE.CONTRIBUTING.LBL', icon: 'team', title: 'PAGE.CONTRIBUTING.TTL', link: 'contributing' },
+    { label: 'PAGE.LINKS.LBL', icon: 'link', title: 'PAGE.LINKS.TTL', link: 'links' },
+    { label: 'PAGE.CONTACTS.LBL', icon: 'contacts', title: 'PAGE.CONTACTS.TTL', link: 'contact' },
+    { label: 'PAGE.SERVERS.LBL', icon: 'database', title: 'PAGE.SERVERS.TTL', link: 'servers' },
+    { label: 'PAGE.DEVBLOG.LBL', icon: 'fork', title: 'PAGE.DEVBLOG.TTL', link: 'devblog' },
   ];
 
   logout = () => {

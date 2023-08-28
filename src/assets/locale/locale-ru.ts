@@ -1,17 +1,63 @@
 import { LocaleInterface } from './locale.interface';
 
 export const LocaleRu: LocaleInterface = {
-  page: {
-    about: 'О проекте',
-    contact: 'Контакты',
-    contributing: 'Помощь проекту',
-    devblog: 'Разработка',
-    download: 'Загрузки',
-    faq: 'FAQ',
-    home: 'Главная',
-    links: 'Полезные ссылки',
-    media: 'Медиа',
-    servers: 'Серверы',
+  PAGE: {
+    ADMINISTRATION: {
+      LBL: 'Администрирование',
+      TTL: 'Страница "Администрирование"',
+      USERS: {
+        LBL: 'Пользователи',
+        TTL: 'Страница "Пользователи"',
+      },
+      ROLES: {
+        LBL: 'Роли',
+        TTL: 'Страница "Роли"',
+      },
+      PERMISSIONS: {
+        LBL: 'Права',
+        TTL: 'Страница "Права"',
+      },
+    },
+    ABOUT: {
+      LBL: 'О проекте',
+      TTL: 'Страница "О проекте"',
+    },
+    CONTACTS: {
+      LBL: 'Контакты',
+      TTL: 'Страница "Контакты"',
+    },
+    CONTRIBUTING: {
+      LBL: 'Помощь проекту',
+      TTL: 'Страница "Помощь проекту"',
+    },
+    DEVBLOG: {
+      LBL: 'Разработка',
+      TTL: 'Страница "Разработка"',
+    },
+    DOWNLOAD: {
+      LBL: 'Загрузки',
+      TTL: 'Страница "Загрузки"',
+    },
+    FAQ: {
+      LBL: 'FAQ',
+      TTL: 'Страница "FAQ"',
+    },
+    LINKS: {
+      LBL: 'Полезные ссылки',
+      TTL: 'Страница "Полезные ссылки"',
+    },
+    HOME: {
+      LBL: 'Главная',
+      TTL: 'Страница "Главная"',
+    },
+    MEDIA: {
+      LBL: 'Медиа',
+      TTL: 'Страница "Медиа"',
+    },
+    SERVERS: {
+      LBL: 'Серверы',
+      TTL: 'Страница "Серверы"',
+    },
   },
   authorize: {
     recoverAccount: {

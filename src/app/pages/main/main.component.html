@@ -5,7 +5,7 @@
   </nz-header>
 
   <nz-layout class="mt-16">
-    <nz-sider nzCollapsible [nzCollapsedWidth]="80" (nzCollapsedChange)="isCollapsed = $event">
+    <nz-sider nzCollapsible [nzCollapsedWidth]="50" [nzWidth]="220" (nzCollapsedChange)="isCollapsed = $event">
       <app-sidebar themeType="dark" [sidebarItems]="SIDEBAR_MENU_ITEMS" [isCollapsed]="isCollapsed"></app-sidebar>
     </nz-sider>
     <nz-content class="p-10" [ngClass]="isCollapsed ? 'sidebar-collapsed' : 'sidebar-expanded'">
