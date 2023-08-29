@@ -22,19 +22,17 @@
     "allowSyntheticDefaultImports": true,
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
-    "lib": [
-      "ES2022",
-      "dom"
-    ],
+    "lib": ["ES2022", "dom"],
     "paths": {
+      "@api/*": ["src/app/api/*"],
+      "@customTypes/*": ["src/app/types/*"],
       "@directives/*": ["src/app/directives/*"],
       "@interceptors/*": ["src/app/interceptors/*"],
       "@pipes/*": ["src/app/pipes/*"],
       "@utils/*": ["src/app/utils/*"],
       "@widgets/*": ["src/app/widgets/*"],
       "@validators/*": ["src/app/validators/*"],
-      "@services/*": ["src/app/services/*"],
-      "@customTypes/*": ["src/app/types/*"]
+      "@services/*": ["src/app/services/*"]
     },
     "resolveJsonModule": true,
     "allowSyntheticDefaultImports": true,

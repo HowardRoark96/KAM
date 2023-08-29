@@ -92,6 +92,9 @@ export const LocaleEn: LocaleInterface = {
       signUp: 'Sign up',
     },
   },
+  COMMON: {
+    GRID_TOTAL_ITEMS_LEGEND: '{{from}}-{{to}} of {{items}}',
+  },
   locale: {
     us: 'English',
     ru: 'Russian',

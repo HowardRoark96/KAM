@@ -1,0 +1,51 @@
+:host::ng-deep {
+  .hide-scroll-bar-on-no-rows {
+    .ag-body-horizontal-scroll {
+      display: none;
+    }
+    .ag-center-cols-clipper {
+      min-height: 80px !important;
+    }
+  }
+
+  .ps__rail-x,
+  .ps__rail-y {
+    opacity: 1;
+  }
+
+  .ps__rail-y {
+    left: unset !important;
+    right: 0 !important;
+  }
+
+  .ag-center-cols-viewport::-webkit-scrollbar {
+    display: none;
+  }
+
+  .ag-body-horizontal-scroll,
+  .ag-body-horizontal-scroll-viewport {
+    border-top: 1px solid var(--tui-base-03);
+    height: 8px !important;
+    max-height: 8px !important;
+    min-height: 8px !important;
+
+    &::-webkit-scrollbar {
+      height: 8px !important;
+      background-color: transparent !important;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: #adb5bd;
+      border-radius: 8px;
+
+      &:active {
+        background-color: #adb5bd;
+      }
+    }
+  }
+
+  .ag-horizontal-right-spacer,
+  .ag-horizontal-left-spacer {
+    overflow: hidden;
+  }
+}

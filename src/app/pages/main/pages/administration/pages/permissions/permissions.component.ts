@@ -1,4 +1,25 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { PermissionsService } from '@api/services';
+import { PermissionDto } from '@api/model';
+import { exactWidth, widthColDef } from '@widgets/grid/utils';
+import { AppGridOptions, GridGetDataCallback } from '@widgets/grid';
+
+const GRID_OPTIONS: AppGridOptions<PermissionDto> = {
+  defaultColDef: { sortable: true },
+  columnDefs: [
+    {
+      field: 'id',
+      headerName: 'ID',
+      headerClass: 'text-center',
+      cellClass: 'text-center',
+      initialPinned: 'left',
+      lockPinned: true,
+      ...exactWidth(75),
+    },
+    { field: 'code', headerName: 'Permission code', ...widthColDef(300, 300) },
+    { field: 'description.ru', headerName: 'Permission description', flex: 1 },
+  ],
+};
 
 @Component({
   selector: 'app-permissions',
@@ -6,4 +27,11 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   styleUrls: ['./permissions.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PermissionsComponent {}
+export class PermissionsComponent {
+  private readonly permissionsService = inject(PermissionsService);
+
+  gridOptions = { ...GRID_OPTIONS, context: this };
+
+  getData$: GridGetDataCallback<PermissionDto, 'id' | 'code' | 'description'> = (pagination) =>
+    this.permissionsService.getPermissionsList(pagination.page, pagination.perPage);
+}

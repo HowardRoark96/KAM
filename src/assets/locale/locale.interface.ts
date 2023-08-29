@@ -90,6 +90,9 @@ export interface LocaleInterface {
       signUp: string;
     };
   };
+  COMMON: {
+    GRID_TOTAL_ITEMS_LEGEND: string;
+  };
 
   locale: {
     us: string;
