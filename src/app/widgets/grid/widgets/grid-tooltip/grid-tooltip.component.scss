@@ -1,0 +1,20 @@
+.tooltip {
+  position: relative;
+  top: 5px;
+  left: 10px;
+  transition: opacity 0.6s ease-out;
+  animation: tooltipFadeIn 0.6s ease-in;
+}
+
+:host.ag-tooltip-hiding .tooltip {
+  opacity: 0;
+}
+
+@keyframes tooltipFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

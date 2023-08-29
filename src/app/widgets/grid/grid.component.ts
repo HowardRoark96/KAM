@@ -9,9 +9,7 @@ import {
   Output,
   SimpleChanges,
 } from '@angular/core';
-import { Nullable } from '@customTypes/nullable.type';
-import { ColDef, GetRowIdFunc, GridOptions, GridReadyEvent, SortChangedEvent } from 'ag-grid-community';
-import { NoRowsOverlayComponent } from './widgets/no-rows-overlay/no-rows-overlay.component';
+import { FormControl } from '@angular/forms';
 import {
   AppGridOptions,
   GridGetDataCallback,
@@ -21,11 +19,14 @@ import {
   PaginatedResult,
   RowDataSource,
 } from './grid.interfaces';
-import { GridTheme } from '@widgets/grid/utils';
 import { isObservable, Observable, of, tap } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { Nullable } from '@customTypes/nullable.type';
+import { ColDef, GetRowIdFunc, GridOptions, GridReadyEvent, SortChangedEvent } from 'ag-grid-community';
+import { NoRowsOverlayComponent } from './widgets/no-rows-overlay';
+import { GridTooltipComponent } from './widgets/grid-tooltip';
+import { GridTheme } from '@widgets/grid/utils';
 import { capitalizeFirstLetter } from '@utils/functions/capitalize-first-letter';
-import { FormControl } from '@angular/forms';
 
 interface FetchDataOptions {
   resetPage?: boolean;
@@ -100,8 +101,7 @@ export class GridComponent<TModel = unknown, TModelFields = unknown> implements 
     comparator: () => 0,
     unSortIcon: true,
     singleClickEdit: true,
-    // TODO: Needs to implement `tooltipComponent`
-    tooltipComponent: null,
+    tooltipComponent: GridTooltipComponent,
     tooltipValueGetter: (value) => value,
     minWidth: 80,
   };
