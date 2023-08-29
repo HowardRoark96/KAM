@@ -3,6 +3,7 @@ import { PermissionsService } from '@api/services';
 import { PermissionDto } from '@api/model';
 import { exactWidth, widthColDef } from '@widgets/grid/utils';
 import { AppGridOptions, GridGetDataCallback } from '@widgets/grid';
+import { tagCellDef } from '@widgets/grid/renders/tag-cell';
 
 const GRID_OPTIONS: AppGridOptions<PermissionDto> = {
   defaultColDef: { sortable: true },
@@ -16,8 +17,13 @@ const GRID_OPTIONS: AppGridOptions<PermissionDto> = {
       lockPinned: true,
       ...exactWidth(75),
     },
-    { field: 'code', headerName: 'Permission code', ...widthColDef(300, 300) },
-    { field: 'description.ru', headerName: 'Permission description', flex: 1 },
+    {
+      field: 'code',
+      headerName: 'Permission code',
+      ...widthColDef(200, 200),
+      ...tagCellDef({ valueAsLabel: true, color: 'magenta' }),
+    },
+    { field: 'description.us', headerName: 'Permission description', flex: 1 },
   ],
 };
 
