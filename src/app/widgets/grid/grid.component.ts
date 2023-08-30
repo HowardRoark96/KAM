@@ -145,7 +145,6 @@ export class GridComponent<TModel = unknown, TModelFields = unknown> implements 
   }
 
   resetPage() {
-    this.pageIndex = 1;
     this.cdr.markForCheck();
   }
 

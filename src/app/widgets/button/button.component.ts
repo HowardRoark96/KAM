@@ -23,6 +23,7 @@ export class ButtonComponent {
   @Input() leftIcon: Nullable<string>;
   @Input() rightIcon: Nullable<string>;
   @Input() theme: 'fill' | 'outline' | 'twotone' = 'outline';
+  @Input() twotoneColor?: string;
   @Input() action$: Nullable<() => Nullable<Observable<unknown> | void>>;
   /* Link props */
   @Input() linkTarget: LinkTarget = '_self';

@@ -12,6 +12,7 @@ export const LocaleEn: LocaleInterface = {
       ROLES: {
         LBL: 'Roles',
         TTL: 'Roles page',
+        DELETE_CONTENT: 'Are you sure delete this role?',
       },
       PERMISSIONS: {
         LBL: 'Permissions',
@@ -94,6 +95,14 @@ export const LocaleEn: LocaleInterface = {
   },
   COMMON: {
     GRID_TOTAL_ITEMS_LEGEND: '{{from}}-{{to}} of {{items}}',
+    BUTTON: {
+      YES: 'Yes',
+      NO: 'No',
+      CANCEL: 'Cancel',
+    },
+    MODAL: {
+      CONFIRM: 'Confirmation',
+    },
   },
   locale: {
     us: 'English',

@@ -12,6 +12,7 @@ export const LocaleRu: LocaleInterface = {
       ROLES: {
         LBL: 'Роли',
         TTL: 'Страница "Роли"',
+        DELETE_CONTENT: 'Вы уверены, что хотите удалить роль?',
       },
       PERMISSIONS: {
         LBL: 'Права',
@@ -94,6 +95,14 @@ export const LocaleRu: LocaleInterface = {
   },
   COMMON: {
     GRID_TOTAL_ITEMS_LEGEND: '{{from}}-{{to}} из {{items}}',
+    BUTTON: {
+      YES: 'Да',
+      NO: 'Нет',
+      CANCEL: 'Отмена',
+    },
+    MODAL: {
+      CONFIRM: 'Подтвердите действие',
+    },
   },
   locale: {
     us: 'Английский',

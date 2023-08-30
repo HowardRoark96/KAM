@@ -10,6 +10,7 @@ export interface LocaleInterface {
       ROLES: {
         LBL: string;
         TTL: string;
+        DELETE_CONTENT: string;
       };
       PERMISSIONS: {
         LBL: string;
@@ -92,6 +93,14 @@ export interface LocaleInterface {
   };
   COMMON: {
     GRID_TOTAL_ITEMS_LEGEND: string;
+    BUTTON: {
+      YES: string;
+      NO: string;
+      CANCEL: string;
+    };
+    MODAL: {
+      CONFIRM: string;
+    };
   };
 
   locale: {

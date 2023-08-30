@@ -1,6 +1,6 @@
 import { ColDef } from 'ag-grid-community';
 
-export const widthColDef = (
+export const getWidthColDef = (
   initialWidth: number,
   minWidth?: number,
   maxWidth?: number,
