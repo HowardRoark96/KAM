@@ -8,7 +8,6 @@ import { ICellRendererParams } from 'ag-grid-community';
   templateUrl: './country-cell.component.html',
   styleUrls: ['./country-cell.component.scss'],
   standalone: true,
-  imports: [],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CountryCellComponent implements ICellRendererAngularComp {

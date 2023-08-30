@@ -1,3 +1,2 @@
-export * from './permissions';
-export * from './roles';
-export * from './users';
+export * from './permissions.mock';
+export * from './roles.mock';

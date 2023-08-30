@@ -21,7 +21,7 @@ const GRID_OPTIONS: AppGridOptions<PermissionDto> = {
       field: 'code',
       headerName: 'Permission code',
       ...widthColDef(200, 200),
-      ...tagCellDef({ valueAsLabel: true, color: 'magenta' }),
+      ...tagCellDef({ valueAsLabel: true, colorTag: 'magenta' }),
     },
     { field: 'description.us', headerName: 'Permission description', flex: 1 },
   ],

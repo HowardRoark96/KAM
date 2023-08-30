@@ -7,9 +7,9 @@ import { NzPresetColor, NzStatusColor } from 'ng-zorro-antd/core/color';
 export interface TagCellConfig {
   labelMap?: Nullable<Record<string, string>>;
   valueAsLabel?: boolean;
-  tagStatusMap?: Record<string, string | NzStatusColor | NzPresetColor>;
   icon?: Nullable<string>;
-  color?: Nullable<string | NzStatusColor | NzPresetColor>;
+  colorTagMap?: Record<string, string | NzStatusColor | NzPresetColor>;
+  colorTag?: string | NzStatusColor | NzPresetColor;
 }
 
 @Component({
@@ -36,7 +36,7 @@ export class TagCellComponent implements ICellRendererAngularComp {
 
   private refreshView(params: ICellRendererParams & TagCellConfig) {
     this.icon = params.icon;
-    this.color = params.color;
+    this.color = params.colorTagMap?.[params.value] || params.colorTag;
     this.value = params.valueAsLabel ? params.value : params.labelMap?.[params.value];
 
     this.cdr.markForCheck();

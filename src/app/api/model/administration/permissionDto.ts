@@ -1,4 +1,4 @@
-import { PermissionCodeType } from '@api/model';
+import { PermissionCodeType } from '../../model/administration';
 
 export interface PermissionDto {
   id: number;

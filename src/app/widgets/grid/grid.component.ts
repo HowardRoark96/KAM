@@ -22,7 +22,7 @@ import {
 import { isObservable, Observable, of, tap } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Nullable } from '@customTypes/nullable.type';
-import { ColDef, GetRowIdFunc, GridOptions, GridReadyEvent, SortChangedEvent } from 'ag-grid-community';
+import { ColDef, GetRowIdFunc, GridReadyEvent, SortChangedEvent } from 'ag-grid-community';
 import { NoRowsOverlayComponent } from './widgets/no-rows-overlay';
 import { GridTooltipComponent } from './widgets/grid-tooltip';
 import { GridTheme } from '@widgets/grid/utils';
@@ -40,7 +40,7 @@ interface FetchDataOptions {
 })
 export class GridComponent<TModel = unknown, TModelFields = unknown> implements OnChanges {
   @Input() gridClass: Nullable<GridTheme> = 'ag-theme-alpine';
-  @Input() gridOptions: Nullable<GridOptions>;
+  @Input() gridOptions: Nullable<AppGridOptions<TModel>>;
   @Input() colDefs: Nullable<AppGridOptions['columnDefs']>;
   @Input() rowData: Nullable<RowDataSource<TModel, TModelFields>>;
   @Input()

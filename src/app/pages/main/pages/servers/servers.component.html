@@ -1,3 +1,1 @@
-<app-request-wrapper #dataList [request$]="getData$">
-  <app-grid [gridOptions]="gridOptions" [rowData]="$any(dataList.data)"></app-grid>
-</app-request-wrapper>
+<app-grid [gridOptions]="gridOptions" [rowData]="getData$"></app-grid>
