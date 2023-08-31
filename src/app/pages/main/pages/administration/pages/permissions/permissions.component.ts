@@ -34,7 +34,7 @@ const GRID_OPTIONS: AppGridOptions<PermissionDto> = {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PermissionsComponent {
-  private readonly permissionsService = inject(PermissionsService);
+  readonly permissionsService = inject(PermissionsService);
 
   gridOptions = { ...GRID_OPTIONS, context: this };
 

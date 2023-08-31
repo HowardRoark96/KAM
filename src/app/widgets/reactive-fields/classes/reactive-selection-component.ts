@@ -5,13 +5,13 @@ import {
   NzFilterOptionType,
   NzSelectItemInterface,
   NzSelectModeType,
-  NzSelectOptionInterface,
   NzSelectPlacementType,
 } from 'ng-zorro-antd/select/select.types';
 import { NzSafeAny } from 'ng-zorro-antd/core/types';
+import { SelectOption } from '@utils/interfaces/select-option';
 
 @Directive()
-export abstract class ReactiveSelectionComponent extends ReactiveComponent {
+export abstract class ReactiveSelectionComponent<T = unknown> extends ReactiveComponent {
   @Input() isAutoClearSearch = false;
   @Input() isAllowClear = true;
   @Input() isBackdrop = false;
@@ -38,7 +38,7 @@ export abstract class ReactiveSelectionComponent extends ReactiveComponent {
   @Input() notFoundContent?: string | TemplateRef<void>;
   @Input() placement: NzSelectPlacementType = 'bottomLeft';
 
-  @Input() options: Nullable<NzSelectOptionInterface[]>;
+  @Input() options: Nullable<SelectOption<T>[]>;
   @Input() customTemplate: Nullable<TemplateRef<{ $implicit: NzSelectItemInterface }>>;
   @Input() maxTagPlaceholder: Nullable<TemplateRef<{ $implicit: NzSafeAny[] }>>;
 

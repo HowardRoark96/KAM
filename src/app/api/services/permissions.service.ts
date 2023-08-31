@@ -6,7 +6,10 @@ import { PermissionsMock } from '../mocks/administration';
 
 @Injectable({ providedIn: 'root' })
 export class PermissionsService {
-  getPermissionsList(page: number, perPage: number): Observable<PaginatedResultDto<PermissionDto>> {
+  getPermissionsList(page?: number, perPage?: number): Observable<PaginatedResultDto<PermissionDto>> {
+    if (!page) page = 1;
+    if (!perPage) perPage = PermissionsMock.length;
+
     const start = (page - 1) * perPage;
     const end = start + perPage;
 

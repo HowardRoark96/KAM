@@ -9,10 +9,13 @@ import { getActionCellDef } from '@widgets/grid/renders/action-cell';
 import { COLORS } from '@utils/constants/color.constant';
 import { NzModalService } from 'ng-zorro-antd/modal';
 import { TranslateService } from '@ngx-translate/core';
-import { tap } from 'rxjs';
+import { filter, tap } from 'rxjs';
 import { GridComponent } from '@widgets/grid/grid.component';
+import { RoleModalComponent } from './widgets/role-modal';
+import { Nullable } from '@customTypes/nullable.type';
+import { NotificationService } from '@services/notification';
 
-const ROLE_TYPE_COLOR_TAG_MAP: Record<RoleType, NzPresetColor> = {
+export const ROLE_TYPE_COLOR_TAG_MAP: Record<RoleType, NzPresetColor> = {
   [RoleType.SYSTEM]: 'red',
   [RoleType.USER]: 'geekblue',
 };
@@ -49,7 +52,7 @@ const GRID_OPTIONS = (context: RolesComponent): AppGridOptions<RoleDto> => ({
       ...getActionCellDef<RoleDto>({
         leftIcon: 'edit',
         theme: 'twotone',
-        getActionCallback$: () => context.getEditRoleCallback$(),
+        getActionCallback$: (data) => context.getEditRoleCallback$(data),
       }),
     },
     {
@@ -76,27 +79,62 @@ const GRID_OPTIONS = (context: RolesComponent): AppGridOptions<RoleDto> => ({
 export class RolesComponent {
   @ViewChild(GridComponent) grid?: GridComponent;
 
+  readonly PREFIX = 'PAGE.ADMINISTRATION.ROLES';
+
   readonly rolesService = inject(RolesService);
   readonly modal = inject(NzModalService);
   readonly translateService = inject(TranslateService);
+  readonly notificationService = inject(NotificationService);
 
   gridOptions = GRID_OPTIONS(this);
 
   getData$: GridGetDataCallback<RoleDto, 'id' | 'type' | 'name' | 'description'> = (pagination) =>
     this.rolesService.getRolesList(pagination.page, pagination.perPage);
 
-  getEditRoleCallback$ = () => () => {};
+  getCreateRoleCallback$ = () => {
+    return this.modal
+      .create<RoleModalComponent, null, RoleDto>({
+        nzTitle: this.translateService.instant(`${this.PREFIX}.CREATE`),
+        nzContent: RoleModalComponent,
+        nzWidth: 600,
+      })
+      .afterClose.pipe(
+        filter(Boolean),
+        tap(this.notificationService.onSuccess(this.translateService.instant(`${this.PREFIX}.SUCCESS_CREATE`))),
+        tap(this.notificationService.onError(this.translateService.instant(`${this.PREFIX}.ERROR_CREATE`))),
+      );
+  };
+
+  getEditRoleCallback$ = (role: Nullable<RoleDto>) => () => {
+    return this.modal
+      .create<RoleModalComponent, Nullable<RoleDto>, Nullable<RoleDto>>({
+        nzTitle: this.translateService.instant(`${this.PREFIX}.CREATE`),
+        nzContent: RoleModalComponent,
+        nzWidth: 600,
+        nzData: role,
+      })
+      .afterClose.pipe(
+        filter(Boolean),
+        tap(this.notificationService.onSuccess(this.translateService.instant(`${this.PREFIX}.SUCCESS_UPDATE`))),
+        tap(this.notificationService.onError(this.translateService.instant(`${this.PREFIX}.ERROR_UPDATE`))),
+      );
+  };
 
   getDeleteRoleCallback$ = () => () => {
     return this.modal
       .confirm({
         nzTitle: this.translateService.instant('COMMON.MODAL.CONFIRM'),
-        nzContent: this.translateService.instant('PAGE.ADMINISTRATION.ROLES.DELETE_CONTENT'),
+        nzIconType: 'delete',
+        nzContent: this.translateService.instant(`${this.PREFIX}.DELETE_CONTENT`),
         nzOkText: this.translateService.instant('COMMON.BUTTON.YES'),
         nzOkType: 'primary',
         nzOnOk: () => true,
         nzCancelText: this.translateService.instant('COMMON.BUTTON.NO'),
       })
-      .afterClose.pipe(tap(() => this.grid?.fetchData({ resetPage: true })));
+      .afterClose.pipe(
+        tap(() => this.grid?.fetchData({ resetPage: true })),
+        tap(this.notificationService.onSuccess(this.translateService.instant(`${this.PREFIX}.SUCCESS_DELETE`))),
+        tap(this.notificationService.onError(this.translateService.instant(`${this.PREFIX}.ERROR_DELETE`))),
+      );
   };
 }

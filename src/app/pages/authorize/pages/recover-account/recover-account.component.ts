@@ -31,7 +31,7 @@ export class RecoverAccountComponent {
 
     return of(this.form.value).pipe(
       delay(3000),
-      tap(this.notificationService.onSuccess({ content: 'Email has been sent to you to recover your account.' })),
+      tap(this.notificationService.onSuccess('Email has been sent to you to recover your account.')),
       tap(
         this.notificationService.onError({
           content: 'The user was not found. Check the correctness of the entered data or contact support.',

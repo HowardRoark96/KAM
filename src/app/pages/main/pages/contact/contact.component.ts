@@ -41,7 +41,7 @@ export class ContactComponent {
 
     return of(this.form.value).pipe(
       delay(3000),
-      tap(this.notificationService.onSuccess({ content: 'Your message sent successfully.' })),
+      tap(this.notificationService.onSuccess('Your message sent successfully.')),
     );
   };
 

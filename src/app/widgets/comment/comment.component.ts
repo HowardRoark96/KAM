@@ -146,7 +146,7 @@ export class CommentComponent {
         if (Array.isArray(parentComment)) parentComment.push(data);
         else parentComment.children ? parentComment.children.push(data) : (parentComment.children = [data]);
       }),
-      tap(this.notificationService.onSuccess({ content: 'Comment sent successfully.' })),
+      tap(this.notificationService.onSuccess('Comment sent successfully.')),
       tap(this.notificationService.onError()),
     );
   };

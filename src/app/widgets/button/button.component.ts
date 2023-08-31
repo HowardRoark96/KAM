@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, inject, Input } from '@angular/core';
 import { Nullable } from '@customTypes/nullable.type';
 import { NzButtonShape, NzButtonSize, NzButtonType } from 'ng-zorro-antd/button/button.component';
 import { Params } from '@angular/router';
@@ -12,6 +12,8 @@ import { finalize, isObservable, Observable } from 'rxjs';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ButtonComponent {
+  readonly cdr = inject(ChangeDetectorRef);
+
   @Input() label: Nullable<string>;
   @Input() type: NzButtonType = 'default';
   @Input() btnClass: Nullable<string | string[] | Set<string> | { [key: string]: unknown }>;
@@ -43,7 +45,7 @@ export class ButtonComponent {
       finalize(() => {
         this.actionCallback$ = null;
         this.isLoading = false;
-        // this.cdr.markForCheck();
+        this.cdr.markForCheck();
       }),
     );
   }

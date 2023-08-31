@@ -6,7 +6,10 @@ import { RolesMock } from '../mocks';
 
 @Injectable({ providedIn: 'root' })
 export class RolesService {
-  getRolesList(page: number, perPage: number): Observable<PaginatedResultDto<RoleDto>> {
+  getRolesList(page?: number, perPage?: number): Observable<PaginatedResultDto<RoleDto>> {
+    if (!page) page = 1;
+    if (!perPage) perPage = RolesMock.length;
+
     const start = (page - 1) * perPage;
     const end = start + perPage;
 

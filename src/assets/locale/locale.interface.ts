@@ -11,6 +11,17 @@ export interface LocaleInterface {
         LBL: string;
         TTL: string;
         DELETE_CONTENT: string;
+        CREATE: string;
+        NAME: string;
+        TYPE: string;
+        PERMISSIONS: string;
+        DESCRIPTION: string;
+        SUCCESS_CREATE: string;
+        ERROR_CREATE: string;
+        SUCCESS_UPDATE: string;
+        ERROR_UPDATE: string;
+        SUCCESS_DELETE: string;
+        ERROR_DELETE: string;
       };
       PERMISSIONS: {
         LBL: string;
@@ -97,6 +108,7 @@ export interface LocaleInterface {
       YES: string;
       NO: string;
       CANCEL: string;
+      CREATE: string;
     };
     MODAL: {
       CONFIRM: string;

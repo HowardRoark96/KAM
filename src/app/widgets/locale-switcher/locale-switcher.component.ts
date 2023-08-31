@@ -17,7 +17,7 @@ export class LocaleSwitcherComponent {
 
   localeOptions = createOptionsForLocalizedEnum(Locale).map((option) => ({
     ...option,
-    label: option.label?.toUpperCase(),
+    label: (option.label as string)?.toUpperCase(),
   }));
 
   onLocaleChange = (locale: Locale) => {
