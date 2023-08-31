@@ -29,7 +29,11 @@
 
 <div *nzModalFooter class="d-flex content-end gap-4">
   <app-button [label]="'COMMON.BUTTON.CANCEL' | translate" [action$]="closeModal"></app-button>
-  <app-button type="primary" [label]="'COMMON.BUTTON.CREATE' | translate" [action$]="create$"></app-button>
+  <app-button
+    type="primary"
+    [label]="(modalData?.mode === ModalModeType.CREATE ? 'COMMON.BUTTON.CREATE' : 'COMMON.BUTTON.UPDATE') | translate"
+    [action$]="create$"
+  ></app-button>
 </div>
 
 <ng-template #typeOptionTmpl let-selected>

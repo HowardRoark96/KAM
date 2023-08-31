@@ -12,6 +12,7 @@ export interface LocaleInterface {
         TTL: string;
         DELETE_CONTENT: string;
         CREATE: string;
+        EDIT: string;
         NAME: string;
         TYPE: string;
         PERMISSIONS: string;
@@ -109,6 +110,7 @@ export interface LocaleInterface {
       NO: string;
       CANCEL: string;
       CREATE: string;
+      UPDATE: string;
     };
     MODAL: {
       CONFIRM: string;

@@ -11,7 +11,7 @@ import { NzModalService } from 'ng-zorro-antd/modal';
 import { TranslateService } from '@ngx-translate/core';
 import { filter, tap } from 'rxjs';
 import { GridComponent } from '@widgets/grid/grid.component';
-import { RoleModalComponent } from './widgets/role-modal';
+import { ModalModeType, RoleModalComponent, RoleModalData } from './widgets/role-modal';
 import { Nullable } from '@customTypes/nullable.type';
 import { NotificationService } from '@services/notification';
 
@@ -93,9 +93,10 @@ export class RolesComponent {
 
   getCreateRoleCallback$ = () => {
     return this.modal
-      .create<RoleModalComponent, null, RoleDto>({
+      .create<RoleModalComponent, RoleModalData, RoleDto>({
         nzTitle: this.translateService.instant(`${this.PREFIX}.CREATE`),
         nzContent: RoleModalComponent,
+        nzData: { mode: ModalModeType.CREATE },
         nzWidth: 600,
       })
       .afterClose.pipe(
@@ -107,11 +108,11 @@ export class RolesComponent {
 
   getEditRoleCallback$ = (role: Nullable<RoleDto>) => () => {
     return this.modal
-      .create<RoleModalComponent, Nullable<RoleDto>, Nullable<RoleDto>>({
-        nzTitle: this.translateService.instant(`${this.PREFIX}.CREATE`),
+      .create<RoleModalComponent, RoleModalData, RoleDto>({
+        nzTitle: this.translateService.instant(`${this.PREFIX}.EDIT`),
         nzContent: RoleModalComponent,
+        nzData: { data: role, mode: ModalModeType.EDIT },
         nzWidth: 600,
-        nzData: role,
       })
       .afterClose.pipe(
         filter(Boolean),

@@ -16,6 +16,18 @@ import { NzTagModule } from 'ng-zorro-antd/tag';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { ROLE_TYPE_COLOR_TAG_MAP } from '../..';
 
+export const ModalModeType = {
+  CREATE: 'CREATE',
+  EDIT: 'EDIT',
+};
+
+export type ModalModeType = (typeof ModalModeType)[keyof typeof ModalModeType];
+
+export interface RoleModalData {
+  data?: Nullable<RoleDto>;
+  mode?: Nullable<ModalModeType>;
+}
+
 @Component({
   selector: 'app-role-modal',
   templateUrl: './role-modal.component.html',
@@ -36,17 +48,19 @@ import { ROLE_TYPE_COLOR_TAG_MAP } from '../..';
 })
 export class RoleModalComponent {
   readonly modal = inject(NzModalRef);
-  readonly modalData: Nullable<RoleDto> = inject(NZ_MODAL_DATA);
+  readonly modalData: Nullable<RoleModalData> = inject(NZ_MODAL_DATA);
   readonly permissionsService = inject(PermissionsService);
 
+  readonly ModalModeType = ModalModeType;
+
   readonly form = new FormGroup({
-    name: new FormControl<Nullable<string>>(this.modalData?.name, Validators.required),
-    type: new FormControl<Nullable<RoleType>>(this.modalData?.type || RoleType.USER, Validators.required),
+    name: new FormControl<Nullable<string>>(this.modalData?.data?.name, Validators.required),
+    type: new FormControl<Nullable<RoleType>>(this.modalData?.data?.type || RoleType.USER, Validators.required),
     permissions: new FormControl<Nullable<number[]>>(
-      this.modalData?.permissions?.map((item) => item.id) || [],
+      this.modalData?.data?.permissions?.map((item) => item.id) || [],
       Validators.required,
     ),
-    description: new FormControl<Nullable<string>>(this.modalData?.description?.us || null),
+    description: new FormControl<Nullable<string>>(this.modalData?.data?.description?.us || null),
   });
 
   readonly ROLE_TYPE_COLOR_TAG_MAP = ROLE_TYPE_COLOR_TAG_MAP;

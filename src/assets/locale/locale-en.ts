@@ -14,6 +14,7 @@ export const LocaleEn: LocaleInterface = {
         TTL: 'Roles page',
         DELETE_CONTENT: 'Are you sure delete this role?',
         CREATE: 'Create role',
+        EDIT: 'Edit role',
         NAME: 'Role name',
         TYPE: 'Role type',
         PERMISSIONS: 'Role permissions',
@@ -111,6 +112,7 @@ export const LocaleEn: LocaleInterface = {
       NO: 'No',
       CANCEL: 'Cancel',
       CREATE: 'Create',
+      UPDATE: 'Update',
     },
     MODAL: {
       CONFIRM: 'Confirmation',
