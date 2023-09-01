@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, inject, ViewChild } from '@angular/core';
 import { AppGridOptions, GridGetDataCallback } from '@widgets/grid';
 import { RoleDto, RoleType } from '@api/model';
-import { getExactWidth, getWidthColDef } from '@widgets/grid/utils';
+import { getWidthColDef } from '@widgets/grid/utils';
 import { getTagCellDef } from '@widgets/grid/renders/tag-cell';
 import { RolesService } from '@api/services';
 import { NzPresetColor } from 'ng-zorro-antd/core/color';
@@ -21,24 +21,23 @@ export const ROLE_TYPE_COLOR_TAG_MAP: Record<RoleType, NzPresetColor> = {
 };
 
 const GRID_OPTIONS = (context: RolesComponent): AppGridOptions<RoleDto> => ({
+  context,
   defaultColDef: { sortable: true },
   columnDefs: [
     {
-      field: 'id',
-      headerName: 'ID',
+      field: 'name',
+      headerName: 'Role name',
       headerClass: 'text-center',
-      cellClass: 'text-center',
       initialPinned: 'left',
       lockPinned: true,
-      ...getExactWidth(75),
+      ...getWidthColDef(190, 190),
     },
     {
       field: 'type',
       headerName: 'Role type',
       ...getWidthColDef(180, 120),
-      ...getTagCellDef({ valueAsLabel: true, colorTagMap: ROLE_TYPE_COLOR_TAG_MAP }),
+      ...getTagCellDef<RoleType>({ colorTagMap: ROLE_TYPE_COLOR_TAG_MAP }),
     },
-    { field: 'name', headerName: 'Role name', ...getWidthColDef(180, 180) },
     {
       field: 'description.us',
       headerName: 'Role description',

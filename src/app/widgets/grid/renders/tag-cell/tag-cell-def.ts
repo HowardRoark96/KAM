@@ -1,9 +1,9 @@
 import { ColDef } from 'ag-grid-community';
-import { TagCellComponent, TagCellConfig } from './tag-cell.component';
-import { Nullable } from '@customTypes/nullable.type';
+import { TagCellComponent } from './tag-cell.component';
+import { TagCellParams } from './tag-cell-params';
 
-export const getTagCellDef = (config: Nullable<TagCellConfig>): Omit<ColDef, 'field'> => ({
+export const getTagCellDef = <TData = unknown>(params: TagCellParams<TData>): Omit<ColDef, 'field'> => ({
   cellRenderer: TagCellComponent,
-  cellRendererParams: config,
-  refData: config?.labelMap || undefined,
+  cellRendererParams: params,
+  refData: params?.labelMap || undefined,
 });

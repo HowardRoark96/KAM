@@ -134,7 +134,17 @@ export const RolesMock: RoleDto[] = [
   },
   {
     id: 14,
-    name: 'News writer',
+    name: 'NEWS WRITER',
+    type: RoleType.USER,
+    permissions: [],
+    description: {
+      ru: 'Создание, редактирование и удаление новостей в разделе "Главная"',
+      us: 'Creating, editing and deleting news in "Home" section',
+    },
+  },
+  {
+    id: 15,
+    name: 'ARTICLE WRITER',
     type: RoleType.USER,
     permissions: [],
     description: {
