@@ -1,1 +1,2 @@
-<span [class]="'fi fi-' + value" [style.font-size.px]="18"></span>
+<span *ngIf="showCountry" [class]="'fi fi-' + value" [style.font-size.px]="18"></span>
+<span *ngIf="!showCountry"> — </span>

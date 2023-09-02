@@ -35,8 +35,12 @@ const GRID_OPTIONS = (context: UsersComponent): AppGridOptions<UserDto> => ({
     {
       field: 'country',
       headerName: 'Country',
+      headerClass: 'text-center',
+      cellClass: 'text-center',
       ...getWidthColDef(110, 110, 110),
-      ...getCountryCellDef(),
+      ...getCountryCellDef<UserDto>({
+        getShowCountryCallback: (data) => !data?.isSystemRole,
+      }),
     },
     {
       field: 'registrationDate',
@@ -62,6 +66,7 @@ const GRID_OPTIONS = (context: UsersComponent): AppGridOptions<UserDto> => ({
         theme: 'twotone',
         twotoneColor: COLORS.RED_3,
         getActionCallback$: () => context.getDeleteUserCallback$(),
+        getIsDisabledCallback$: (data) => data?.isSystemRole,
       }),
     },
   ],

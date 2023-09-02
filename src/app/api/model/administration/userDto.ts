@@ -6,7 +6,8 @@ export interface UserDto {
   username: string;
   name: string;
   email: string;
-  country: CountryCodeType;
+  country?: CountryCodeType;
   registrationDate: string;
   roles: RoleDto[];
+  isSystemRole: boolean;
 }
