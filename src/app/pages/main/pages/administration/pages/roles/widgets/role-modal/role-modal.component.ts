@@ -15,18 +15,8 @@ import { AsyncPipe } from '@angular/common';
 import { NzTagModule } from 'ng-zorro-antd/tag';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { ROLE_TYPE_COLOR_TAG_MAP } from '../..';
-
-export const ModalModeType = {
-  CREATE: 'CREATE',
-  EDIT: 'EDIT',
-};
-
-export type ModalModeType = (typeof ModalModeType)[keyof typeof ModalModeType];
-
-export interface RoleModalData {
-  data?: Nullable<RoleDto>;
-  mode?: Nullable<ModalModeType>;
-}
+import { ModalModeType } from '@utils/types';
+import { ModalData } from '@utils/interfaces';
 
 @Component({
   selector: 'app-role-modal',
@@ -48,7 +38,7 @@ export interface RoleModalData {
 })
 export class RoleModalComponent {
   readonly modal = inject(NzModalRef);
-  readonly modalData: Nullable<RoleModalData> = inject(NZ_MODAL_DATA);
+  readonly modalData: Nullable<ModalData<RoleDto>> = inject(NZ_MODAL_DATA);
   readonly permissionsService = inject(PermissionsService);
 
   readonly ModalModeType = ModalModeType;

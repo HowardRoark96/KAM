@@ -9,7 +9,6 @@ export const UsersMock: UserDto[] = [
     name: 'Administrator',
     email: 'kam-remake@email.com',
     registrationDate: '21.05.2023',
-    isSystemRole: true,
     roles: [
       {
         id: 1,
@@ -30,7 +29,6 @@ export const UsersMock: UserDto[] = [
     email: 'chmoki1991@email.com',
     country: CountryCodeType.gs,
     registrationDate: '04.10.2022',
-    isSystemRole: false,
     roles: [
       {
         id: 13,
@@ -51,7 +49,6 @@ export const UsersMock: UserDto[] = [
     email: 'liernke@email.com',
     country: CountryCodeType.co,
     registrationDate: '17.12.2022',
-    isSystemRole: false,
     roles: [
       {
         id: 13,
@@ -72,7 +69,6 @@ export const UsersMock: UserDto[] = [
     email: 'terolw@email.com',
     country: CountryCodeType.sn,
     registrationDate: '06.02.2023',
-    isSystemRole: false,
     roles: [
       {
         id: 13,
@@ -103,7 +99,6 @@ export const UsersMock: UserDto[] = [
     email: 'petrgreater@email.com',
     country: CountryCodeType.ru,
     registrationDate: '11.03.2023',
-    isSystemRole: false,
     roles: [
       {
         id: 13,
@@ -134,7 +129,6 @@ export const UsersMock: UserDto[] = [
     email: 'sinpo@email.com',
     country: CountryCodeType.cn,
     registrationDate: '01.09.2023',
-    isSystemRole: false,
     roles: [
       {
         id: 13,

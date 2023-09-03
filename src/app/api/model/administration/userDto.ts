@@ -9,5 +9,4 @@ export interface UserDto {
   country?: CountryCodeType;
   registrationDate: string;
   roles: RoleDto[];
-  isSystemRole: boolean;
 }

@@ -8,6 +8,15 @@ export const LocaleEn: LocaleInterface = {
       USERS: {
         LBL: 'Users',
         TTL: 'Users page',
+        SUCCESS_UPDATE: 'User updated',
+        ERROR_UPDATE: 'User update failed',
+        EDIT: 'Edit user',
+        USERNAME: 'Username',
+        NAME: 'Name',
+        EMAIL: 'Email',
+        REGISTRATION_DATE: 'Registration date',
+        COUNTRY: 'User country',
+        ROLES: 'User roles',
       },
       ROLES: {
         LBL: 'Roles',

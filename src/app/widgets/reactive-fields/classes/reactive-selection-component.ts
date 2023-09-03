@@ -40,6 +40,7 @@ export abstract class ReactiveSelectionComponent<T = unknown> extends ReactiveCo
 
   @Input() options: Nullable<SelectOption<T>[]>;
   @Input() customTemplate: Nullable<TemplateRef<{ $implicit: NzSelectItemInterface }>>;
+  @Input() customContentTemplate: Nullable<TemplateRef<{ $implicit: SelectOption<T> }>>;
   @Input() maxTagPlaceholder: Nullable<TemplateRef<{ $implicit: NzSafeAny[] }>>;
 
   @Input() maxTagCount = 5;

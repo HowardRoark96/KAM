@@ -8,6 +8,15 @@ export const LocaleRu: LocaleInterface = {
       USERS: {
         LBL: 'Пользователи',
         TTL: 'Страница "Пользователи"',
+        SUCCESS_UPDATE: 'Пользователь обновлен',
+        ERROR_UPDATE: 'Ошибка при обновлении пользователя',
+        EDIT: 'Редактировать пользователя',
+        USERNAME: 'Имя аккаунта',
+        NAME: 'Имя пользователя',
+        EMAIL: 'Email',
+        REGISTRATION_DATE: 'Дата регистрации',
+        COUNTRY: 'Страна',
+        ROLES: 'Роли пользователя',
       },
       ROLES: {
         LBL: 'Роли',

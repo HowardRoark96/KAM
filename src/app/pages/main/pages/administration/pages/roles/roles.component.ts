@@ -11,9 +11,11 @@ import { NzModalService } from 'ng-zorro-antd/modal';
 import { TranslateService } from '@ngx-translate/core';
 import { filter, tap } from 'rxjs';
 import { GridComponent } from '@widgets/grid/grid.component';
-import { ModalModeType, RoleModalComponent, RoleModalData } from './widgets/role-modal';
+import { RoleModalComponent } from './widgets/role-modal';
 import { Nullable } from '@customTypes/nullable.type';
 import { NotificationService } from '@services/notification';
+import { ModalModeType } from '@utils/types';
+import { ModalData } from '@utils/interfaces';
 
 export const ROLE_TYPE_COLOR_TAG_MAP: Record<RoleType, NzPresetColor> = {
   [RoleType.SYSTEM]: 'red',
@@ -92,11 +94,12 @@ export class RolesComponent {
 
   getCreateRoleCallback$ = () => {
     return this.modal
-      .create<RoleModalComponent, RoleModalData, RoleDto>({
+      .create<RoleModalComponent, ModalData<RoleDto>, RoleDto>({
         nzTitle: this.translateService.instant(`${this.PREFIX}.CREATE`),
         nzContent: RoleModalComponent,
         nzData: { mode: ModalModeType.CREATE },
         nzWidth: 600,
+        nzMaskClosable: false,
       })
       .afterClose.pipe(
         filter(Boolean),
@@ -107,11 +110,12 @@ export class RolesComponent {
 
   getEditRoleCallback$ = (role: Nullable<RoleDto>) => () => {
     return this.modal
-      .create<RoleModalComponent, RoleModalData, RoleDto>({
+      .create<RoleModalComponent, ModalData<RoleDto>, RoleDto>({
         nzTitle: this.translateService.instant(`${this.PREFIX}.EDIT`),
         nzContent: RoleModalComponent,
         nzData: { data: role, mode: ModalModeType.EDIT },
         nzWidth: 600,
+        nzMaskClosable: false,
       })
       .afterClose.pipe(
         filter(Boolean),
@@ -126,6 +130,7 @@ export class RolesComponent {
         nzTitle: this.translateService.instant('COMMON.MODAL.CONFIRM'),
         nzIconType: 'delete',
         nzContent: this.translateService.instant(`${this.PREFIX}.DELETE_CONTENT`),
+        nzMaskClosable: false,
         nzOkText: this.translateService.instant('COMMON.BUTTON.YES'),
         nzOkType: 'primary',
         nzOnOk: () => true,

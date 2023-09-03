@@ -6,6 +6,15 @@ export interface LocaleInterface {
       USERS: {
         LBL: string;
         TTL: string;
+        SUCCESS_UPDATE: string;
+        ERROR_UPDATE: string;
+        EDIT: string;
+        USERNAME: string;
+        NAME: string;
+        EMAIL: string;
+        REGISTRATION_DATE: string;
+        COUNTRY: string;
+        ROLES: string;
       };
       ROLES: {
         LBL: string;
