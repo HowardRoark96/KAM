@@ -1,9 +1,73 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { getNewsMockedData } from '@utils/mocked-data/news.constant';
-import { NewsDataInterface } from './widgets/news-card/news-card.component';
-import { NzModalService } from 'ng-zorro-antd/modal';
-import { ModalCreateNewsComponent } from './widgets/modal-create-news';
-import { delay, of, tap } from 'rxjs';
+
+const PAGE_CARD_DATA = [
+  {
+    title: 'PAGE.NEWS.LBL',
+    titleIcon: 'solution',
+    description: 'PAGE.NEWS.DESCRIPTION',
+    link: 'news',
+  },
+  {
+    title: 'PAGE.ABOUT.LBL',
+    titleIcon: 'file-search',
+    description: 'PAGE.ABOUT.DESCRIPTION',
+    link: 'about',
+  },
+  {
+    title: 'PAGE.MEDIA.LBL',
+    titleIcon: 'customer-service',
+    description: 'PAGE.MEDIA.DESCRIPTION',
+    link: 'media',
+  },
+  {
+    title: 'PAGE.FAQ.LBL',
+    titleIcon: 'bulb',
+    description: 'PAGE.FAQ.DESCRIPTION',
+    link: 'faq',
+  },
+  {
+    title: 'PAGE.DOWNLOAD.LBL',
+    titleIcon: 'download',
+    description: 'PAGE.DOWNLOAD.DESCRIPTION',
+    link: 'download',
+  },
+  {
+    title: 'PAGE.CONTRIBUTING.LBL',
+    titleIcon: 'team',
+    description: 'PAGE.CONTRIBUTING.DESCRIPTION',
+    link: 'contributing',
+  },
+  {
+    title: 'PAGE.LINKS.LBL',
+    titleIcon: 'link',
+    description: 'PAGE.LINKS.DESCRIPTION',
+    link: 'links',
+  },
+  {
+    title: 'PAGE.CONTACTS.LBL',
+    titleIcon: 'contacts',
+    description: 'PAGE.CONTACTS.DESCRIPTION',
+    link: 'contact',
+  },
+  {
+    title: 'PAGE.SERVERS.LBL',
+    titleIcon: 'database',
+    description: 'PAGE.SERVERS.DESCRIPTION',
+    link: 'servers',
+  },
+  {
+    title: 'PAGE.DEVBLOG.LBL',
+    titleIcon: 'fork',
+    description: 'PAGE.DEVBLOG.DESCRIPTION',
+    link: 'devblog',
+  },
+  {
+    title: 'PAGE.ADMINISTRATION.LBL',
+    titleIcon: 'setting',
+    description: 'PAGE.ADMINISTRATION.DESCRIPTION',
+    link: 'administration',
+  },
+];
 
 @Component({
   selector: 'app-home',
@@ -12,22 +76,5 @@ import { delay, of, tap } from 'rxjs';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HomeComponent {
-  MOCKED_DATA_NEWS: NewsDataInterface[] = getNewsMockedData().data;
-
-  getData$ = of(this.MOCKED_DATA_NEWS).pipe(delay(5000));
-
-  constructor(private readonly modalService: NzModalService) {}
-
-  toData = (value: unknown) => value as NewsDataInterface[];
-
-  createNews$ = () => {
-    const modal = this.modalService.create({
-      nzContent: ModalCreateNewsComponent,
-      nzWidth: '75%',
-      nzMaskClosable: false,
-      nzCentered: true,
-    });
-
-    return modal.afterClose.pipe(tap((news) => this.MOCKED_DATA_NEWS.push(news)));
-  };
+  readonly PAGE_CARD_DATA = PAGE_CARD_DATA;
 }

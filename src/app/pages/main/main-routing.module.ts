@@ -13,12 +13,16 @@ const routes: Routes = [
     component: MainComponent,
     children: [
       {
+        path: 'home',
+        loadChildren: () => import('./pages/home').then((m) => m.HomeModule),
+      },
+      {
         path: 'administration',
         loadChildren: () => import('./pages/administration').then((m) => m.AdministrationModule),
       },
       {
-        path: 'home',
-        loadChildren: () => import('./pages/home').then((m) => m.HomeModule),
+        path: 'news',
+        loadChildren: () => import('./pages/news').then((m) => m.NewsModule),
       },
       {
         path: 'about',

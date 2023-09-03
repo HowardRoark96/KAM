@@ -1,5 +1,5 @@
 import { MockedData } from '@utils/mocked-data/interfaces';
-import { User } from '../../pages/main/pages/home/widgets/news-card/news-card.component';
+import { User } from '../../pages/main/pages/news/widgets/news-card/news-card.component';
 
 export const getUserMockedData = (): MockedData<User> => {
   return {

@@ -1,0 +1,59 @@
+@use 'styles/colors' as var;
+
+:host {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 40px;
+}
+
+.card {
+  position: relative;
+  cursor: pointer;
+  color: var.$blue-color-4 !important;
+  border: 1px solid var.$grey-color-3;
+  background-color: var.$grey-color-1-lighten;
+  box-shadow: 2px 2px 10px var.$grey-color-3;
+  transition-duration: 0.3s;
+  transition-timing-function: ease-in-out;
+  transition-property: transform, box-shadow;
+  overflow: hidden;
+
+  &:before {
+    position: absolute;
+    content: '';
+    top: -30px;
+    right: -30px;
+    width: 60px;
+    height: 60px;
+    opacity: 0;
+    background-color: var.$blue-color-5;
+    transform: rotate(45deg);
+    transition-duration: 0.3s;
+    transition-timing-function: ease-in-out;
+    transition-property: opacity;
+  }
+
+  &:hover {
+    box-shadow: 12px 12px 20px var.$grey-color-3;
+    transform: translateY(-10px);
+
+    &:before {
+      opacity: 1;
+    }
+  }
+
+  h3 {
+    color: var.$blue-color-5 !important;
+  }
+
+  .title-icon {
+    position: relative;
+    color: var.$blue-color-5;
+    font-size: 32px;
+  }
+
+  p {
+    color: var.$blue-color-4-darken;
+    font-size: 16px;
+  }
+}

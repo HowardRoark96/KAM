@@ -1,0 +1,16 @@
+<app-request-wrapper #requestData [request$]="getData$">
+  <div class="d-flex flex-column gap-4">
+    <app-button
+      class="align-self-end"
+      type="primary"
+      leftIcon="plus"
+      label="Create news"
+      [action$]="createNews$"
+    ></app-button>
+
+    <div *ngFor="let item of toData | executeWith : requestData.data" class="d-flex flex-column gap-4 mb-4">
+      <app-news-card [news]="item"></app-news-card>
+      <app-comment [commentData]="item?.comments || []"></app-comment>
+    </div>
+  </div>
+</app-request-wrapper>
