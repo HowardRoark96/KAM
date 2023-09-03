@@ -22,7 +22,7 @@ const routes: Routes = [
       },
       {
         path: 'news',
-        loadChildren: () => import('./pages/news').then((m) => m.NewsComponent),
+        loadChildren: () => import('./pages/news').then((m) => m.NewsModule),
       },
       {
         path: 'about',
