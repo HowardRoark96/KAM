@@ -5,6 +5,7 @@ export const LocaleEn: LocaleInterface = {
     ADMINISTRATION: {
       LBL: 'Administration',
       TTL: 'Administration page',
+      DESCRIPTION: 'The section contains information about users, roles and permissions.',
       USERS: {
         LBL: 'Users',
         TTL: 'Users page',
@@ -43,42 +44,54 @@ export const LocaleEn: LocaleInterface = {
     ABOUT: {
       LBL: 'About',
       TTL: 'About page',
+      DESCRIPTION:
+        'The section on about what "Knights and Merchants Remake" project is all about, project goals and other information.',
     },
     CONTACTS: {
       LBL: 'Contacts',
       TTL: 'Contacts page',
+      DESCRIPTION: 'Here you can ask your questions, feedback, bug reports, etc.',
     },
     CONTRIBUTING: {
       LBL: 'Contributing',
       TTL: 'Contributing page',
+      DESCRIPTION: 'In this section you can find how you can help the project.',
     },
     DEVBLOG: {
       LBL: 'Devblog',
       TTL: 'Devblog page',
+      DESCRIPTION: 'The section contains information about current development.',
     },
     DOWNLOAD: {
       LBL: 'Download',
       TTL: 'Download page',
+      DESCRIPTION: 'The section contains information about how to install "Knights and Merchants Remake".',
     },
     FAQ: {
       LBL: 'FAQ',
       TTL: 'FAQ page',
+      DESCRIPTION: 'The section that publishes answers to frequently asked questions from users.',
     },
     LINKS: {
       LBL: 'Links',
       TTL: 'Links page',
+      DESCRIPTION: 'In this section you can find useful links.',
     },
-    HOME: {
-      LBL: 'Home',
-      TTL: 'Home page',
+    NEWS: {
+      LBL: 'News',
+      TTL: 'News page',
+      DESCRIPTION:
+        'The section that publishes news about past and present events, announcements, information about the game, etc.',
     },
     MEDIA: {
       LBL: 'Media',
       TTL: 'Media page',
+      DESCRIPTION: 'YouTube "Knights and Merchants Remake" channel',
     },
     SERVERS: {
       LBL: 'Servers',
       TTL: 'Servers page',
+      DESCRIPTION: 'The section contains information about active game servers at the moment, server statistics, etc.',
     },
   },
   authorize: {

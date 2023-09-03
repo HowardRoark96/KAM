@@ -1,5 +1,5 @@
 import { MockedData } from '@utils/mocked-data/interfaces';
-import { NewsDataInterface } from '../../pages/main/pages/home/widgets/news-card/news-card.component';
+import { NewsDataInterface } from '../../pages/main/pages/news/widgets/news-card/news-card.component';
 import { getUserMockedData } from '@utils/mocked-data/user.constant';
 import { getCommentMockedData } from '@utils/mocked-data/comment.constant';
 

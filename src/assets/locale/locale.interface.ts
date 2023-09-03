@@ -3,6 +3,7 @@ export interface LocaleInterface {
     ADMINISTRATION: {
       LBL: string;
       TTL: string;
+      DESCRIPTION: string;
       USERS: {
         LBL: string;
         TTL: string;
@@ -41,42 +42,52 @@ export interface LocaleInterface {
     ABOUT: {
       LBL: string;
       TTL: string;
+      DESCRIPTION: string;
     };
     CONTACTS: {
       LBL: string;
       TTL: string;
+      DESCRIPTION: string;
     };
     CONTRIBUTING: {
       LBL: string;
       TTL: string;
+      DESCRIPTION: string;
     };
     DEVBLOG: {
       LBL: string;
       TTL: string;
+      DESCRIPTION: string;
     };
     DOWNLOAD: {
       LBL: string;
       TTL: string;
+      DESCRIPTION: string;
     };
     FAQ: {
       LBL: string;
       TTL: string;
+      DESCRIPTION: string;
     };
     LINKS: {
       LBL: string;
       TTL: string;
+      DESCRIPTION: string;
     };
-    HOME: {
+    NEWS: {
       LBL: string;
       TTL: string;
+      DESCRIPTION: string;
     };
     MEDIA: {
       LBL: string;
       TTL: string;
+      DESCRIPTION: string;
     };
     SERVERS: {
       LBL: string;
       TTL: string;
+      DESCRIPTION: string;
     };
   };
   authorize: {

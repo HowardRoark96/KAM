@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 export class MainComponent {
   readonly router = inject(Router);
 
-  isCollapsed = false;
+  isCollapsed = true;
 
   SIDEBAR_MENU_ITEMS: SidebarItem[] = [
     {
@@ -40,7 +40,7 @@ export class MainComponent {
         },
       ],
     },
-    { label: 'PAGE.HOME.LBL', icon: 'home', title: 'PAGE.HOME.TTL', link: 'home' },
+    { label: 'PAGE.NEWS.LBL', icon: 'solution', title: 'PAGE.HOME.TTL', link: 'news' },
     { label: 'PAGE.ABOUT.LBL', icon: 'file-search', title: 'PAGE.ABOUT.TTL', link: 'about' },
     { label: 'PAGE.MEDIA.LBL', icon: 'customer-service', title: 'PAGE.MEDIA.TTL', link: 'media' },
     { label: 'PAGE.FAQ.LBL', icon: 'bulb', title: 'PAGE.FAQ.TTL', link: 'faq' },

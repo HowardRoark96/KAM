@@ -2,24 +2,11 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HomeComponent } from './home.component';
 import { HomeRoutingModule } from './home-routing.module';
-import { NewsCardModule } from './widgets/news-card';
-import { CommentModule } from '@widgets/comment';
-import { ButtonModule } from '@widgets/button';
-import { ModalCreateNewsModule } from './widgets/modal-create-news';
-import { RequestWrapperModule } from '@widgets/request-wrapper';
-import { ExecuteWithModule } from '@pipes/execute-with';
+import { NzIconModule } from 'ng-zorro-antd/icon';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    HomeRoutingModule,
-    NewsCardModule,
-    CommentModule,
-    ButtonModule,
-    ModalCreateNewsModule,
-    RequestWrapperModule,
-    ExecuteWithModule,
-  ],
+  imports: [CommonModule, HomeRoutingModule, NzIconModule, TranslateModule],
   declarations: [HomeComponent],
 })
 export class HomeModule {}

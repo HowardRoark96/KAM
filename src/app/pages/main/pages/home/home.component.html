@@ -1,16 +1,7 @@
-<app-request-wrapper #requestData [request$]="getData$">
-  <div class="d-flex flex-column gap-4">
-    <app-button
-      class="align-self-end"
-      type="primary"
-      leftIcon="plus"
-      label="Create news"
-      [action$]="createNews$"
-    ></app-button>
-
-    <div *ngFor="let item of toData | executeWith : requestData.data" class="d-flex flex-column gap-4 mb-4">
-      <app-news-card [news]="item"></app-news-card>
-      <app-comment [commentData]="item?.comments || []"></app-comment>
-    </div>
+<div *ngFor="let card of PAGE_CARD_DATA" class="d-flex flex-column gap-5 p-10 card" [routerLink]="['/', card.link]">
+  <div class="d-flex align-items-center content-space-between">
+    <h3 class="m-0">{{ card.title | translate }}</h3>
+    <span nz-icon [nzType]="card.titleIcon" nzTheme="outline" class="title-icon"></span>
   </div>
-</app-request-wrapper>
+  <p class="m-0">{{ card.description | translate }}</p>
+</div>
