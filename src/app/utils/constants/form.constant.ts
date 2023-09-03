@@ -6,6 +6,7 @@ export const PATTERN = {
   EMAIL: /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/,
 };
 
+export const DEBOUNCE_TIME_DEFAULT = 350;
 export const PATCH_OPTIONS = { emitEvent: false, onlySelf: true };
 export const DEFAULT_TOOLTIP_ICON: NzFormTooltipIcon = { type: 'question-circle', theme: 'outline' };
 export const ATTENTION_TOOLTIP_ICON: NzFormTooltipIcon = { type: 'info-circle', theme: 'outline' };

@@ -1,0 +1,49 @@
+<app-reactive-input
+  fieldId="type"
+  [label]="'PAGE.ADMINISTRATION.ROLES.NAME' | translate"
+  [control]="form.controls.name"
+></app-reactive-input>
+<app-reactive-select
+  fieldId="type"
+  [customTemplate]="typeOptionTmpl"
+  [label]="'PAGE.ADMINISTRATION.ROLES.TYPE' | translate"
+  [isDisabled]="true"
+  [options]="getRoleTypeOptions"
+  [control]="form.controls.type"
+></app-reactive-select>
+<app-reactive-select
+  fieldId="permissions"
+  mode="tags"
+  [maxTagCount]="2"
+  [customTemplate]="permissionOptionTmpl"
+  [label]="'PAGE.ADMINISTRATION.ROLES.PERMISSIONS' | translate"
+  [options]="getRolePermissionsOptions$ | async"
+  [control]="form.controls.permissions"
+></app-reactive-select>
+<app-reactive-textarea
+  fieldId="description"
+  [label]="'PAGE.ADMINISTRATION.ROLES.DESCRIPTION' | translate"
+  [minRows]="3"
+  [control]="form.controls.description"
+></app-reactive-textarea>
+
+<div *nzModalFooter class="d-flex content-end gap-4">
+  <app-button [label]="'COMMON.BUTTON.CANCEL' | translate" [action$]="closeModal"></app-button>
+  <app-button
+    type="primary"
+    [label]="(modalData?.mode === ModalModeType.CREATE ? 'COMMON.BUTTON.CREATE' : 'COMMON.BUTTON.UPDATE') | translate"
+    [action$]="create$"
+  ></app-button>
+</div>
+
+<ng-template #typeOptionTmpl let-selected>
+  <nz-tag class="text-ellipsis" [nzColor]="ROLE_TYPE_COLOR_TAG_MAP[selected.nzValue]">
+    <span>{{ selected.nzLabel }}</span>
+  </nz-tag>
+</ng-template>
+
+<ng-template #permissionOptionTmpl let-selected>
+  <nz-tag class="text-ellipsis" nzColor="magenta">
+    <span>{{ selected.nzLabel }}</span>
+  </nz-tag>
+</ng-template>

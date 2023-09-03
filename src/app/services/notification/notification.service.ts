@@ -29,7 +29,13 @@ export class NotificationService {
     return this.notificationService.error(params?.title || 'Error', params?.content || 'Error', params?.options);
   }
 
-  onSuccess = <T>(params?: NotificationParams): Partial<Observer<T>> => ({ next: () => this.success(params) });
+  onSuccessWithOptions<T>(params?: NotificationParams): Partial<Observer<T>> {
+    return { next: () => this.success(params) };
+  }
+
+  onSuccess = <T>(content?: string): Partial<Observer<T>> => ({
+    next: () => this.success({ content }),
+  });
 
   onError = <T>(params?: NotificationParams): Partial<Observer<T>> => ({ error: () => this.error(params) });
 }

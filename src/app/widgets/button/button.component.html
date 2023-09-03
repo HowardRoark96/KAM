@@ -14,9 +14,9 @@
   [disabled]="isDisabled"
   (click)="onClick()"
 >
-  <span *ngIf="leftIcon" nz-icon [nzType]="leftIcon" [nzTheme]="theme"></span>
+  <span *ngIf="leftIcon" nz-icon [nzType]="leftIcon" [nzTheme]="theme" [nzTwotoneColor]="twotoneColor || ''"></span>
   {{ label }}
-  <span *ngIf="rightIcon" nz-icon [nzType]="rightIcon" [nzTheme]="theme"></span>
+  <span *ngIf="rightIcon" nz-icon [nzType]="rightIcon" [nzTheme]="theme" [nzTwotoneColor]="twotoneColor || ''"></span>
 </button>
 
 <a

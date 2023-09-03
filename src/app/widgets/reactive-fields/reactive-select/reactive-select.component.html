@@ -33,6 +33,7 @@
       [nzSize]="fieldSize"
     >
       <nz-select
+        *ngIf="!customContentTemplate"
         [nzId]="fieldId"
         [formControl]="control"
         [nzOptions]="options ?? []"
@@ -72,8 +73,62 @@
         (nzScrollToBottom)="scrollToBottom.emit($event)"
         (nzOnSearch)="searchChanged.emit($event)"
       ></nz-select>
+      <nz-select
+        *ngIf="customContentTemplate"
+        [nzId]="fieldId"
+        [formControl]="control"
+        [nzAutoClearSearchValue]="isAutoClearSearch"
+        [nzAllowClear]="isAllowClear"
+        [nzBackdrop]="isBackdrop"
+        [nzBorderless]="isBorderless"
+        [nzOpen]="isOpen"
+        [nzDisabled]="isDisabled"
+        [nzDropdownClassName]="dropdownClassName ?? null"
+        [nzDropdownMatchSelectWidth]="isDropdownWidthAsSelect"
+        [nzDropdownStyle]="dropdownStyle ?? null"
+        [nzCustomTemplate]="customTemplate ?? null"
+        [nzServerSearch]="isServerSearch"
+        [nzFilterOption]="filterOptionFn"
+        [nzMaxMultipleCount]="maxMultipleCount"
+        [nzMode]="mode"
+        [nzPlacement]="placement"
+        [nzNotFoundContent]="notFoundContent"
+        [nzPlaceHolder]="placeholder"
+        [nzShowArrow]="isShowArrow"
+        [nzShowSearch]="isShowSearch"
+        [nzSize]="fieldSize"
+        [nzStatus]="status"
+        [nzSuffixIcon]="suffixIcon ?? null"
+        [nzRemoveIcon]="removeIcon ?? null"
+        [nzClearIcon]="clearIcon ?? null"
+        [nzMenuItemSelectedIcon]="menuItemSelectedIconIcon ?? null"
+        [nzTokenSeparators]="tokenSeparators"
+        [nzLoading]="isLoading"
+        [nzMaxTagCount]="maxTagCount"
+        [nzMaxTagPlaceholder]="maxTagPlaceholder ?? defauldMaxTagPlaceholder"
+        [nzOptionHeightPx]="optionHeightPx"
+        [nzOptionOverflowSize]="optionOverflowSize"
+        (ngModelChange)="valueChange.emit($event)"
+        (nzOpenChange)="openChanged.emit($event)"
+        (nzScrollToBottom)="scrollToBottom.emit($event)"
+        (nzOnSearch)="searchChanged.emit($event)"
+      >
+        <ng-container *ngIf="customContentTemplate">
+          <nz-option
+            *ngFor="let option of options"
+            nzCustomContent
+            [nzValue]="option.value"
+            [nzLabel]="option.label?.toString() ?? null"
+          >
+            <ng-container
+              [ngTemplateOutlet]="customContentTemplate"
+              [ngTemplateOutletContext]="{ $implicit: option ?? null }"
+            ></ng-container>
+          </nz-option>
+        </ng-container>
+      </nz-select>
     </nz-input-group>
   </nz-form-control>
 </nz-form-item>
 
-<ng-template #defauldMaxTagPlaceholder let-selectedList>and {{ selectedList.length }} more selected</ng-template>
+<ng-template #defauldMaxTagPlaceholder let-selectedList>and {{ selectedList.length }} more</ng-template>

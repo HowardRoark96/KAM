@@ -1,0 +1,67 @@
+@use 'node_modules/ag-grid-community/styles' as ag;
+@import 'header';
+@include ag.grid-styles(
+  (
+    theme: alpine,
+  )
+);
+
+.ag-theme-alpine {
+  --ag-checkbox-checked-color: #42a5f5;
+  --ag-checkbox-indeterminate-color: #42a5f5;
+  --ag-header-background-color: #e3f2fdff;
+  --ag-odd-row-background-color: #f8f9fa;
+
+  .ag-root-wrapper {
+    border: none;
+    overflow: visible; // tooltip was partially visible on "hidden"
+  }
+
+  .ag-header-cell-resize::after {
+    top: 0;
+    height: 100%;
+  }
+
+  .ag-row-last {
+    border: none;
+  }
+
+  .ag-header-cell-label {
+    font-weight: bold;
+    padding: 0 !important;
+
+    &:first-child {
+      padding-left: 20px;
+    }
+
+    &:last-child {
+      padding-right: 20px;
+    }
+  }
+
+  .ag-cell-wrapper {
+    min-height: 100%;
+    padding: 0.25rem 0;
+  }
+
+  .ag-cell-value {
+    line-height: 20px;
+    word-break: normal;
+  }
+
+  .ag-center-cols-clipper {
+    min-height: 0 !important;
+  }
+}
+
+.grid-on-light-bg {
+  --ag-header-background-color: #90caf9;
+
+  .ag-root-wrapper {
+    border: 1px solid #90caf9;
+  }
+
+  .ag-body-horizontal-scroll-viewport {
+    background: transparent !important;
+  }
+}

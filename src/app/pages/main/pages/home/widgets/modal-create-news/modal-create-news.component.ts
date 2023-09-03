@@ -50,7 +50,7 @@ export class ModalCreateNewsComponent {
 
     return of(this.form.value).pipe(
       delay(3000),
-      tap(this.notificationService.onSuccess({ content: 'News created successfully.' })),
+      tap(this.notificationService.onSuccess('News created successfully.')),
       tap((value) => {
         const news = {
           title: value.title,

@@ -1,0 +1,10 @@
+<div class="d-flex flex-column gap-4">
+  <app-button
+    type="primary"
+    class="align-self-end"
+    [label]="PREFIX + '.CREATE' | translate"
+    [action$]="getCreateRoleCallback$"
+  ></app-button>
+
+  <app-grid [gridOptions]="gridOptions" [rowData]="getData$"></app-grid>
+</div>

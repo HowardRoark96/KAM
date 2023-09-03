@@ -1,15 +1,83 @@
 export interface LocaleInterface {
-  page: {
-    about: string;
-    contact: string;
-    contributing: string;
-    devblog: string;
-    download: string;
-    faq: string;
-    home: string;
-    links: string;
-    media: string;
-    servers: string;
+  PAGE: {
+    ADMINISTRATION: {
+      LBL: string;
+      TTL: string;
+      USERS: {
+        LBL: string;
+        TTL: string;
+        SUCCESS_UPDATE: string;
+        ERROR_UPDATE: string;
+        EDIT: string;
+        USERNAME: string;
+        NAME: string;
+        EMAIL: string;
+        REGISTRATION_DATE: string;
+        COUNTRY: string;
+        ROLES: string;
+      };
+      ROLES: {
+        LBL: string;
+        TTL: string;
+        DELETE_CONTENT: string;
+        CREATE: string;
+        EDIT: string;
+        NAME: string;
+        TYPE: string;
+        PERMISSIONS: string;
+        DESCRIPTION: string;
+        SUCCESS_CREATE: string;
+        ERROR_CREATE: string;
+        SUCCESS_UPDATE: string;
+        ERROR_UPDATE: string;
+        SUCCESS_DELETE: string;
+        ERROR_DELETE: string;
+      };
+      PERMISSIONS: {
+        LBL: string;
+        TTL: string;
+      };
+    };
+    ABOUT: {
+      LBL: string;
+      TTL: string;
+    };
+    CONTACTS: {
+      LBL: string;
+      TTL: string;
+    };
+    CONTRIBUTING: {
+      LBL: string;
+      TTL: string;
+    };
+    DEVBLOG: {
+      LBL: string;
+      TTL: string;
+    };
+    DOWNLOAD: {
+      LBL: string;
+      TTL: string;
+    };
+    FAQ: {
+      LBL: string;
+      TTL: string;
+    };
+    LINKS: {
+      LBL: string;
+      TTL: string;
+    };
+    HOME: {
+      LBL: string;
+      TTL: string;
+    };
+    MEDIA: {
+      LBL: string;
+      TTL: string;
+    };
+    SERVERS: {
+      LBL: string;
+      TTL: string;
+    };
   };
   authorize: {
     recoverAccount: {
@@ -42,6 +110,19 @@ export interface LocaleInterface {
       userName: string;
       password: string;
       signUp: string;
+    };
+  };
+  COMMON: {
+    GRID_TOTAL_ITEMS_LEGEND: string;
+    BUTTON: {
+      YES: string;
+      NO: string;
+      CANCEL: string;
+      CREATE: string;
+      UPDATE: string;
+    };
+    MODAL: {
+      CONFIRM: string;
     };
   };
 

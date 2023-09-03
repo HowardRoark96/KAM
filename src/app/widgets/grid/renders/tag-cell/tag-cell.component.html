@@ -1,0 +1,19 @@
+<ng-container *ngIf="isString(value); else arrayTagTmpl">
+  <nz-tag class="text-ellipsis" [nzColor]="color ?? 'blue'">
+    <span *ngIf="icon" nz-icon [nzType]="icon"></span>
+    <span>{{ value }}</span>
+  </nz-tag>
+</ng-container>
+
+<ng-template #arrayTagTmpl>
+  <ng-container *ngIf="isArray(value)">
+    <nz-tag
+      *ngFor="let tag of value"
+      class="text-ellipsis"
+      [nzColor]="(getTagColor | executeWith : $any(tag)) ?? 'blue'"
+    >
+      <span *ngIf="icon" nz-icon [nzType]="icon"></span>
+      <span>{{ getLabelCallback?.(tag) ?? value }}</span>
+    </nz-tag>
+  </ng-container>
+</ng-template>

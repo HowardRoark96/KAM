@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { ControlContainer, FormGroupDirective } from '@angular/forms';
 import { ReactiveSelectionComponent } from '../classes';
 
@@ -9,4 +9,6 @@ import { ReactiveSelectionComponent } from '../classes';
   viewProviders: [{ provide: ControlContainer, useExisting: FormGroupDirective }],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ReactiveSelectComponent extends ReactiveSelectionComponent {}
+export class ReactiveSelectComponent extends ReactiveSelectionComponent {
+  @Input() override isAllowClear = false;
+}

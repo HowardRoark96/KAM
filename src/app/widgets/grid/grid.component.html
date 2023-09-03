@@ -1,18 +1,51 @@
-<ag-grid-angular
-  *ngIf="gridOptions"
-  class="ag-theme-alpine"
-  [gridOptions]="gridOptions"
-  [columnDefs]="colDefs"
-  [rowData]="rowData"
-  [defaultColDef]="assign | executeWith : gridOptions.defaultColDef : defaultColDef"
-  [domLayout]="'autoHeight'"
-  [animateRows]="true"
-  [getRowId]="gridOptions.getRowId ?? defaultGetRowId"
-  [suppressDragLeaveHidesColumns]="true"
-  [enableCellTextSelection]="true"
-  [suppressRowClickSelection]="true"
-  [suppressMultiSort]="true"
-  [noRowsOverlayComponent]="noRowsOverlayComponent"
-  (sortChanged)="sortChanged.emit($event)"
-  (gridReady)="gridReady.emit($event)"
-></ag-grid-angular>
+<app-request-wrapper #dataList [request$]="data$">
+  <ag-grid-angular
+    *ngIf="gridOptions"
+    [class]="gridClass"
+    [gridOptions]="gridOptions"
+    [columnDefs]="colDefs"
+    [rowData]="$any(dataList.data)"
+    [defaultColDef]="assign | executeWith : gridOptions.defaultColDef : defaultColDef"
+    [domLayout]="'autoHeight'"
+    [animateRows]="true"
+    [getRowId]="gridOptions.getRowId ?? defaultGetRowId"
+    [suppressDragLeaveHidesColumns]="true"
+    [enableCellTextSelection]="true"
+    [suppressRowClickSelection]="true"
+    [suppressMultiSort]="true"
+    [tooltipShowDelay]="gridOptions.tooltipShowDelay ?? defaultTooltipDelay"
+    [tooltipMouseTrack]="true"
+    [maintainColumnOrder]="true"
+    [noRowsOverlayComponent]="noRowsOverlayComponent"
+    (sortChanged)="sortChanged.emit($event)"
+    (gridReady)="onGridReady()"
+  ></ag-grid-angular>
+</app-request-wrapper>
+
+<div
+  *ngIf="dataList.hasFirstRs && !dataList.error"
+  class="position-relative d-flex mt-5 gap-2 align-items-center content-center"
+>
+  <span class="position-absolute font-size-14" [style.left.px]="0">
+    {{
+      'COMMON.GRID_TOTAL_ITEMS_LEGEND'
+        | translate : (getTotalItemsLegend | executeWith : pageIndex : perPageFc.value : items)
+    }}
+  </span>
+
+  <nz-pagination
+    [nzTotal]="items"
+    [nzPageIndex]="pageIndex"
+    [nzPageSize]="perPageFc.value"
+    (nzPageIndexChange)="pageIndexChange($event)"
+    (nzPageSizeChange)="perPageChange($event)"
+  ></nz-pagination>
+
+  <app-reactive-select
+    noMarginBottom
+    [isAllowClear]="false"
+    [options]="getPerPageSelectOptions | executeWith : perPageOptions"
+    [control]="perPageFc"
+    (valueChange)="perPageChange($event)"
+  ></app-reactive-select>
+</div>

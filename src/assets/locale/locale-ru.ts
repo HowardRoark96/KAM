@@ -1,17 +1,85 @@
 import { LocaleInterface } from './locale.interface';
 
 export const LocaleRu: LocaleInterface = {
-  page: {
-    about: 'О проекте',
-    contact: 'Контакты',
-    contributing: 'Помощь проекту',
-    devblog: 'Разработка',
-    download: 'Загрузки',
-    faq: 'FAQ',
-    home: 'Главная',
-    links: 'Полезные ссылки',
-    media: 'Медиа',
-    servers: 'Серверы',
+  PAGE: {
+    ADMINISTRATION: {
+      LBL: 'Администрирование',
+      TTL: 'Страница "Администрирование"',
+      USERS: {
+        LBL: 'Пользователи',
+        TTL: 'Страница "Пользователи"',
+        SUCCESS_UPDATE: 'Пользователь обновлен',
+        ERROR_UPDATE: 'Ошибка при обновлении пользователя',
+        EDIT: 'Редактировать пользователя',
+        USERNAME: 'Имя аккаунта',
+        NAME: 'Имя пользователя',
+        EMAIL: 'Email',
+        REGISTRATION_DATE: 'Дата регистрации',
+        COUNTRY: 'Страна',
+        ROLES: 'Роли пользователя',
+      },
+      ROLES: {
+        LBL: 'Роли',
+        TTL: 'Страница "Роли"',
+        DELETE_CONTENT: 'Вы уверены, что хотите удалить роль?',
+        CREATE: 'Создать роль',
+        EDIT: 'Редактировать роль',
+        NAME: 'Имя роли',
+        TYPE: 'Тип роли',
+        PERMISSIONS: 'Права роли',
+        DESCRIPTION: 'Описание роли',
+        SUCCESS_CREATE: 'Роль создана',
+        ERROR_CREATE: 'Ошибка при создании роли',
+        SUCCESS_UPDATE: 'Роль обновлена',
+        ERROR_UPDATE: 'Ошибка при обновлении роли',
+        SUCCESS_DELETE: 'Роль удалена',
+        ERROR_DELETE: 'Ошибка при удалении роли',
+      },
+      PERMISSIONS: {
+        LBL: 'Права',
+        TTL: 'Страница "Права"',
+      },
+    },
+    ABOUT: {
+      LBL: 'О проекте',
+      TTL: 'Страница "О проекте"',
+    },
+    CONTACTS: {
+      LBL: 'Контакты',
+      TTL: 'Страница "Контакты"',
+    },
+    CONTRIBUTING: {
+      LBL: 'Помощь проекту',
+      TTL: 'Страница "Помощь проекту"',
+    },
+    DEVBLOG: {
+      LBL: 'Разработка',
+      TTL: 'Страница "Разработка"',
+    },
+    DOWNLOAD: {
+      LBL: 'Загрузки',
+      TTL: 'Страница "Загрузки"',
+    },
+    FAQ: {
+      LBL: 'FAQ',
+      TTL: 'Страница "FAQ"',
+    },
+    LINKS: {
+      LBL: 'Полезные ссылки',
+      TTL: 'Страница "Полезные ссылки"',
+    },
+    HOME: {
+      LBL: 'Главная',
+      TTL: 'Страница "Главная"',
+    },
+    MEDIA: {
+      LBL: 'Медиа',
+      TTL: 'Страница "Медиа"',
+    },
+    SERVERS: {
+      LBL: 'Серверы',
+      TTL: 'Страница "Серверы"',
+    },
   },
   authorize: {
     recoverAccount: {
@@ -44,6 +112,19 @@ export const LocaleRu: LocaleInterface = {
       userName: 'Логин',
       password: 'Пароль',
       signUp: 'Зарегистрировать',
+    },
+  },
+  COMMON: {
+    GRID_TOTAL_ITEMS_LEGEND: '{{from}}-{{to}} из {{items}}',
+    BUTTON: {
+      YES: 'Да',
+      NO: 'Нет',
+      CANCEL: 'Отмена',
+      CREATE: 'Создать',
+      UPDATE: 'Обновить',
+    },
+    MODAL: {
+      CONFIRM: 'Подтвердите действие',
     },
   },
   locale: {

@@ -101,7 +101,7 @@ export const CountryCodeType = {
   ht: 'ht',
   hu: 'hu',
   id: 'id',
-  ie: 'ie:',
+  ie: 'ie',
   il: 'il',
   im: 'im',
   in: 'in',
