@@ -1,7 +1,10 @@
 <nz-layout class="d-flex flex-column">
-  <nz-header class="d-flex align-items-center content-end gap-4 w-100">
-    <app-button type="primary" label="Logout" leftIcon="logout" [action$]="logout"></app-button>
-    <app-locale-switcher></app-locale-switcher>
+  <nz-header class="d-flex align-items-center content-space-between w-100">
+    <app-breadcrumbs></app-breadcrumbs>
+    <div class="d-flex align-items-center gap-4">
+      <app-button type="primary" label="Logout" leftIcon="logout" [action$]="logout"></app-button>
+      <app-locale-switcher></app-locale-switcher>
+    </div>
   </nz-header>
 
   <nz-layout class="mt-16">

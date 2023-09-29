@@ -1,5 +1,9 @@
 export interface LocaleInterface {
   PAGE: {
+    HOME: {
+      LBL: string;
+      TTL: string;
+    };
     ADMINISTRATION: {
       LBL: string;
       TTL: string;

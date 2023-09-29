@@ -17,6 +17,7 @@
   <span *ngIf="leftIcon" nz-icon [nzType]="leftIcon" [nzTheme]="theme" [nzTwotoneColor]="twotoneColor || ''"></span>
   {{ label }}
   <span *ngIf="rightIcon" nz-icon [nzType]="rightIcon" [nzTheme]="theme" [nzTwotoneColor]="twotoneColor || ''"></span>
+  <ng-content></ng-content>
 </button>
 
 <a
@@ -40,4 +41,5 @@
   <span *ngIf="leftIcon" nz-icon [nzType]="leftIcon" [nzTheme]="theme"></span>
   {{ label }}
   <span *ngIf="rightIcon" nz-icon [nzType]="rightIcon" [nzTheme]="theme"></span>
+  <ng-content></ng-content>
 </a>

@@ -1,0 +1,21 @@
+<nz-breadcrumb class="d-flex align-items-center" [nzSeparator]="separatorTmp">
+  <ng-container *ngFor="let item of getBreadcrumbs$ | async; last as last">
+    <nz-breadcrumb-item class="d-flex align-items-center">
+      <app-button type="link" btnClass="p-0" [link]="[item.url]" [isDisabled]="last">
+        <nz-tag class="text-ellipsis m-0" [nzColor]="last ? 'cyan' : 'blue'">
+          <span>{{ item.label | translate }}</span>
+        </nz-tag>
+      </app-button>
+    </nz-breadcrumb-item>
+  </ng-container>
+</nz-breadcrumb>
+
+<ng-template #separatorTmp>
+  <span
+    nz-icon
+    class="d-flex align-items-center font-size-14"
+    nzType="right"
+    nzTheme="outline"
+    [style.color]="COLORS.BLUE_1"
+  ></span>
+</ng-template>

@@ -2,6 +2,10 @@ import { LocaleInterface } from './locale.interface';
 
 export const LocaleEn: LocaleInterface = {
   PAGE: {
+    HOME: {
+      LBL: 'Home',
+      TTL: 'Home page',
+    },
     ADMINISTRATION: {
       LBL: 'Administration',
       TTL: 'Administration page',

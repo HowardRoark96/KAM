@@ -11,18 +11,30 @@ const routes: Routes = [
   {
     path: '',
     component: AdministrationComponent,
+    data: {
+      breadcrumb: 'PAGE.ADMINISTRATION.LBL',
+    },
     children: [
       {
         path: 'users',
         loadChildren: () => import('./pages/users').then((m) => m.UsersModule),
+        data: {
+          breadcrumb: 'PAGE.ADMINISTRATION.USERS.LBL',
+        },
       },
       {
         path: 'roles',
         loadChildren: () => import('./pages/roles').then((m) => m.RolesModule),
+        data: {
+          breadcrumb: 'PAGE.ADMINISTRATION.ROLES.LBL',
+        },
       },
       {
         path: 'permissions',
         loadChildren: () => import('./pages/permissions').then((m) => m.PermissionsModule),
+        data: {
+          breadcrumb: 'PAGE.ADMINISTRATION.PERMISSIONS.LBL',
+        },
       },
     ],
   },
