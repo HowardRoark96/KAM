@@ -29,7 +29,8 @@
     </div>
     <p class="m-0">{{ 'authorize.signIn.signUp_Hint_2' | translate }}</p>
   </div>
-  <form nz-form nzLayout="vertical" [formGroup]="form">
+
+  <div class="d-flex flex-column gap-6">
     <app-reactive-input
       fieldId="login"
       [label]="'authorize.signIn.userName' | translate"
@@ -42,13 +43,14 @@
       [textBefore]="passwordBeforeTextTmp"
       [control]="form.controls.password"
     ></app-reactive-input>
-  </form>
-  <app-button
-    class="align-self-end"
-    type="primary"
-    [label]="'authorize.signIn.signIn' | translate"
-    [action$]="signIn$"
-  ></app-button>
+    <app-button
+      class="align-self-end"
+      type="primary"
+      [label]="'authorize.signIn.signIn' | translate"
+      [action$]="signIn$"
+    ></app-button>
+  </div>
+
   <app-button
     class="align-self-center"
     btnClass="px-1"

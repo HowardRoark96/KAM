@@ -7,7 +7,6 @@
   <nz-form-label
     *ngIf="label"
     [nzFor]="fieldId"
-    [nzRequired]="!noValidationMark && hasRequiredValidator"
     [nzTooltipTitle]="tooltipTitle"
     [nzTooltipIcon]="tooltipIcon"
     [nzLabelAlign]="labelAlign"
@@ -15,6 +14,7 @@
     [nzSpan]="labelSpan"
   >
     {{ label }}
+    <span *ngIf="!noValidationMark && hasRequiredValidator" class="required">*</span>
   </nz-form-label>
 
   <nz-form-control

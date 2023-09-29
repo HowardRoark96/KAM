@@ -21,13 +21,28 @@
   &:before {
     position: absolute;
     content: '';
-    top: -30px;
-    right: -30px;
-    width: 60px;
-    height: 60px;
+    top: -36px;
+    right: -11px;
+    width: 180px;
+    height: 50px;
     opacity: 0;
     background-color: var.$blue-color-5;
-    transform: rotate(45deg);
+    transform: rotate(16deg);
+    transition-duration: 0.3s;
+    transition-timing-function: ease-in-out;
+    transition-property: opacity;
+  }
+
+  &:after {
+    position: absolute;
+    content: '';
+    top: -30px;
+    right: -6px;
+    width: 220px;
+    height: 50px;
+    opacity: 0;
+    background-color: var.$blue-color-5;
+    transform: rotate(10deg);
     transition-duration: 0.3s;
     transition-timing-function: ease-in-out;
     transition-property: opacity;
@@ -38,7 +53,10 @@
     transform: translateY(-10px);
 
     &:before {
-      opacity: 1;
+      opacity: 0.6;
+    }
+    &:after {
+      opacity: 0.4;
     }
   }
 

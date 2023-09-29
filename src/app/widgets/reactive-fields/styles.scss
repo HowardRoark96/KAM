@@ -1,0 +1,6 @@
+@use 'styles/colors' as var;
+
+.required {
+  margin-left: 2px;
+  color: var.$red-color-3;
+}

@@ -20,20 +20,22 @@
   <div class="d-flex flex-column text-grey-3">
     <p class="m-0">{{ 'authorize.recoverAccount.page_Hint' | translate }}</p>
   </div>
-  <form nz-form nzLayout="vertical" [formGroup]="form">
+
+  <div class="d-flex flex-column gap-6">
     <app-reactive-input
       fieldId="login"
       [label]="'authorize.recoverAccount.userName' | translate"
       [textBefore]="userBeforeTextTmp"
       [control]="form.controls.login"
     ></app-reactive-input>
-  </form>
-  <app-button
-    class="align-self-end"
-    type="primary"
-    [label]="'authorize.recoverAccount.recover' | translate"
-    [action$]="recover$"
-  ></app-button>
+    <app-button
+      class="align-self-end"
+      type="primary"
+      [label]="'authorize.recoverAccount.recover' | translate"
+      [action$]="recover$"
+    ></app-button>
+  </div>
+
   <app-button
     class="align-self-center"
     btnClass="px-1"
