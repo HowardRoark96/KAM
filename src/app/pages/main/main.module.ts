@@ -7,6 +7,7 @@ import { MainComponent } from './main.component';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { ButtonModule } from '@widgets/button';
 import { LocaleSwitcherModule } from '@widgets/locale-switcher';
+import { BreadcrumbsModule } from '@widgets/breadcrumbs';
 
 @NgModule({
   imports: [
@@ -17,6 +18,7 @@ import { LocaleSwitcherModule } from '@widgets/locale-switcher';
     NzIconModule,
     ButtonModule,
     LocaleSwitcherModule,
+    BreadcrumbsModule,
   ],
   declarations: [MainComponent],
 })

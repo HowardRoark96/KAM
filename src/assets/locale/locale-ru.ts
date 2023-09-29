@@ -2,6 +2,10 @@ import { LocaleInterface } from './locale.interface';
 
 export const LocaleRu: LocaleInterface = {
   PAGE: {
+    HOME: {
+      LBL: 'Главная',
+      TTL: 'Главная страница',
+    },
     ADMINISTRATION: {
       LBL: 'Администрирование',
       TTL: 'Страница "Администрирование"',
