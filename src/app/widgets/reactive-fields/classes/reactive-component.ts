@@ -32,7 +32,7 @@ export abstract class ReactiveComponent implements OnChanges {
   @Input() autocomplete: 'on' | 'off' = 'off';
   @Output() valueChange = new EventEmitter();
 
-  private _noMarginBottom: Nullable<boolean>;
+  private _noMarginBottom: Nullable<boolean> = true;
   @Input() set noMarginBottom(prop: unknown) {
     this._noMarginBottom = prop === '' || !!prop;
   }

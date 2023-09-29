@@ -1,49 +1,50 @@
-<app-reactive-input
-  fieldId="username"
-  [label]="PREFIX + '.USERNAME' | translate"
-  [isDisabled]="true"
-  [control]="form.controls.username"
-></app-reactive-input>
-<app-reactive-input
-  fieldId="name"
-  [label]="PREFIX + '.NAME' | translate"
-  [isDisabled]="true"
-  [control]="form.controls.name"
-></app-reactive-input>
-<app-reactive-input
-  fieldId="email"
-  [label]="PREFIX + '.EMAIL' | translate"
-  [isDisabled]="true"
-  [control]="form.controls.email"
-></app-reactive-input>
-<!--TODO: Add `date-picker`-->
-<app-reactive-input
-  fieldId="registrationDate"
-  [label]="PREFIX + '.REGISTRATION_DATE' | translate"
-  [isDisabled]="true"
-  [control]="form.controls.registrationDate"
-></app-reactive-input>
-
-<app-reactive-select
-  fieldId="country"
-  [isDisabled]="true"
-  [label]="PREFIX + '.COUNTRY' | translate"
-  [customTemplate]="countrySelectedOptionTmpl"
-  [customContentTemplate]="countryOptionTmpl"
-  [options]="getCountryCodeTypeOptions"
-  [control]="form.controls.country"
-></app-reactive-select>
-<app-reactive-select
-  #roleSelect
-  fieldId="roles"
-  mode="tags"
-  [maxTagCount]="3"
-  [label]="PREFIX + '.ROLES' | translate"
-  [customTemplate]="roleSelectedOptionTmpl"
-  [customContentTemplate]="roleOptionTmpl"
-  [options]="getRolesOptions$ | async"
-  [control]="form.controls.roles"
-></app-reactive-select>
+<div class="d-flex flex-column gap-6">
+  <app-reactive-input
+    fieldId="username"
+    [label]="PREFIX + '.USERNAME' | translate"
+    [isDisabled]="true"
+    [control]="form.controls.username"
+  ></app-reactive-input>
+  <app-reactive-input
+    fieldId="name"
+    [label]="PREFIX + '.NAME' | translate"
+    [isDisabled]="true"
+    [control]="form.controls.name"
+  ></app-reactive-input>
+  <app-reactive-input
+    fieldId="email"
+    [label]="PREFIX + '.EMAIL' | translate"
+    [isDisabled]="true"
+    [control]="form.controls.email"
+  ></app-reactive-input>
+  <!--TODO: Add `date-picker`-->
+  <app-reactive-input
+    fieldId="registrationDate"
+    [label]="PREFIX + '.REGISTRATION_DATE' | translate"
+    [isDisabled]="true"
+    [control]="form.controls.registrationDate"
+  ></app-reactive-input>
+  <app-reactive-select
+    fieldId="country"
+    [isDisabled]="true"
+    [label]="PREFIX + '.COUNTRY' | translate"
+    [customTemplate]="countrySelectedOptionTmpl"
+    [customContentTemplate]="countryOptionTmpl"
+    [options]="getCountryCodeTypeOptions"
+    [control]="form.controls.country"
+  ></app-reactive-select>
+  <app-reactive-select
+    #roleSelect
+    fieldId="roles"
+    mode="tags"
+    [maxTagCount]="3"
+    [label]="PREFIX + '.ROLES' | translate"
+    [customTemplate]="roleSelectedOptionTmpl"
+    [customContentTemplate]="roleOptionTmpl"
+    [options]="getRolesOptions$ | async"
+    [control]="form.controls.roles"
+  ></app-reactive-select>
+</div>
 
 <div *nzModalFooter class="d-flex content-end gap-4">
   <app-button [label]="'COMMON.BUTTON.CANCEL' | translate" [action$]="closeModal"></app-button>

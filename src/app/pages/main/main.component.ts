@@ -40,7 +40,7 @@ export class MainComponent {
         },
       ],
     },
-    { label: 'PAGE.NEWS.LBL', icon: 'solution', title: 'PAGE.HOME.TTL', link: 'news' },
+    { label: 'PAGE.NEWS.LBL', icon: 'solution', title: 'PAGE.NEWS.TTL', link: 'news' },
     { label: 'PAGE.ABOUT.LBL', icon: 'file-search', title: 'PAGE.ABOUT.TTL', link: 'about' },
     { label: 'PAGE.MEDIA.LBL', icon: 'customer-service', title: 'PAGE.MEDIA.TTL', link: 'media' },
     { label: 'PAGE.FAQ.LBL', icon: 'bulb', title: 'PAGE.FAQ.TTL', link: 'faq' },

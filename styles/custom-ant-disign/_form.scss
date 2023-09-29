@@ -1,0 +1,9 @@
+.ant-form-item {
+  display: flex;
+  flex-direction: column !important;
+}
+
+.ant-form-item-explain {
+  position: absolute !important;
+  bottom: -24px;
+}

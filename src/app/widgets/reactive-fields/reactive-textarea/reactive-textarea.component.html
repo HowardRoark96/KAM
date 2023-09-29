@@ -1,8 +1,12 @@
-<nz-form-item *ngIf="control" [class.validation]="control.dirty && (getErrorMessage | executeWith : control.errors)">
+<nz-form-item
+  *ngIf="control"
+  [class.validation]="control.dirty && (getErrorMessage | executeWith : control.errors)"
+  [class.mb-0]="noMarginBottom"
+  [class.mb-3]="!noMarginBottom"
+>
   <nz-form-label
     [class.no-label]="!label"
     [nzFor]="fieldId"
-    [nzRequired]="!noValidationMark && hasRequiredValidator"
     [nzTooltipTitle]="tooltipTitle"
     [nzTooltipIcon]="tooltipIcon"
     [nzLabelAlign]="labelAlign"
@@ -10,6 +14,7 @@
     [nzSpan]="labelSpan"
   >
     {{ label }}
+    <span *ngIf="!noValidationMark && hasRequiredValidator" class="required">*</span>
   </nz-form-label>
   <nz-form-control
     [nzValidateStatus]="status"
