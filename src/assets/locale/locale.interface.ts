@@ -93,6 +93,23 @@ export interface LocaleInterface {
       TTL: string;
       DESCRIPTION: string;
     };
+    PROFILE: {
+      LBL: string;
+      TTL: string;
+      DESCRIPTION: string;
+      USER_INFO: {
+        TTL: string;
+        USERNAME: string;
+        NAME: string;
+        EMAIL: string;
+        REGISTRATION_DATE: string;
+        COUNTRY: string;
+        AGE: string;
+        SEX: string;
+        SUCCESS_UPDATE: string;
+        ERROR_UPDATE: string;
+      };
+    };
   };
   authorize: {
     recoverAccount: {
@@ -138,6 +155,10 @@ export interface LocaleInterface {
     };
     MODAL: {
       CONFIRM: string;
+    };
+    SEX: {
+      MALE: string;
+      FEMALE: string;
     };
   };
 

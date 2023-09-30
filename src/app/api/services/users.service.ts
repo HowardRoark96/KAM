@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
-import { delay, Observable, of } from 'rxjs';
-import { PaginatedResultDto } from '../model/common';
+import { delay, Observable, of, throwError } from 'rxjs';
+import { PaginatedResultDto, ResultDto } from '../model/common';
 import { UserDto } from '../model/administration';
 import { UsersMock } from '../mocks';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Injectable({ providedIn: 'root' })
 export class UsersService {
@@ -22,5 +23,13 @@ export class UsersService {
         perPage,
       },
     }).pipe(delay(500));
+  }
+
+  getUser(id: number): Observable<ResultDto<UserDto>> {
+    const user = UsersMock.find(({ id: userId }) => userId === id);
+
+    if (!user) return throwError(() => new HttpErrorResponse({ error: 'User not found' }));
+
+    return of({ data: user }).pipe(delay(500));
   }
 }

@@ -1,0 +1,47 @@
+<app-request-wrapper #requestData [request$]="getUser$">
+  <div *ngIf="requestData.data?.data as userData" class="d-flex flex-column gap-10">
+    <div class="d-flex flex-column align-items-center gap-1">
+      <nz-avatar
+        *ngIf="userData.avatar; else defaultAvatarTmp"
+        class="avatar"
+        [nzSize]="100"
+        [nzSrc]="userData.avatar"
+      ></nz-avatar>
+      <h2 class="m-0">{{ userData.username }}</h2>
+      <span *ngIf="userData.about" class="m-0">{{ userData.about }}</span>
+    </div>
+
+    <nz-descriptions nzLayout="horizontal" [nzTitle]="PREFIX + 'USER_INFO.TTL' | translate" [nzColumn]="1">
+      <nz-descriptions-item [nzTitle]="PREFIX + 'USER_INFO.USERNAME' | translate">{{
+        userData.username
+      }}</nz-descriptions-item>
+      <nz-descriptions-item [nzTitle]="PREFIX + 'USER_INFO.NAME' | translate">
+        {{ userData.name ?? '—' }}
+      </nz-descriptions-item>
+      <nz-descriptions-item [nzTitle]="PREFIX + 'USER_INFO.EMAIL' | translate">
+        {{ userData.email }}
+      </nz-descriptions-item>
+      <nz-descriptions-item [nzTitle]="PREFIX + 'USER_INFO.AGE' | translate">
+        {{ userData.age ?? '—' }}
+      </nz-descriptions-item>
+      <nz-descriptions-item [nzTitle]="PREFIX + 'USER_INFO.SEX' | translate">
+        {{ userData.sex ? ('COMMON.SEX.' + userData.sex | translate) : '—' }}
+      </nz-descriptions-item>
+      <nz-descriptions-item [nzTitle]="PREFIX + 'USER_INFO.COUNTRY' | translate">
+        <span *ngIf="getCountryData | executeWith : userData.country as country; else noCountryTmp">
+          <span [class]="'fi fi-' + userData.country"></span>
+          {{ country.name }}, {{ country.continent }}
+        </span>
+      </nz-descriptions-item>
+      <nz-descriptions-item [nzTitle]="PREFIX + 'USER_INFO.REGISTRATION_DATE' | translate">
+        {{ userData.registrationDate }}
+      </nz-descriptions-item>
+    </nz-descriptions>
+  </div>
+</app-request-wrapper>
+
+<ng-template #defaultAvatarTmp>
+  <nz-avatar nzIcon="user" class="avatar" [style.background-color]="COLORS.BLUE_2" [nzSize]="100"></nz-avatar>
+</ng-template>
+
+<ng-template #noCountryTmp>—</ng-template>

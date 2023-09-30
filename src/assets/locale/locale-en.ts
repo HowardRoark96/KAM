@@ -97,6 +97,23 @@ export const LocaleEn: LocaleInterface = {
       TTL: 'Servers page',
       DESCRIPTION: 'The section contains information about active game servers at the moment, server statistics, etc.',
     },
+    PROFILE: {
+      LBL: 'Game profile',
+      TTL: 'Game profile page',
+      DESCRIPTION: "The section contains information about user's personal information, game history, statistics, etc.",
+      USER_INFO: {
+        TTL: 'User info',
+        USERNAME: 'Username',
+        NAME: 'Name',
+        EMAIL: 'Email',
+        REGISTRATION_DATE: 'Registration date',
+        COUNTRY: 'Country',
+        AGE: 'Age',
+        SEX: 'Sex',
+        SUCCESS_UPDATE: 'User info updated',
+        ERROR_UPDATE: 'User info update failed',
+      },
+    },
   },
   authorize: {
     recoverAccount: {
@@ -142,6 +159,10 @@ export const LocaleEn: LocaleInterface = {
     },
     MODAL: {
       CONFIRM: 'Confirmation',
+    },
+    SEX: {
+      MALE: 'Male',
+      FEMALE: 'Female',
     },
   },
   locale: {

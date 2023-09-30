@@ -24,7 +24,7 @@ export interface RequestError {
   styleUrls: ['request-wrapper.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class RequestWrapperComponent<T> implements OnChanges {
+export class RequestWrapperComponent<T = unknown> implements OnChanges {
   @Input() label = 'Loading...';
   @Input() delay = 0;
   @Input() indicator: TemplateRef<NzSafeAny> | null = null;

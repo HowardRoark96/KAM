@@ -1,11 +1,5 @@
 @use 'styles/colors' as var;
 
-:host {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  gap: 40px;
-}
-
 .card {
   position: relative;
   cursor: pointer;
@@ -17,6 +11,7 @@
   transition-timing-function: ease-in-out;
   transition-property: transform, box-shadow;
   overflow: hidden;
+  min-height: 100%;
 
   &:before {
     position: absolute;
