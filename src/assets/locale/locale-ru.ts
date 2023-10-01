@@ -114,6 +114,12 @@ export const LocaleRu: LocaleInterface = {
         SUCCESS_UPDATE: 'Инофрмация о пользователе обновлена',
         ERROR_UPDATE: 'Ошибка при обновлении инофрмации о пользователе',
       },
+      USER_STATS: {
+        GAMES: 'Всего матчей',
+        WIN_RATE: 'Процент побед',
+        RANK: 'Ранг',
+        LAST_GAME: 'Последняя игра',
+      },
     },
   },
   authorize: {

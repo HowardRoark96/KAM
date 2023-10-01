@@ -1,0 +1,87 @@
+@use 'styles/colors' as var;
+@import '../../profile.component';
+
+.section {
+  border-radius: 25px;
+}
+
+.card {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  overflow: hidden;
+
+  &:before {
+    position: absolute;
+    content: '';
+    width: 180px;
+    height: 50px;
+    opacity: 0.6;
+  }
+
+  &:after {
+    position: absolute;
+    content: '';
+    width: 220px;
+    height: 50px;
+    opacity: 0.4;
+  }
+
+  &-top {
+    &:before {
+      top: -42px;
+      right: -11px;
+      transform: rotate(16deg);
+    }
+
+    &:after {
+      top: -36px;
+      right: -6px;
+      transform: rotate(10deg);
+    }
+  }
+
+  &-bottom {
+    &:before {
+      bottom: -42px;
+      left: -11px;
+      transform: rotate(196deg);
+    }
+
+    &:after {
+      bottom: -36px;
+      left: -6px;
+      transform: rotate(190deg);
+    }
+  }
+
+  &-red {
+    &:after,
+    &:before {
+      background-color: var.$red-color-5;
+    }
+  }
+
+  &-green {
+    &:after,
+    &:before {
+      background-color: var.$green-color-5;
+    }
+  }
+
+  &-blue {
+    &:after,
+    &:before {
+      background-color: var.$blue-color-5;
+    }
+  }
+
+  &-yellow {
+    &:after,
+    &:before {
+      background-color: var.$yellow-color-5;
+    }
+  }
+}

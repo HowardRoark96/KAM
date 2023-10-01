@@ -3,3 +3,4 @@ export * from './permissionCodeType';
 export * from './roleDto';
 export * from './roleType';
 export * from './userDto';
+export * from './userStatisticDto';

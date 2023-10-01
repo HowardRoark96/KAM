@@ -109,6 +109,12 @@ export interface LocaleInterface {
         SUCCESS_UPDATE: string;
         ERROR_UPDATE: string;
       };
+      USER_STATS: {
+        GAMES: string;
+        WIN_RATE: string;
+        RANK: string;
+        LAST_GAME: string;
+      };
     };
   };
   authorize: {

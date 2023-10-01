@@ -113,6 +113,12 @@ export const LocaleEn: LocaleInterface = {
         SUCCESS_UPDATE: 'User info updated',
         ERROR_UPDATE: 'User info update failed',
       },
+      USER_STATS: {
+        GAMES: 'Games',
+        WIN_RATE: 'Win rate',
+        RANK: 'Rank',
+        LAST_GAME: 'Last game',
+      },
     },
   },
   authorize: {
