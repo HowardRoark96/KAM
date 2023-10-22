@@ -1,56 +1,54 @@
-<app-request-wrapper #requestData [request$]="getUserStatistic$">
-  <div *ngIf="requestData.data?.data as userData" nz-row [nzGutter]="[40, 40]">
-    <div nz-col [nzXs]="12" [nzSm]="12" [nzMd]="12" [nzLg]="6" [nzXl]="6" [nzXXl]="6">
-      <div class="section d-flex align-items-center content-center gap-2 p-5" [style.position]="'relative'">
-        <span class="card card-top card-red"></span>
-        <span class="card card-bottom card-red"></span>
+<div nz-row [nzGutter]="[40, 40]">
+  <div nz-col [nzXs]="12" [nzSm]="12" [nzMd]="12" [nzLg]="6" [nzXl]="6" [nzXXl]="6">
+    <div class="section d-flex align-items-center content-center gap-2 p-5" [style.position]="'relative'">
+      <span class="card card-top card-red"></span>
+      <span class="card card-bottom card-red"></span>
 
-        <span nz-icon nzType="build" class="font-size-36" [style.color]="COLORS.RED_5"></span>
-        <div class="d-flex flex-column text-center">
-          <h2 class="m-0">{{ userData.games ?? '—' }}</h2>
-          <p class="m-0 font-size-16 text-dark-grey">{{ PREFIX + 'GAMES' | translate }}</p>
-        </div>
-      </div>
-    </div>
-
-    <div nz-col [nzXs]="12" [nzSm]="12" [nzMd]="12" [nzLg]="6" [nzXl]="6" [nzXXl]="6">
-      <div class="section d-flex align-items-center content-center gap-2 p-5" [style.position]="'relative'">
-        <span class="card card-top card-green"></span>
-        <span class="card card-bottom card-green"></span>
-
-        <span nz-icon nzType="trophy" class="font-size-36" [style.color]="COLORS.GREEN_5"></span>
-        <div class="d-flex flex-column text-center">
-          <h2 class="m-0">{{ userData.winRate ? userData.winRate + '%' : '—' }}</h2>
-          <p class="m-0 font-size-16 text-dark-grey">{{ PREFIX + 'WIN_RATE' | translate }}</p>
-        </div>
-      </div>
-    </div>
-
-    <div nz-col [nzXs]="12" [nzSm]="12" [nzMd]="12" [nzLg]="6" [nzXl]="6" [nzXXl]="6">
-      <div class="section d-flex align-items-center content-center gap-2 p-5" [style.position]="'relative'">
-        <span class="card card-top card-blue"></span>
-        <span class="card card-bottom card-blue"></span>
-
-        <span nz-icon nzType="star" class="font-size-36" [style.color]="COLORS.BLUE_5"></span>
-        <div class="d-flex flex-column text-center">
-          <h2 class="m-0">{{ userData.rank ?? '—' }}</h2>
-          <p class="m-0 font-size-16 text-dark-grey">{{ PREFIX + 'RANK' | translate }}</p>
-        </div>
-      </div>
-    </div>
-
-    <div nz-col [nzXs]="12" [nzSm]="12" [nzMd]="12" [nzLg]="6" [nzXl]="6" [nzXXl]="6">
-      <div class="section d-flex align-items-center content-center gap-2 p-5" [style.position]="'relative'">
-        <span class="card card-top card-yellow"></span>
-        <span class="card card-bottom card-yellow"></span>
-
-        <span nz-icon nzType="field-time" class="font-size-36" [style.color]="COLORS.YELLOW_5"></span>
-        <div class="d-flex flex-column text-center">
-          <h3 *ngIf="userData.lastGame" class="m-0">{{ userData.lastGame }}</h3>
-          <h2 *ngIf="!userData.lastGame" class="m-0">—</h2>
-          <p class="m-0 font-size-16 text-dark-grey">{{ PREFIX + 'LAST_GAME' | translate }}</p>
-        </div>
+      <span nz-icon nzType="build" class="font-size-36" [style.color]="COLORS.RED_5"></span>
+      <div class="d-flex flex-column text-center">
+        <h2 class="m-0">{{ games ?? '—' }}</h2>
+        <p class="m-0 font-size-16 text-dark-grey">{{ PREFIX + 'GAMES' | translate }}</p>
       </div>
     </div>
   </div>
-</app-request-wrapper>
+
+  <div nz-col [nzXs]="12" [nzSm]="12" [nzMd]="12" [nzLg]="6" [nzXl]="6" [nzXXl]="6">
+    <div class="section d-flex align-items-center content-center gap-2 p-5" [style.position]="'relative'">
+      <span class="card card-top card-green"></span>
+      <span class="card card-bottom card-green"></span>
+
+      <span nz-icon nzType="trophy" class="font-size-36" [style.color]="COLORS.GREEN_5"></span>
+      <div class="d-flex flex-column text-center">
+        <h2 class="m-0">{{ winRate ? winRate + '%' : '—' }}</h2>
+        <p class="m-0 font-size-16 text-dark-grey">{{ PREFIX + 'WIN_RATE' | translate }}</p>
+      </div>
+    </div>
+  </div>
+
+  <div nz-col [nzXs]="12" [nzSm]="12" [nzMd]="12" [nzLg]="6" [nzXl]="6" [nzXXl]="6">
+    <div class="section d-flex align-items-center content-center gap-2 p-5" [style.position]="'relative'">
+      <span class="card card-top card-blue"></span>
+      <span class="card card-bottom card-blue"></span>
+
+      <span nz-icon nzType="star" class="font-size-36" [style.color]="COLORS.BLUE_5"></span>
+      <div class="d-flex flex-column text-center">
+        <h2 class="m-0">{{ rank ?? '—' }}</h2>
+        <p class="m-0 font-size-16 text-dark-grey">{{ PREFIX + 'RANK' | translate }}</p>
+      </div>
+    </div>
+  </div>
+
+  <div nz-col [nzXs]="12" [nzSm]="12" [nzMd]="12" [nzLg]="6" [nzXl]="6" [nzXXl]="6">
+    <div class="section d-flex align-items-center content-center gap-2 p-5" [style.position]="'relative'">
+      <span class="card card-top card-yellow"></span>
+      <span class="card card-bottom card-yellow"></span>
+
+      <span nz-icon nzType="field-time" class="font-size-36" [style.color]="COLORS.YELLOW_5"></span>
+      <div class="d-flex flex-column text-center">
+        <h3 *ngIf="lastGame" class="m-0">{{ lastGame }}</h3>
+        <h2 *ngIf="!lastGame" class="m-0">—</h2>
+        <p class="m-0 font-size-16 text-dark-grey">{{ PREFIX + 'LAST_GAME' | translate }}</p>
+      </div>
+    </div>
+  </div>
+</div>

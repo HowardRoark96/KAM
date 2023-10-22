@@ -1,4 +1,4 @@
-import { UserStatisticDto } from '../../model/administration';
+import { UserStatisticDto } from '../../model';
 
 export const UserStatisticMock: UserStatisticDto[] = [
   {
@@ -7,6 +7,8 @@ export const UserStatisticMock: UserStatisticDto[] = [
     winRate: 38,
     rank: 245,
     lastGame: '01.09.2023',
+    wins: 35,
+    defeats: 24,
   },
   {
     id: 2,
@@ -14,12 +16,16 @@ export const UserStatisticMock: UserStatisticDto[] = [
     winRate: 45,
     rank: 634,
     lastGame: '13.09.2023',
+    wins: 11,
+    defeats: 13,
   },
   {
     id: 3,
     games: 2,
     winRate: 100,
     rank: 128,
+    wins: 2,
+    defeats: 0,
   },
   {
     id: 4,
@@ -27,6 +33,8 @@ export const UserStatisticMock: UserStatisticDto[] = [
     winRate: 62,
     rank: 453,
     lastGame: '21.09.2023',
+    wins: 8,
+    defeats: 7,
   },
   {
     id: 5,
@@ -34,6 +42,8 @@ export const UserStatisticMock: UserStatisticDto[] = [
     winRate: 42,
     rank: 279,
     lastGame: '19.06.2023',
+    wins: 17,
+    defeats: 18,
   },
   {
     id: 6,
@@ -41,6 +51,8 @@ export const UserStatisticMock: UserStatisticDto[] = [
     winRate: 61,
     rank: 342,
     lastGame: '30.09.2023',
+    wins: 53,
+    defeats: 34,
   },
   {
     id: 7,
@@ -48,5 +60,7 @@ export const UserStatisticMock: UserStatisticDto[] = [
     winRate: 52,
     rank: 268,
     lastGame: '05.02.2023',
+    wins: 22,
+    defeats: 21,
   },
 ];

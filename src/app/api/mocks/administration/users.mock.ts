@@ -1,4 +1,4 @@
-import { RoleType, UserDto } from '../../model/administration';
+import { RoleType, UserDto } from '../../model';
 import { CountryCodeType, SexType } from '@api/model';
 import { PermissionsMock } from '@api/mocks';
 

@@ -1,5 +1,4 @@
-import { CountryCodeType } from '../../model/common';
-import { ServerDto } from '../../model/servers';
+import { CountryCodeType, ServerDto } from '../../model';
 
 export const ServersMock: ServerDto[] = [
   {

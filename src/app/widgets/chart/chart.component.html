@@ -1,0 +1,27 @@
+<ng-container *ngIf="updateChartOptions | executeWith : chartOptions"></ng-container>
+
+<apx-chart
+  *ngIf="chartOptions"
+  [chart]="chartOptions.chart"
+  [series]="chartOptions.series"
+  [annotations]="chartOptions.annotations ?? {}"
+  [colors]="chartOptions.colors ?? []"
+  [dataLabels]="chartOptions.dataLabels ?? {}"
+  [stroke]="chartOptions.stroke ?? {}"
+  [labels]="chartOptions.labels ?? []"
+  [legend]="chartOptions.legend ?? {}"
+  [markers]="chartOptions.markers ?? {}"
+  [fill]="chartOptions.fill ?? {}"
+  [tooltip]="chartOptions.tooltip ?? {}"
+  [plotOptions]="chartOptions.plotOptions ?? {}"
+  [responsive]="chartOptions.responsive ?? []"
+  [xaxis]="chartOptions.xaxis ?? {}"
+  [yaxis]="chartOptions.yaxis ?? {}"
+  [forecastDataPoints]="chartOptions.forecastDataPoints ?? {}"
+  [grid]="chartOptions.grid ?? {}"
+  [states]="chartOptions.states ?? {}"
+  [title]="chartOptions.title ?? {}"
+  [subtitle]="chartOptions.subtitle ?? {}"
+  [theme]="chartOptions.theme ?? {}"
+  [autoUpdateSeries]="chartOptions.autoUpdateSeries ?? false"
+></apx-chart>

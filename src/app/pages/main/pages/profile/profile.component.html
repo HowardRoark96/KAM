@@ -3,15 +3,42 @@
     <app-personal-data class="d-flex flex-column gap-5 p-10 section"></app-personal-data>
   </div>
 
-  <div nz-col [nzXs]="24" [nzSm]="24" [nzMd]="24" [nzLg]="16" [nzXl]="16" [nzXXl]="16">
-    <div nz-row [nzGutter]="[40, 40]">
-      <app-personal-stats nz-col [nzSpan]="24"></app-personal-stats>
-
-      <div nz-col [nzSpan]="24">
-        <div class="section p-10">
-          <h2>stats</h2>
-        </div>
+  <app-request-wrapper
+    #requestData
+    nz-col
+    [nzXs]="24"
+    [nzSm]="24"
+    [nzMd]="24"
+    [nzLg]="16"
+    [nzXl]="16"
+    [nzXXl]="16"
+    [request$]="getUserStatistic$"
+  >
+    <div *ngIf="requestData.data?.data as userData" nz-row [nzGutter]="[40, 40]">
+      <app-personal-stats
+        nz-col
+        [nzSpan]="24"
+        [games]="userData.games"
+        [winRate]="userData.winRate"
+        [rank]="userData.rank"
+        [lastGame]="userData.lastGame"
+      ></app-personal-stats>
+      <div nz-col [nzSpan]="12">
+        <app-chart
+          nz-col
+          class="section p-10"
+          [nzSpan]="24"
+          [chartOptions]="getGameRatioChartOptions | executeWith : userData"
+        ></app-chart>
+      </div>
+      <div nz-col [nzSpan]="12">
+        <app-chart
+          nz-col
+          class="section p-10"
+          [nzSpan]="24"
+          [chartOptions]="getRankChartOptions | executeWith : userData : (getUserGameHistoryData$ | async)"
+        ></app-chart>
       </div>
     </div>
-  </div>
+  </app-request-wrapper>
 </div>

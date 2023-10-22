@@ -1,5 +1,4 @@
-import { RoleDto } from '../administration';
-import { CountryCodeType, SexType } from '../common';
+import { RoleDto, CountryCodeType, SexType } from '../model';
 
 export interface UserDto {
   id: number;

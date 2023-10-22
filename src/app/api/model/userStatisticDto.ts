@@ -4,4 +4,6 @@ export interface UserStatisticDto {
   winRate?: number;
   rank?: number;
   lastGame?: string;
+  wins?: number;
+  defeats?: number;
 }

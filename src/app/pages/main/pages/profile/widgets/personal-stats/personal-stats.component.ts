@@ -1,8 +1,5 @@
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { COLORS } from '@utils/constants/color.constant';
-import { UsersService } from '@api/services';
-import { toNullableNumber } from '@utils/functions/to-nullable-number';
-import { getRouteParams } from '@utils/functions/get-route-params';
 
 @Component({
   selector: 'app-personal-stats',
@@ -11,11 +8,11 @@ import { getRouteParams } from '@utils/functions/get-route-params';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PersonalStatsComponent {
-  readonly usersService = inject(UsersService);
+  @Input() games?: number;
+  @Input() winRate?: number;
+  @Input() rank?: number;
+  @Input() lastGame?: string;
 
-  readonly userId = toNullableNumber(getRouteParams()['id']);
   readonly COLORS = COLORS;
   readonly PREFIX = 'PAGE.PROFILE.USER_STATS.';
-
-  getUserStatistic$ = this.usersService.getUserStatistic(this.userId!);
 }

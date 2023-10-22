@@ -49,4 +49,10 @@ export const COLORS = {
   VIOLET_4: '#9163cb',
   VIOLET_5: '#7251b5',
   VIOLET_6: '#6247aa',
+  SKY_BLUE_1: '#EEFAFC',
+  SKY_BLUE_2: '#A8E5F0',
+  SKY_BLUE_3: '#62D1E4',
+  SKY_BLUE_4: '#2EC1DC',
+  SKY_BLUE_5: '#1E99AE',
+  SKY_BLUE_6: '#156B7A',
 };

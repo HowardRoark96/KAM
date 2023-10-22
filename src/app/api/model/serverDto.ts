@@ -1,4 +1,4 @@
-import { CountryCodeType } from '../common';
+import { CountryCodeType } from './countryCodeType';
 
 export interface ServerDto {
   countryCode: CountryCodeType;
