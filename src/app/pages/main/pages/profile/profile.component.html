@@ -1,0 +1,77 @@
+<div nz-row [nzGutter]="[40, 40]">
+  <div nz-col [nzMd]="24" [nzLg]="8">
+    <app-personal-data class="d-flex flex-column gap-5 p-10 section"></app-personal-data>
+  </div>
+
+  <app-request-wrapper #requestData nz-col [nzMd]="24" [nzLg]="16" [request$]="getUserStatistic$">
+    <div
+      *ngIf="requestData.data?.data as userData"
+      nz-row
+      [nzGutter]="[40, 40]"
+      [style.--card-bg-color]="COLORS.SKY_BLUE_3"
+      [style.--card-icon-color]="COLORS.BLUE_5"
+      [style.--card-content-font-size.px]="18"
+      [style.--card-label-font-size.px]="16"
+      [style.--card-icon-font-size.px]="32"
+    >
+      <app-personal-statistic
+        nz-col
+        icon="build"
+        [nzXs]="24"
+        [nzMd]="12"
+        [nzXl]="6"
+        [data]="userData.games"
+        [label]="'PAGE.PROFILE.USER_STATS.GAMES' | translate"
+      ></app-personal-statistic>
+      <app-personal-statistic
+        nz-col
+        icon="trophy"
+        [nzXs]="24"
+        [nzMd]="12"
+        [nzXl]="6"
+        [data]="userData.winRate"
+        [label]="'PAGE.PROFILE.USER_STATS.WIN_RATE' | translate"
+      ></app-personal-statistic>
+      <app-personal-statistic
+        nz-col
+        icon="star"
+        [nzXs]="24"
+        [nzMd]="12"
+        [nzXl]="6"
+        [data]="userData.rank"
+        [label]="'PAGE.PROFILE.USER_STATS.RANK' | translate"
+      ></app-personal-statistic>
+      <app-personal-statistic
+        nz-col
+        icon="field-time"
+        [nzXs]="24"
+        [nzMd]="12"
+        [nzXl]="6"
+        [data]="userData.lastGame"
+        [label]="'PAGE.PROFILE.USER_STATS.LAST_GAME' | translate"
+      ></app-personal-statistic>
+
+      <div nz-col [nzSpan]="24">
+        <app-game-history nz-col class="section p-10" [nzSpan]="24"></app-game-history>
+      </div>
+      <div nz-col [nzSm]="24" [nzMd]="12">
+        <app-chart
+          nz-col
+          class="section p-10"
+          [nzSpan]="24"
+          [chartOptions]="getGameRatioChartOptions | executeWith : userData"
+        ></app-chart>
+      </div>
+      <div nz-col [nzSm]="24" [nzMd]="12">
+        <app-chart
+          nz-col
+          class="section p-10"
+          [nzSpan]="24"
+          [chartOptions]="
+            getRankChartOptions | executeWith : userData : (getUserGameHistoryData$ | async) : fromDate : toDate
+          "
+        ></app-chart>
+      </div>
+    </div>
+  </app-request-wrapper>
+</div>

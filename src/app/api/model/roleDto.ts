@@ -1,4 +1,4 @@
-import { PermissionDto, RoleType } from '../administration';
+import { PermissionDto, RoleType } from '../model';
 
 export interface RoleDto {
   id: number;

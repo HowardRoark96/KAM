@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import { delay, Observable, of } from 'rxjs';
-import { PaginatedResultDto } from '../model/common';
+import { PaginatedResultDto, ServerDto } from '../model';
 import { ServersMock } from '../mocks/servers';
-import { ServerDto } from '../model/servers';
 
 @Injectable({ providedIn: 'root' })
 export class ServersService {

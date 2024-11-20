@@ -1,7 +1,21 @@
-<div *ngFor="let card of PAGE_CARD_DATA" class="d-flex flex-column gap-5 p-10 card" [routerLink]="['/', card.link]">
-  <div class="d-flex align-items-center content-space-between">
-    <h3 class="m-0">{{ card.title | translate }}</h3>
-    <span nz-icon [nzType]="card.titleIcon" nzTheme="outline" class="title-icon"></span>
+<div nz-row [nzGutter]="[40, 40]">
+  <div
+    *ngFor="let card of PAGE_CARD_DATA"
+    nz-col
+    [nzXXl]="6"
+    [nzXl]="6"
+    [nzLg]="8"
+    [nzMd]="12"
+    [nzSm]="12"
+    [nzXs]="24"
+    [routerLink]="card.link"
+  >
+    <div class="d-flex flex-column gap-5 p-10 card">
+      <div class="d-flex align-items-center content-space-between">
+        <h3 class="m-0">{{ card.title | translate }}</h3>
+        <span nz-icon [nzType]="card.titleIcon" nzTheme="outline" class="title-icon"></span>
+      </div>
+      <p class="m-0">{{ card.description | translate }}</p>
+    </div>
   </div>
-  <p class="m-0">{{ card.description | translate }}</p>
 </div>

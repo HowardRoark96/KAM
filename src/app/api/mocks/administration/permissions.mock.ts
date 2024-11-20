@@ -1,4 +1,4 @@
-import { PermissionCodeType, PermissionDto } from '../../model/administration';
+import { PermissionCodeType, PermissionDto } from '../../model';
 
 export const PermissionsMock: PermissionDto[] = [
   {

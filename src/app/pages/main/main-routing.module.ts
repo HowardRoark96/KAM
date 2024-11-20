@@ -96,6 +96,13 @@ const routes: Routes = [
           breadcrumb: 'PAGE.DEVBLOG.LBL',
         },
       },
+      {
+        path: 'profile/:id',
+        loadChildren: () => import('./pages/profile').then((m) => m.ProfileModule),
+        data: {
+          breadcrumb: 'PAGE.PROFILE.LBL',
+        },
+      },
     ],
   },
 ];

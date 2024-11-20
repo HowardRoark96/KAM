@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { getCountryCellDef } from '@widgets/grid/renders/country-cell';
 import { AppGridOptions, GridGetDataCallback } from '@widgets/grid';
 import { getExactWidth, getWidthColDef } from '@widgets/grid/utils';
-import { ServerDto } from '@api/model/servers';
+import { ServerDto } from '@api/model';
 import { ServersService } from '@api/services';
 
 const GRID_OPTIONS: AppGridOptions<ServerDto> = {

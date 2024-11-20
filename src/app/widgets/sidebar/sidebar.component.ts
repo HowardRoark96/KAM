@@ -1,12 +1,13 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { NzMenuModeType, NzMenuThemeType } from 'ng-zorro-antd/menu/menu.types';
+import { Nullable } from '@customTypes/nullable.type';
 
 export interface SidebarItem {
   label: string;
   icon?: string;
   title?: string;
   disabled?: boolean;
-  link?: string;
+  link?: Nullable<Array<number | string | undefined> | string | null>;
   children?: SidebarItem[];
 }
 

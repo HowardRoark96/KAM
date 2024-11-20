@@ -98,6 +98,29 @@ export const LocaleRu: LocaleInterface = {
       DESCRIPTION:
         'В разделе собрана информация об активных игровых серверах на данный момент, статистика серверов и т.д.',
     },
+    PROFILE: {
+      LBL: 'Игровой профиль',
+      TTL: 'Страница "Игровой профиль"',
+      DESCRIPTION: 'В разделе собрана информация об персональных данных игрока, история игр, игровая статистика и т.д.',
+      USER_INFO: {
+        TTL: 'Инофрмация о пользователе',
+        USERNAME: 'Имя аккаунта',
+        NAME: 'Имя пользователя',
+        EMAIL: 'Email',
+        REGISTRATION_DATE: 'Дата регистрации',
+        COUNTRY: 'Страна',
+        AGE: 'Возраст',
+        SEX: 'Пол',
+        SUCCESS_UPDATE: 'Инофрмация о пользователе обновлена',
+        ERROR_UPDATE: 'Ошибка при обновлении инофрмации о пользователе',
+      },
+      USER_STATS: {
+        GAMES: 'Всего матчей',
+        WIN_RATE: 'Процент побед',
+        RANK: 'Ранг',
+        LAST_GAME: 'Последняя игра',
+      },
+    },
   },
   authorize: {
     recoverAccount: {
@@ -143,6 +166,10 @@ export const LocaleRu: LocaleInterface = {
     },
     MODAL: {
       CONFIRM: 'Подтвердите действие',
+    },
+    SEX: {
+      MALE: 'Мужской',
+      FEMALE: 'Женский',
     },
   },
   locale: {

@@ -1,4 +1,4 @@
-import { RoleDto, RoleType } from '../../model/administration';
+import { RoleDto, RoleType } from '../../model';
 import { PermissionsMock } from '../../mocks/administration';
 
 export const RolesMock: RoleDto[] = [

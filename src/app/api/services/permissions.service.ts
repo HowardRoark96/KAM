@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { delay, Observable, of } from 'rxjs';
-import { PaginatedResultDto } from '../model/common';
-import { PermissionDto } from '../model/administration';
+import { PaginatedResultDto, PermissionDto } from '../model';
 import { PermissionsMock } from '../mocks/administration';
 
 @Injectable({ providedIn: 'root' })
