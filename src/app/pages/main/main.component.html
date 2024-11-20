@@ -1,5 +1,5 @@
 <nz-layout class="d-flex flex-column">
-  <nz-header class="d-flex align-items-center content-space-between w-100">
+  <nz-header class="d-flex align-items-center content-space-between w-100" [style.z-index]="100">
     <app-breadcrumbs></app-breadcrumbs>
     <div class="d-flex align-items-center gap-4">
       <app-button type="primary" label="Logout" leftIcon="logout" [action$]="logout"></app-button>

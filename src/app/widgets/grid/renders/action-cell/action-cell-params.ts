@@ -3,8 +3,7 @@ import { Observable } from 'rxjs';
 import { NzButtonShape, NzButtonSize, NzButtonType } from 'ng-zorro-antd/button/button.component';
 import { Nullable } from '@customTypes/nullable.type';
 import { LinkTarget } from '@utils/types';
-
-type DataFn<TData, TReturn> = (data: TData | undefined) => Nullable<TReturn>;
+import { DataFn } from '../utils';
 
 export interface ActionCellParams<TData = unknown> {
   label?: Nullable<string>;

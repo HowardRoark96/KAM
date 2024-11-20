@@ -11,3 +11,4 @@ export * from './countryCodeType';
 export * from './countryCodeDescription';
 export * from './sexType';
 export * from './serverDto';
+export * from './userGameDto';

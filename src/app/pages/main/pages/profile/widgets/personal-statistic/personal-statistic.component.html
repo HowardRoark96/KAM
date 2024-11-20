@@ -1,0 +1,16 @@
+<div class="section d-flex align-items-center content-center gap-2 p-5" [style.position]="'relative'">
+  <span class="card card-top"></span>
+  <span class="card card-bottom"></span>
+
+  <span
+    *ngIf="icon"
+    nz-icon
+    [nzType]="icon"
+    [style.font-size]="'var(--card-icon-font-size)'"
+    [style.color]="'var(--card-icon-color)'"
+  ></span>
+  <div class="d-flex flex-column text-center">
+    <p class="m-0" [style.font-size]="'var(--card-content-font-size)'">{{ data ?? '—' }}</p>
+    <p class="m-0 text-dark-grey" [style.font-size]="'var(--card-label-font-size)'">{{ label ?? '—' }}</p>
+  </div>
+</div>

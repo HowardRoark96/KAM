@@ -1,0 +1,10 @@
+<div
+  *ngIf="value"
+  class="d-flex align-items-center content-center gap-1 font-size-16"
+  [style.color]="value > 0 ? positiveRankColor : negativeRankColor"
+>
+  <span nz-icon nzTheme="outline" [nzType]="value > 0 ? 'arrow-up' : 'arrow-down'"></span>
+  <span>{{ value > 0 ? value : value * -1 }}</span>
+</div>
+
+<div *ngIf="!value" class="font-size-16">—</div>

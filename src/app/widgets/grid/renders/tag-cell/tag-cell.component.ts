@@ -1,47 +1,48 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, inject } from '@angular/core';
 import { ICellRendererAngularComp } from 'ag-grid-angular';
-import { ICellRendererParams } from 'ag-grid-community';
 import { Nullable } from '@customTypes/nullable.type';
 import { NzPresetColor, NzStatusColor } from 'ng-zorro-antd/core/color';
 import { TagCellParams } from './tag-cell-params';
 import isArray from 'lodash-es/isArray';
-import isString from 'lodash-es/isString';
+import isNil from 'lodash-es/isNil';
+import { CellParams } from '../utils';
 
 @Component({
   selector: 'app-tag-cell',
   templateUrl: './tag-cell.component.html',
-  styleUrls: ['./tag-cell.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class TagCellComponent<T = unknown> implements ICellRendererAngularComp {
+export class TagCellComponent<TData = unknown> implements ICellRendererAngularComp {
   readonly cdr = inject(ChangeDetectorRef);
 
-  readonly isString = isString;
+  readonly isNil = isNil;
   readonly isArray = isArray;
 
-  value: Nullable<string | T[]>;
+  value: Nullable<string | TData[]>;
   icon: Nullable<string>;
   color: Nullable<string | NzStatusColor | NzPresetColor>;
   colorTagMap?: Record<string, string | NzStatusColor | NzPresetColor>;
-  getLabelCallback?: (data: T) => Nullable<string>;
-  getColorTagCallback?: (data: T) => Nullable<string>;
+  getLabelCallback?: (data: TData) => Nullable<string>;
+  getColorTagCallback?: (data: TData) => Nullable<string>;
 
-  agInit(params: ICellRendererParams & TagCellParams) {
+  agInit(params: CellParams<TagCellParams<TData>>) {
     this.refreshView(params);
   }
 
-  refresh(params: ICellRendererParams & TagCellParams) {
+  refresh(params: CellParams<TagCellParams<TData>>) {
     this.refreshView(params);
     return true;
   }
 
-  getTagColor = (data: T) => {
-    const color = this.getColorTagCallback?.(data) || this.color;
+  getTagColor = (value: CellParams<TagCellParams<TData>>['value']) => {
+    const color = this.getColorTagCallback?.(value) || this.color;
     if (!color) return;
+    if (!this.colorTagMap) return color;
+
     return this.colorTagMap?.[color];
   };
 
-  private refreshView(params: ICellRendererParams & TagCellParams) {
+  private refreshView(params: CellParams<TagCellParams<TData>>) {
     this.icon = params.icon;
     this.color = params.colorTagMap?.[params.value] || params.colorTag;
     this.colorTagMap = params.colorTagMap;

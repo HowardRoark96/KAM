@@ -2,26 +2,30 @@ import { NgModule } from '@angular/core';
 import { NzGridModule } from 'ng-zorro-antd/grid';
 import { ProfileComponent } from './profile.component';
 import { ProfileRoutingModule } from './profile-routing.module';
-import { PersonalDataModule } from './widgets/personal-data';
-import { PersonalStatsModule } from './widgets/personal-stats';
 import { NgApexchartsModule } from 'ng-apexcharts';
 import { RequestWrapperModule } from '@widgets/request-wrapper';
 import { AsyncPipe, NgIf } from '@angular/common';
 import { ChartModule } from '@widgets/chart';
 import { ExecuteWithModule } from '@pipes/execute-with';
+import { PersonalStatisticComponent } from './widgets/personal-statistic';
+import { TranslateModule } from '@ngx-translate/core';
+import { GameHistoryComponent } from './widgets/game-history';
+import { PersonalDataComponent } from './widgets/personal-data';
 
 @NgModule({
   imports: [
-    NzGridModule,
-    NgApexchartsModule,
-    ProfileRoutingModule,
-    PersonalDataModule,
-    PersonalStatsModule,
-    RequestWrapperModule,
-    NgIf,
+    AsyncPipe,
     ChartModule,
     ExecuteWithModule,
-    AsyncPipe,
+    NgApexchartsModule,
+    NgIf,
+    NzGridModule,
+    PersonalStatisticComponent,
+    ProfileRoutingModule,
+    RequestWrapperModule,
+    TranslateModule,
+    GameHistoryComponent,
+    PersonalDataComponent,
   ],
   declarations: [ProfileComponent],
 })

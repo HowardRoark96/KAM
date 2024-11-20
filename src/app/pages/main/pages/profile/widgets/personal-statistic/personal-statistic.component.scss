@@ -1,4 +1,3 @@
-@use 'styles/colors' as var;
 @import '../../profile.component';
 
 .card {
@@ -53,31 +52,8 @@
     }
   }
 
-  &-red {
-    &:after,
-    &:before {
-      background-color: var.$red-color-5;
-    }
-  }
-
-  &-green {
-    &:after,
-    &:before {
-      background-color: var.$green-color-5;
-    }
-  }
-
-  &-blue {
-    &:after,
-    &:before {
-      background-color: var.$blue-color-5;
-    }
-  }
-
-  &-yellow {
-    &:after,
-    &:before {
-      background-color: var.$yellow-color-5;
-    }
+  &:after,
+  &:before {
+    background-color: var(--card-bg-color);
   }
 }

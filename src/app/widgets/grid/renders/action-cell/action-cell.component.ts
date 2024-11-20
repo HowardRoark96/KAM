@@ -4,17 +4,16 @@ import { isObservable, Observable } from 'rxjs';
 import { Nullable } from '@customTypes/nullable.type';
 import { NzButtonShape, NzButtonSize, NzButtonType } from 'ng-zorro-antd/button/button.component';
 import { ICellRendererAngularComp } from 'ag-grid-angular';
-import { ICellRendererParams } from 'ag-grid-community';
 import { ActionCellParams } from './action-cell-params';
 import { LinkTarget } from '@utils/types';
+import { CellParams } from '../utils';
 
 @Component({
   selector: 'app-action-cell',
   templateUrl: './action-cell.component.html',
-  styleUrls: ['./action-cell.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ActionCellComponent implements ICellRendererAngularComp {
+export class ActionCellComponent<TData = unknown> implements ICellRendererAngularComp {
   readonly cdr = inject(ChangeDetectorRef);
 
   label: Nullable<string>;
@@ -38,16 +37,16 @@ export class ActionCellComponent implements ICellRendererAngularComp {
 
   readonly isObservable = isObservable;
 
-  agInit(params: ICellRendererParams & ActionCellParams): void {
+  agInit(params: CellParams<ActionCellParams<TData>>): void {
     this.refreshView(params);
   }
 
-  refresh(params: ICellRendererParams & ActionCellParams): boolean {
+  refresh(params: CellParams<ActionCellParams<TData>>): boolean {
     this.refreshView(params);
     return true;
   }
 
-  private refreshView(params: ICellRendererParams & ActionCellParams) {
+  private refreshView(params: CellParams<ActionCellParams<TData>>) {
     const data = params.data;
 
     this.label = params.getLabelCallback?.(data) || params.label;

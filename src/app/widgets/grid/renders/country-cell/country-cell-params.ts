@@ -1,6 +1,5 @@
 import { Nullable } from '@customTypes/nullable.type';
-
-type DataFn<TData, TReturn> = (data: TData | undefined) => Nullable<TReturn>;
+import { DataFn } from '../utils';
 
 export interface CountryCellParams<TData = unknown> {
   getShowCountryCallback?: DataFn<TData, Nullable<boolean>>;

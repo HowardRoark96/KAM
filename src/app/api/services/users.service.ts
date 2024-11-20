@@ -1,7 +1,14 @@
 import { Injectable } from '@angular/core';
 import { delay, Observable, of, throwError } from 'rxjs';
-import { PaginatedResultDto, ResultDto, UserDto, UserGameHistoryDto, UserStatisticDto } from '../model';
-import { UsersMock, UserStatisticMock, UserGameHistoryMock } from '../mocks';
+import {
+  PaginatedResultDto,
+  ResultDto,
+  UserDto,
+  UserGameHistoryDto,
+  UserGameShortDto,
+  UserStatisticDto,
+} from '../model';
+import { UserGameHistoryListMock, UserGameHistoryMock, UsersMock, UserStatisticMock } from '../mocks';
 import { HttpErrorResponse } from '@angular/common/http';
 
 @Injectable({ providedIn: 'root' })
@@ -52,5 +59,27 @@ export class UsersService {
     );
 
     return of({ data: result }).pipe(delay(500));
+  }
+
+  getUserGameHistoryList(id: number, page?: number, perPage?: number): Observable<ResultDto<UserGameShortDto[]>> {
+    const user = UserGameHistoryListMock.find(({ id: userId }) => userId === id);
+
+    if (!user) return throwError(() => new HttpErrorResponse({ error: 'User not found' }));
+
+    if (!page) page = 1;
+    if (!perPage) perPage = user.games.length;
+
+    const start = (page - 1) * perPage;
+    const end = start + perPage;
+
+    return of({
+      data: user.games.slice(start, end),
+      page: {
+        pages: Math.ceil(user.games.length / perPage),
+        items: user.games.length,
+        page,
+        perPage,
+      },
+    }).pipe(delay(500));
   }
 }

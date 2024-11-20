@@ -48,8 +48,8 @@ export const getRankChartOptions = (
   to?: Nullable<Date>,
 ): ChartOptions => {
   const categories = [];
-  const toDate = to ?? new Date();
-  const fromDate = from ?? new Date(toDate);
+  const toDate = to ? new Date(to) : new Date();
+  const fromDate = from ? new Date(from) : new Date(toDate);
 
   fromDate.setUTCHours(0, 0, 0, 0);
   toDate.setUTCHours(0, 0, 0, 0);
@@ -67,7 +67,12 @@ export const getRankChartOptions = (
 
   return {
     series: [{ name: 'Games', data: series.map((item) => item.rank) }],
-    chart: { type: 'area' },
+    chart: {
+      type: 'area',
+      toolbar: {
+        show: false,
+      },
+    },
     title: {
       text: 'Rank',
       style: {
@@ -75,8 +80,14 @@ export const getRankChartOptions = (
         fontFamily: 'Roboto, "Helvetica Neue", sans-serif',
       },
     },
-    stroke: { curve: 'smooth' },
-    xaxis: { type: 'datetime', categories },
+    stroke: { curve: 'smooth', width: 1 },
+    xaxis: {
+      type: 'datetime',
+      categories,
+    },
+    yaxis: {
+      show: false,
+    },
   };
 };
 
@@ -106,22 +117,30 @@ export const getRankChartSeries = (
 };
 
 const getRankChartSeriesData = (data: Nullable<UserGameHistoryDto[]>, categories: string[], rank: number = 0) => {
-  const result: number[] = [];
-  const result1: unknown[] = [];
+  const rankChanges: number[] = [];
+  const result: { rank: number; rankChange: number }[] = [];
 
   categories.forEach((date) => {
-    const games = data?.filter((item) => new Date(item.date).getUTCDate() === new Date(date).getUTCDate()) || [];
-    result.push(
+    const games =
+      data?.filter((item) => {
+        const gameDate = new Date(item.date);
+
+        gameDate.setUTCHours(0, 0, 0, 0);
+
+        return gameDate.getTime() === new Date(date).getTime();
+      }) || [];
+
+    rankChanges.push(
       games.reduce((previousValue, currentValue) => {
         return previousValue + currentValue.rankChange;
       }, 0),
     );
   });
 
-  result.reduce((previousValue, currentValue) => {
-    result1.push({ rank: previousValue, rankChange: currentValue });
+  rankChanges.reduce((previousValue, currentValue) => {
+    result.push({ rank: previousValue, rankChange: currentValue });
     return previousValue - currentValue;
   }, rank);
 
-  return result1;
+  return result;
 };

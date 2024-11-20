@@ -1,7 +1,6 @@
 import { Nullable } from '@customTypes/nullable.type';
 import { NzPresetColor, NzStatusColor } from 'ng-zorro-antd/core/color';
-
-type DataFn<TData, TReturn> = (data: TData | undefined) => Nullable<TReturn>;
+import { DataFn } from '../utils';
 
 export interface TagCellParams<TData = unknown> {
   labelMap?: Nullable<Record<string, string>>;
