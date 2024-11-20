@@ -4,6 +4,7 @@
     "projects/**/*"
   ],
   "plugins": [
+    "@typescript-eslint",
     "deprecation",
     "import"
   ],
