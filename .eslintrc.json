@@ -4,6 +4,7 @@
     "projects/**/*"
   ],
   "plugins": [
+    "@typescript-eslint",
     "deprecation",
     "import"
   ],
@@ -52,7 +53,14 @@
         "import/prefer-default-export": "off",
         "import/no-extraneous-dependencies": ["error", { "devDependencies": true }],
         "@typescript-eslint/no-explicit-any": "error",
-        "@typescript-eslint/no-unused-vars": "error",
+        "@typescript-eslint/no-unused-vars": [
+          "error",
+          {
+            "argsIgnorePattern": "^_",
+            "varsIgnorePattern": "^_",
+            "caughtErrorsIgnorePattern": "^_"
+          }
+        ],
         "@typescript-eslint/explicit-function-return-type": "off",
         "deprecation/deprecation": "error"
       }
