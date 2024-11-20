@@ -10,7 +10,7 @@ import { CellParams } from '../utils';
   templateUrl: './rank-cell.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class RankCellComponent<TData = unknown> implements ICellRendererAngularComp {
+export class RankCellComponent implements ICellRendererAngularComp {
   readonly cdr = inject(ChangeDetectorRef);
 
   readonly COLORS = COLORS;
@@ -19,16 +19,16 @@ export class RankCellComponent<TData = unknown> implements ICellRendererAngularC
   positiveRankColor: Nullable<string>;
   negativeRankColor: Nullable<string>;
 
-  agInit(params: CellParams<RankCellParams<TData>>) {
+  agInit(params: CellParams<RankCellParams>) {
     this.refreshView(params);
   }
 
-  refresh(params: CellParams<RankCellParams<TData>>) {
+  refresh(params: CellParams<RankCellParams>) {
     this.refreshView(params);
     return true;
   }
 
-  private refreshView(params: CellParams<RankCellParams<TData>>) {
+  private refreshView(params: CellParams<RankCellParams>) {
     this.value = params.value;
     this.positiveRankColor = params.positiveRankColor ?? COLORS.GREEN_3;
     this.negativeRankColor = params.negativeRankColor ?? COLORS.RED_2;
